@@ -20,8 +20,8 @@
   --text-color: #000;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback;
-  --heading-font-family: var(--body-font-family);
+  --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
+  --heading-font-family: 'HCo Ringside Extra Wide', 'HCo Ringside Extra Wide Fallback', sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
@@ -43,12 +43,202 @@
 }
 
 @font-face {
-  font-family: roboto-fallback;
-  size-adjust: 100.06%;
-  ascent-override: 95%;
+  font-family: 'proxima-nova-condensed-fallback';
+  font-style: normal;
+  font-weight: 400;
   src: local('Arial');
+  ascent-override: 108.50%;
+  descent-override: 46.26%;
+  line-gap-override: 0.00%;
+  size-adjust: 83.87%;
 }
 
+@font-face {
+  font-family: 'proxima-nova-condensed-fallback';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arial Bold');
+  ascent-override: 110.76%;
+  descent-override: 47.22%;
+  line-gap-override: 0.00%;
+  size-adjust: 82.16%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Arial');
+  ascent-override: 77.01%;
+  descent-override: 16.04%;
+  line-gap-override: 3.21%;
+  size-adjust: 124.66%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: italic;
+  font-weight: 200;
+  src: local('Arial Italic');
+  ascent-override: 78.42%;
+  descent-override: 16.34%;
+  line-gap-override: 3.27%;
+  size-adjust: 122.42%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Arial');
+  ascent-override: 76.58%;
+  descent-override: 15.95%;
+  line-gap-override: 3.19%;
+  size-adjust: 125.37%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: italic;
+  font-weight: 300;
+  src: local('Arial Italic');
+  ascent-override: 77.98%;
+  descent-override: 16.25%;
+  line-gap-override: 3.25%;
+  size-adjust: 123.11%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 76.11%;
+  descent-override: 15.86%;
+  line-gap-override: 3.17%;
+  size-adjust: 126.14%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: italic;
+  font-weight: 400;
+  src: local('Arial Italic');
+  ascent-override: 77.49%;
+  descent-override: 16.14%;
+  line-gap-override: 3.23%;
+  size-adjust: 123.89%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 500;
+  src: local('Arial');
+  ascent-override: 75.64%;
+  descent-override: 15.76%;
+  line-gap-override: 3.15%;
+  size-adjust: 126.92%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: italic;
+  font-weight: 500;
+  src: local('Arial Italic');
+  ascent-override: 77.01%;
+  descent-override: 16.04%;
+  line-gap-override: 3.21%;
+  size-adjust: 124.66%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 600;
+  src: local('Arial Bold');
+  ascent-override: 81.17%;
+  descent-override: 16.91%;
+  line-gap-override: 3.38%;
+  size-adjust: 118.27%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: italic;
+  font-weight: 600;
+  src: local('Arial Bold Italic');
+  ascent-override: 82.67%;
+  descent-override: 17.22%;
+  line-gap-override: 3.44%;
+  size-adjust: 116.13%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 700;
+  src: local('Arial Bold');
+  ascent-override: 80.57%;
+  descent-override: 16.79%;
+  line-gap-override: 3.36%;
+  size-adjust: 119.14%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: italic;
+  font-weight: 700;
+  src: local('Arial Bold Italic');
+  ascent-override: 82.08%;
+  descent-override: 17.10%;
+  line-gap-override: 3.42%;
+  size-adjust: 116.96%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Arial Bold');
+  ascent-override: 79.74%;
+  descent-override: 16.61%;
+  line-gap-override: 3.32%;
+  size-adjust: 120.40%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 800;
+  src: local('Arial Bold');
+  ascent-override: 81.16%;
+  descent-override: 16.91%;
+  line-gap-override: 3.38%;
+  size-adjust: 118.29%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Arial Bold');
+  ascent-override: 78.99%;
+  descent-override: 16.46%;
+  line-gap-override: 3.29%;
+  size-adjust: 121.54%;
+}
+
+@font-face {
+  font-family: 'HCo Ringside Extra Wide Fallback';
+  font-style: italic;
+  font-weight: 900;
+  src: local('Arial Bold Italic');
+  ascent-override: 80.37%;
+  descent-override: 16.74%;
+  line-gap-override: 3.35%;
+  size-adjust: 119.45%;
+}
 
 @media (min-width: 900px) {
   :root {
@@ -82,7 +272,7 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
+  font-weight: 900;
   line-height: 1.25;
   margin-top: 1em;
   margin-bottom: .5em;
