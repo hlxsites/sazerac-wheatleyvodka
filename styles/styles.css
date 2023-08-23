@@ -21,7 +21,7 @@
 
   /* fonts */
   --body-font-family: proxima-nova-condensed-fallback, sans-serif;
-  --heading-font-family: 'HCo Ringside Extra Wide', 'HCo Ringside Extra Wide Fallback', sans-serif;
+  --heading-font-family: 'HCo Ringside Extra Wide Fallback', sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body sizes */
