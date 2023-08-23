@@ -43,7 +43,7 @@
 }
 
 @font-face {
-  font-family: 'proxima-nova-condensed-fallback';
+  font-family: proxima-nova-condensed-fallback;
   font-style: normal;
   font-weight: 400;
   src: local('Arial');
@@ -54,7 +54,7 @@
 }
 
 @font-face {
-  font-family: 'proxima-nova-condensed-fallback';
+  font-family: proxima-nova-condensed-fallback;
   font-style: normal;
   font-weight: 700;
   src: local('Arial Bold');
