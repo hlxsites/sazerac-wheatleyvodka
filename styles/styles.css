@@ -259,6 +259,7 @@ body {
   color: var(--text-color);
   background-color: var(--background-color);
   display: none;
+  font-weight: 400;
 }
 
 body.appear {
