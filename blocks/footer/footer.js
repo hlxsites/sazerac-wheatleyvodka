@@ -35,6 +35,8 @@ export default async function decorate(block) {
           span.textContent = ' · ';
           item.after(span);
         }
+        const link = item.querySelector('a');
+        if (link) link.className = 'navigation';
       });
     }
 
