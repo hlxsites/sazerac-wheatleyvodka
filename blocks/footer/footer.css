@@ -8,13 +8,18 @@ footer {
 
 footer .footer {
   padding-top: 3.45rem;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
+  padding-left: 2.2rem;
+  padding-right: 2.2rem;
 }
 
 footer .footer p {
   margin: 0;
   text-align: center;
+  line-height: 1;
+}
+
+footer .footer-social {
+  height: 255px;
 }
 
 footer .footer-social, footer .footer-links {
@@ -24,6 +29,11 @@ footer .footer-social, footer .footer-links {
 @media (min-width: 1000px) {
   footer {
     height: 22.8rem;
+  }
+
+  footer .footer {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
   }
 
   footer .footer > div {
@@ -59,7 +69,7 @@ footer .footer-social ul {
   display: flex;
   list-style: none;
   justify-content: space-between;
-  margin: 2.5rem auto;
+  margin: 2.5rem auto 0;
   height: 36px;
   width: 136px;
   padding: 0;
@@ -80,7 +90,7 @@ footer .footer-links ul {
 }
 
 footer .footer-links li {
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.675rem;
 }
 
 footer .footer-link-separator {
@@ -89,20 +99,25 @@ footer .footer-link-separator {
 
 @media (min-width: 1000px) {
   footer .footer-links ul {
-    margin: 2.5rem auto;
-    display: block;
+    margin: 2.5rem 0 0;
+    display: flex;
+    flex-direction: row;
+    float: right;
   }
 
   footer .footer-links li {
-    float: right;
     padding-left: 0.625rem;
     padding-right: 0.625rem;
+    margin-bottom: 1.25rem;
   }
 
   footer .footer-link-separator {
     display: block;
-    float: right;
   }
+}
+
+footer .footer-links p {
+  padding-bottom: 1.25rem;
 }
 
 footer .footer-links a {
