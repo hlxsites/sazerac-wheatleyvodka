@@ -249,3 +249,20 @@ main .section {
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
+
+/* cocktail created by thumbnail */
+#created-by+ul > * > * > img {
+  width: 100px;
+  height: 100px;
+  margin: 0 20px 0 0;
+  border-radius: 10px;
+}
+
+.pocketguide {
+  text-align: center;
+  height: 405px;
+  position: relative;
+  padding-top: 136px;
+  border-radius: 10px;
+  border: 1px solid #7f5732;
+}
