@@ -19,6 +19,25 @@ export default async function decorate(block) {
     const footer = document.createElement('div');
     footer.innerHTML = html;
 
+    // get first and second child element
+    const first = footer.firstElementChild;
+    if (first) first.className = 'footer-social';
+    const second = first.nextElementSibling;
+    if (second) {
+      second.className = 'footer-links';
+      const ul = second.querySelector('ul');
+      const items = ul.querySelectorAll('li');
+      // iterate over items and add an element after each, except for the last one
+      items.forEach((item, i) => {
+        if (i < items.length - 1) {
+          const span = document.createElement('span');
+          span.className = 'footer-link-separator';
+          span.textContent = ' · ';
+          item.after(span);
+        }
+      });
+    }
+
     decorateIcons(footer);
     block.append(footer);
   }

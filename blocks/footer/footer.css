@@ -1,14 +1,111 @@
 footer {
-  padding: 2rem;
-  background-color: var(--overlay-background-color);
-  font-size: var(--body-font-size-s);
+  background: url(/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png);
+  background-size: cover;
+  color: var(--navigation-text-color);
+  font-size: var(--body-font-size-xs);
+  height: 40.2rem;
 }
 
 footer .footer {
-  max-width: 1200px;
-  margin: auto;
+  padding-top: 3.45rem;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 
 footer .footer p {
   margin: 0;
+  text-align: center;
+}
+
+footer .footer-social, footer .footer-links {
+  margin: auto;
+}
+
+@media (min-width: 1000px) {
+  footer {
+    height: 22.8rem;
+  }
+
+  footer .footer > div {
+    display: flex;
+    margin: auto;
+  }
+
+  footer .footer-social {
+    margin: 0;
+    flex-direction: column;
+  }
+
+  footer .footer-links {
+    margin: 0;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  footer .footer p {
+    text-align: right;
+  }
+}
+
+footer .icon-wheatley-stacked {
+  width: 212px;
+  height: 144px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer .footer-social ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  margin: 2.5rem auto;
+  height: 36px;
+  width: 136px;
+  padding: 0;
+}
+
+footer .footer-social ul .icon {
+  max-height: 32px;
+  height: 32px;
+  width: 32px;
+}
+
+footer .footer-links ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+footer .footer-links li {
+  margin-bottom: 1.25rem;
+}
+
+footer .footer-link-separator {
+  display: none;
+}
+
+@media (min-width: 1000px) {
+  footer .footer-links ul {
+    margin: 2.5rem auto;
+    display: block;
+  }
+
+  footer .footer-links li {
+    float: right;
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+
+  footer .footer-link-separator {
+    display: block;
+    float: right;
+  }
+}
+
+footer .footer-links a {
+  color: var(--navigation-text-color);
+  text-decoration: none;
 }

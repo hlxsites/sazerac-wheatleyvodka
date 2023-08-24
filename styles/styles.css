@@ -18,6 +18,7 @@
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
   --text-color: #000;
+  --navigation-text-color: #fff;
 
   /* fonts */
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
