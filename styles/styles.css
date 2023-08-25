@@ -19,7 +19,7 @@
   --highlight-background-color: #ccc;
   --text-color: #000;
   --navigation-text-color: #fff;
-
+  
   /* fonts */
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
   --heading-font-family: 'HCo Ringside Extra Wide', 'HCo Ringside Extra Wide Fallback', sans-serif;
@@ -39,7 +39,7 @@
   --heading-font-size-xs: 18px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 70px;
 
 }
 
