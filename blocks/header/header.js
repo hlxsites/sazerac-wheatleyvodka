@@ -1,7 +1,7 @@
 import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia('(min-width: 900px)');
+const isDesktop = window.matchMedia('(min-width: 1000px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -85,6 +85,42 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+function addNavigationLogoForScrollingPage(nav) {
+  const [navBrandPrimary] = nav.querySelectorAll('.nav-brand > p');
+
+  if (!navBrandPrimary) return;
+
+  if (window.location.pathname !== '/') return;
+
+  const homePageLink = navBrandPrimary.querySelector('a');
+  homePageLink.setAttribute('aria-label', 'Navigate to homepage');
+
+  const scrollingLogo = homePageLink.firstChild;
+  const defaultLogo = document.createElement('span');
+  defaultLogo.className = 'icon icon-wheatley-stacked';
+  defaultLogo.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg"><use href="#icons-sprite-wheatley-stacked"></use></svg>';
+
+  scrollingLogo.classList.add('logo-hidden');
+  scrollingLogo.classList.add('scrolling-logo');
+
+  homePageLink.prepend(defaultLogo);
+
+  nav.classList.add('wide');
+
+  // Simple debounce function to improve scroll performance
+  let timeout;
+  window.addEventListener('scroll', () => {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+      const isScrolled = window.scrollY > 40;
+      nav.classList.toggle('narrow', isScrolled);
+      nav.classList.toggle('wide', !isScrolled);
+      defaultLogo.classList.toggle('logo-hidden', isScrolled);
+      scrollingLogo.classList.toggle('logo-hidden', !isScrolled);
+    }, 50);
+  });
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -112,6 +148,8 @@ export default async function decorate(block) {
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
+        const link = navSection.querySelector('a');
+        if (link) link.className = 'navigation';
         if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
@@ -127,16 +165,32 @@ export default async function decorate(block) {
     const hamburger = document.createElement('div');
     hamburger.classList.add('nav-hamburger');
     hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
+        <i>Menu</i>
         <span class="nav-hamburger-icon"></span>
       </button>`;
     hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-    nav.prepend(hamburger);
+    nav.append(hamburger);
     nav.setAttribute('aria-expanded', 'false');
     // prevent mobile nav behavior on window resize
     toggleMenu(nav, navSections, isDesktop.matches);
     isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+    addNavigationLogoForScrollingPage(nav);
+
     decorateIcons(nav);
+
+    // remove empty sections
+    Array.from(nav.children).forEach((section) => {
+      if (section.children.length === 0 || (section.children.length === 1 && section.children[0].tagName === 'UL' && section.children[0].children.length === 0)) {
+        section.remove();
+      }
+    });
+
+    const overlay = document.createElement('div');
+    overlay.className = 'nav-overlay';
+    overlay.addEventListener('click', () => toggleMenu(nav, navSections));
+    nav.prepend(overlay);
+
     const navWrapper = document.createElement('div');
     navWrapper.className = 'nav-wrapper';
     navWrapper.append(nav);
