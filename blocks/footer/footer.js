@@ -25,8 +25,7 @@ export default async function decorate(block) {
     const second = first.nextElementSibling;
     if (second) {
       second.className = 'footer-links';
-      const ul = second.querySelector('ul');
-      const items = ul.querySelectorAll('li');
+      const items = second.querySelectorAll('li');
       // iterate over items and add an element after each, except for the last one
       items.forEach((item, i) => {
         if (i < items.length - 1) {
