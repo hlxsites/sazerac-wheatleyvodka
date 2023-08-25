@@ -250,7 +250,9 @@ header nav .nav-sections {
   }
 
   header nav .nav-sections {
-    display: block;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
     visibility: visible;
     width: 300px;
     position: fixed;
@@ -271,8 +273,8 @@ header nav .nav-sections {
 header nav .nav-sections ul  {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
-  font-weight: 500;
+  font-size: var(--body-font-size-xl);
+  font-weight: 700;
   text-align: center;
 }
 
@@ -286,6 +288,25 @@ header nav .nav-sections ul > li > ul {
 
 header nav .nav-sections ul > li > ul > li {
   font-weight: 500;
+}
+
+header nav .nav-sections .header-social {
+  padding-bottom: 30px;
+}
+
+header nav .nav-sections .header-social > ul {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  margin: 2.5rem auto 0;
+  height: 36px;
+  width: 136px;
+  padding: 0;
+}
+
+header nav .nav-sections .header-social > ul .icon {
+  height: 26px;
+  width: 26px;
 }
 
 @media (min-width: 1000px) {
@@ -329,13 +350,11 @@ header nav .nav-sections ul > li > ul > li {
     display: flex;
     gap: 2em;
     margin: 0;
-    font-size: var(--body-font-size-xs);
   }
 
   header nav .nav-sections > ul > li {
     flex: 0 1 auto;
     position: relative;
-    font-weight: 500;
   }
 
   header nav .nav-sections > ul > li > ul {
@@ -368,6 +387,10 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections > ul > li > ul > li {
     padding: 8px 0;
+  }
+
+  header nav .nav-sections .header-social {
+    display: none;
   }
 }
 

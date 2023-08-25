@@ -161,6 +161,20 @@ export default async function decorate(block) {
       });
     }
 
+    const navBrand = nav.querySelector('.nav-brand');
+    if (navBrand) {
+      const ul = navBrand.querySelector('ul');
+      if (ul) {
+        ul.remove();
+        if (navSections) {
+          const social = document.createElement('div');
+          social.className = 'header-social';
+          social.append(ul);
+          navSections.append(social);
+        }
+      }
+    }
+
     // hamburger for mobile
     const hamburger = document.createElement('div');
     hamburger.classList.add('nav-hamburger');
