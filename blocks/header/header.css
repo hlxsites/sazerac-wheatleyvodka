@@ -1,6 +1,6 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-image: url('https://main--sazerac-wheatleyvodka--hlxsites.hlx.page/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png#width=4097&height=2726');
+  background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png#width=4097&height=2726');
   background-size: 100%;
   width: 100%;
   z-index: 2;
@@ -50,7 +50,7 @@ header .wide {
       'sections sections' 1fr
       'tools tools' 145px / auto 1fr;
   }
-  
+
   header nav {
     display: flex;
     justify-content: space-between;
@@ -261,7 +261,7 @@ header nav .nav-sections {
     top: 0;
     bottom: 0;
     right: -300px;
-    background-image: url('https://main--sazerac-wheatleyvodka--hlxsites.hlx.page/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png#width=4097&height=2726');
+    background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png#width=4097&height=2726');
     background-size: cover;
   }
 
