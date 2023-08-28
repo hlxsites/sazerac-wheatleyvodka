@@ -10,13 +10,13 @@ main .hero-container {
 
 main .hero {
   position: relative;
-  padding: 32px;
-  min-height: 178px;
+  padding: 0;
+  height: 178px;
 }
 
 @media (min-width: 1000px) {
   main .hero {
-    min-height: 354px;
+    height: 354px;
   }
 }
 
