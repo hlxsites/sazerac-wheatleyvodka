@@ -88,12 +88,14 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 function addNavigationLogoForScrollingPage(nav) {
   const [navBrandPrimary] = nav.querySelectorAll('.nav-brand > p');
 
-  if (!navBrandPrimary) return;
+  nav.parentElement.classList.add('background');
 
-  if (window.location.pathname !== '/') return;
+  if (!navBrandPrimary) return;
 
   const homePageLink = navBrandPrimary.querySelector('a');
   homePageLink.setAttribute('aria-label', 'Navigate to homepage');
+
+  if (window.location.pathname !== '/') return;
 
   const scrollingLogo = homePageLink.firstChild;
   const defaultLogo = document.createElement('span');
@@ -109,6 +111,7 @@ function addNavigationLogoForScrollingPage(nav) {
   logo.innerHTML = defaultLogo.innerHTML;
   homePageLink.prepend(logo);
   nav.classList.add('wide');
+  nav.parentElement.classList.toggle('background', false);
 
   const updateNavHeight = (isScrolled = false) => {
     if (isScrolled) {
@@ -126,6 +129,7 @@ function addNavigationLogoForScrollingPage(nav) {
       const isScrolled = window.scrollY > 40;
       nav.classList.toggle('narrow', isScrolled);
       nav.classList.toggle('wide', !isScrolled);
+      nav.parentElement.classList.toggle('background', isScrolled);
       if (isScrolled) {
         logo.innerHTML = scrollingLogo.innerHTML;
         updateNavHeight(isScrolled);
@@ -209,6 +213,10 @@ export default async function decorate(block) {
     toggleMenu(nav, navSections, isDesktop.matches);
     isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+    const navWrapper = document.createElement('div');
+    navWrapper.className = 'nav-wrapper';
+    navWrapper.append(nav);
+
     addNavigationLogoForScrollingPage(nav);
 
     decorateIcons(nav);
@@ -225,9 +233,6 @@ export default async function decorate(block) {
     overlay.addEventListener('click', () => toggleMenu(nav, navSections));
     nav.prepend(overlay);
 
-    const navWrapper = document.createElement('div');
-    navWrapper.className = 'nav-wrapper';
-    navWrapper.append(nav);
     block.append(navWrapper);
   }
 }

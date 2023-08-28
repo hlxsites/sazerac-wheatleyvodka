@@ -12,6 +12,11 @@ main .hero {
   position: relative;
   padding: 32px;
   min-height: 300px;
+  top: calc(0px - var(--nav-height));
+  padding-top: var(--nav-height);
+  background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png?width=2000&format=webply&optimize=medium');
+  background-size: 100%;
+  z-index: -2;
 }
 
 main .hero h1 {
