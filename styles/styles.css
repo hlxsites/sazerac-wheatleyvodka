@@ -19,7 +19,7 @@
   --highlight-background-color: #ccc;
   --text-color: #000;
   --navigation-text-color: #fff;
-  
+
   /* fonts */
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
   --heading-font-family: 'HCo Ringside Extra Wide', 'HCo Ringside Extra Wide Fallback', sans-serif;
@@ -467,4 +467,45 @@ a.navigation::after {
 
 a.navigation:hover::after {
   transform: scaleX(1);
+}
+
+
+ul, li {
+  list-style: none;
+  font-size: var(--heading-font-size-m);
+  padding: 8px 0;
+}
+
+ul {
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+
+/* cocktail created by thumbnail */
+#ingredients, #directions, #created-by {
+  font-size: var(--heading-font-size-l);
+  color: #7f5732;
+}
+
+#created-by+ul > * > * > img {
+  width: 100px;
+  height: 100px;
+  margin: 0 20px 0 0;
+  border-radius: 10px;
+}
+
+#created-by+ul > li {
+  color: #002855;
+  font-weight: 700;
+  line-height: 1.35;
+  font-size: var(--heading-font-size-l);
+  display: inline;
+}
+
+#created-by+ul > li > a{
+  font-weight: 400;
+  line-height: 1.55;
+  color: #002855;
+  text-decoration: underline;
+  font-size: var(--heading-font-size-l);
 }
