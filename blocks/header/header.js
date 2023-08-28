@@ -108,12 +108,19 @@ function addNavigationLogoForScrollingPage(nav) {
   logo.className = 'icon icon-wheatley-stacked';
   logo.innerHTML = defaultLogo.innerHTML;
   homePageLink.prepend(logo);
-
   nav.classList.add('wide');
 
-  // Simple debounce function to improve scroll performance
+  const updateNavHeight = (isScrolled = false) => {
+    if (isScrolled) {
+      document.querySelector(':root').style.setProperty('--nav-height', '70px');
+    } else {
+      const navHeightWide = window.matchMedia('(min-width: 1000px)').matches ? '143px' : '106.5px';
+      document.querySelector(':root').style.setProperty('--nav-height', navHeightWide);
+    }
+  };
+
   let timeout;
-  window.addEventListener('scroll', () => {
+  const updateScroll = () => {
     clearTimeout(timeout);
     timeout = setTimeout(() => {
       const isScrolled = window.scrollY > 40;
@@ -124,8 +131,13 @@ function addNavigationLogoForScrollingPage(nav) {
       } else if (!isScrolled) {
         logo.innerHTML = defaultLogo.innerHTML;
       }
+      updateNavHeight(isScrolled);
     }, 50);
-  });
+  };
+
+  updateNavHeight();
+  window.addEventListener('scroll', updateScroll);
+  window.addEventListener('resize', updateScroll);
 }
 
 /**
