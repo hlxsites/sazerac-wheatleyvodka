@@ -254,11 +254,6 @@
   size-adjust: 119.45%;
 }
 
-html, body, main {
-  z-index: -1;
-  position: relative;
-}
-
 body {
   font-size: var(--body-font-size-m);
   margin: 0;
