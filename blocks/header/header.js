@@ -88,8 +88,6 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 function addNavigationLogoForScrollingPage(nav) {
   const [navBrandPrimary] = nav.querySelectorAll('.nav-brand > p');
 
-  nav.parentElement.classList.add('background');
-
   if (!navBrandPrimary) return;
 
   const homePageLink = navBrandPrimary.querySelector('a');
@@ -111,7 +109,7 @@ function addNavigationLogoForScrollingPage(nav) {
   logo.innerHTML = defaultLogo.innerHTML;
   homePageLink.prepend(logo);
   nav.classList.add('wide');
-  nav.parentElement.classList.toggle('background', false);
+  nav.parentElement.classList.add('no-background', false);
 
   const updateNavHeight = (isScrolled = false) => {
     if (isScrolled) {
@@ -129,7 +127,7 @@ function addNavigationLogoForScrollingPage(nav) {
       const isScrolled = window.scrollY > 40;
       nav.classList.toggle('narrow', isScrolled);
       nav.classList.toggle('wide', !isScrolled);
-      nav.parentElement.classList.toggle('background', isScrolled);
+      nav.parentElement.classList.toggle('no-background', !isScrolled);
       if (isScrolled) {
         logo.innerHTML = scrollingLogo.innerHTML;
         updateNavHeight(isScrolled);
