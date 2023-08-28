@@ -6,6 +6,9 @@
 }
 
 /* block specific CSS goes here */
+main .hero-wrapper {
+  max-width: unset;
+}
 
 main .hero-container {
   max-width: unset;
