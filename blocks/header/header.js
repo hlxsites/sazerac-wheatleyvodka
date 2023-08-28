@@ -127,11 +127,11 @@ function addNavigationLogoForScrollingPage(nav) {
       nav.classList.toggle('narrow', isScrolled);
       nav.classList.toggle('wide', !isScrolled);
       if (isScrolled) {
-        updateNavHeight(isScrolled);
         logo.innerHTML = scrollingLogo.innerHTML;
-      } else if (!isScrolled) {
-        logo.innerHTML = defaultLogo.innerHTML;
         updateNavHeight(isScrolled);
+      } else if (!isScrolled) {
+        updateNavHeight(isScrolled);
+        logo.innerHTML = defaultLogo.innerHTML;
       }
     }, 50);
   };
