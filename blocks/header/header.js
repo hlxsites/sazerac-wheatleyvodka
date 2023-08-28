@@ -99,11 +99,15 @@ function addNavigationLogoForScrollingPage(nav) {
   const defaultLogo = document.createElement('span');
   defaultLogo.className = 'icon icon-wheatley-stacked';
   defaultLogo.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg"><use href="#icons-sprite-wheatley-stacked"></use></svg>';
-
+  homePageLink.prepend(defaultLogo);
   scrollingLogo.classList.add('logo-hidden');
   scrollingLogo.classList.add('scrolling-logo');
-
-  homePageLink.prepend(defaultLogo);
+  defaultLogo.classList.add('logo-hidden');
+  defaultLogo.classList.add('default-logo');
+  const logo = document.createElement('span');
+  logo.className = 'icon icon-wheatley-stacked';
+  logo.innerHTML = defaultLogo.innerHTML;
+  homePageLink.prepend(logo);
 
   nav.classList.add('wide');
 
@@ -115,8 +119,11 @@ function addNavigationLogoForScrollingPage(nav) {
       const isScrolled = window.scrollY > 40;
       nav.classList.toggle('narrow', isScrolled);
       nav.classList.toggle('wide', !isScrolled);
-      defaultLogo.classList.toggle('logo-hidden', isScrolled);
-      scrollingLogo.classList.toggle('logo-hidden', !isScrolled);
+      if (isScrolled) {
+        logo.innerHTML = scrollingLogo.innerHTML;
+      } else if (!isScrolled) {
+        logo.innerHTML = defaultLogo.innerHTML;
+      }
     }, 50);
   });
 }
