@@ -11,13 +11,17 @@ export default async function decorate(block) {
   if (picture && h1 && h2 && a) {
     block.innerHTML = '';
     const left = document.createElement('div');
+    left.classList.add('left');
     left.appendChild(h1);
     left.appendChild(h2);
     left.appendChild(a);
 
     const right = document.createElement('div');
+    right.classList.add('right');
     right.appendChild(picture);
     block.appendChild(left);
     block.appendChild(right);
+
+    block.classList.add('no-background');
   }
 }

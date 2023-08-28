@@ -1,22 +1,57 @@
 /* block specific CSS goes here */
 
-main .hero-container > div {
-  max-width: unset;
+:root {
+  --hero-height: 178px;
+  --hero-height-desktop: 354px;
 }
-  
+
+/* block specific CSS goes here */
+
 main .hero-container {
+  max-width: unset;
+  position: relative;
+  top: calc(0px - var(--nav-height));
   padding: 0;
+  padding-top: var(--nav-height);
+  margin-bottom: calc(0px - var(--nav-height));
+  background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png?width=2000&format=webply&optimize=medium');
+  background-size: 100%;
+  z-index: -2;
 }
   
 main .hero {
   position: relative;
-  padding: 32px;
-  min-height: 300px;
-  top: calc(0px - var(--nav-height));
-  padding-top: var(--nav-height);
-  background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png?width=2000&format=webply&optimize=medium');
-  background-size: 100%;
-  z-index: -2;
+  padding: 0;
+  height: var(--hero-height);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+
+main .hero .left,
+main .hero .right {
+  width: 50%;
+}
+
+@media (min-width: 1000px) {
+  main .hero {
+    height: var(--hero-height-desktop);
+    flex-direction: row;
+  }
+
+  main .hero .left,
+  main .hero .right {
+    width: 100%;
+  }
+
+  main .hero .left {
+    margin-left: 100px;
+  }
+}
+
+main .no-background {
+  height: unset;
 }
 
 main .hero h1 {
@@ -26,7 +61,7 @@ main .hero h1 {
   color: white;
 }
 
-main .hero > picture {
+main .hero > div > div > picture {
   position: absolute;
   z-index: -1;
   top: 0;

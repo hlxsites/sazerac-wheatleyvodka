@@ -30,7 +30,7 @@ function buildHeroBlock(main) {
       const a = main.querySelector('a');
       section.append(buildBlock('hero', { elems: [picture, h1, h2, a] }));
     } else {
-      section.append(buildBlock('hero', { elems: [picture, h1] }));
+      section.append(buildBlock('hero', { elems: [picture] }));
     }
     main.prepend(section);
   }
@@ -62,6 +62,18 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Updates the nav height based on scrollpostion and min-width
+ */
+export function updateNavHeight(isScrolled = false) {
+  if (isScrolled) {
+    document.querySelector(':root').style.setProperty('--nav-height', '70px');
+  } else {
+    const navHeightWide = window.matchMedia('(min-width: 1000px)').matches ? '143px' : '106.5px';
+    document.querySelector(':root').style.setProperty('--nav-height', navHeightWide);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -73,6 +85,10 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+
+  if (window.location.pathname === '/') {
+    updateNavHeight();
+  }
 }
 
 /**
@@ -136,6 +152,52 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+}
+
+export async function fetchIndex(indexFile, sheet, pageSize = 500) {
+  const idxKey = indexFile.concat(sheet || '');
+
+  const handleIndex = async (offset) => {
+    const sheetParam = sheet ? `&sheet=${sheet}` : '';
+
+    const resp = await fetch(`/${indexFile}.json?limit=${pageSize}&offset=${offset}${sheetParam}`);
+    const json = await resp.json();
+
+    const newIndex = {
+      complete: (json.limit + json.offset) === json.total,
+      offset: json.offset + pageSize,
+      promise: null,
+      data: [...window.index[idxKey].data, ...json.data],
+    };
+
+    return newIndex;
+  };
+
+  window.index = window.index || {};
+  window.index[idxKey] = window.index[idxKey] || {
+    data: [],
+    offset: 0,
+    complete: false,
+    promise: null,
+  };
+
+  if (window.index[idxKey].complete) {
+    return window.index[idxKey];
+  }
+
+  if (window.index[idxKey].promise) {
+    return window.index[idxKey].promise;
+  }
+
+  window.index[idxKey].promise = handleIndex(window.index[idxKey].offset);
+  const newIndex = await (window.index[idxKey].promise);
+  window.index[idxKey] = newIndex;
+
+  return newIndex;
+}
+
+export async function fetchQueryIndex() {
+  return fetchIndex('query-index');
 }
 
 loadPage();

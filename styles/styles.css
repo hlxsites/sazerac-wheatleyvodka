@@ -254,6 +254,11 @@
   size-adjust: 119.45%;
 }
 
+html, body, main {
+  z-index: -1;
+  position: relative;
+}
+
 body {
   font-size: var(--body-font-size-m);
   margin: 0;
@@ -282,10 +287,12 @@ h4, h5, h6 {
   margin-bottom: .5em;
   scroll-margin: calc(var(--nav-height) + 1em);
   color: #002855;
-  text-transform: uppercase;
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  text-transform: uppercase;
+}
 h2 { font-size: var(--heading-font-size-xl) }
 h3 { font-size: var(--heading-font-size-l) }
 h4 { font-size: var(--heading-font-size-m) }

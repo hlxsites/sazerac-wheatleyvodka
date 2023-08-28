@@ -1,4 +1,5 @@
 import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
+import { updateNavHeight } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1000px)');
@@ -111,15 +112,6 @@ function addNavigationLogoForScrollingPage(nav) {
   nav.classList.add('wide');
   nav.parentElement.classList.add('no-background', false);
 
-  const updateNavHeight = (isScrolled = false) => {
-    if (isScrolled) {
-      document.querySelector(':root').style.setProperty('--nav-height', '70px');
-    } else {
-      const navHeightWide = window.matchMedia('(min-width: 1000px)').matches ? '143px' : '106.5px';
-      document.querySelector(':root').style.setProperty('--nav-height', navHeightWide);
-    }
-  };
-
   let timeout;
   const updateScroll = () => {
     clearTimeout(timeout);
@@ -135,10 +127,9 @@ function addNavigationLogoForScrollingPage(nav) {
         updateNavHeight(isScrolled);
         logo.innerHTML = defaultLogo.innerHTML;
       }
-    }, 50);
+    }, 10);
   };
 
-  updateNavHeight();
   window.addEventListener('scroll', updateScroll);
   window.addEventListener('resize', updateScroll);
 }
