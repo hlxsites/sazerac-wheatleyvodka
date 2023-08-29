@@ -1,5 +1,7 @@
 import {
   getMetadata,
+  buildBlock,
+  decorateBlock,
 } from './lib-franklin.js';
 
 /**
@@ -21,16 +23,15 @@ export async function loadCocktail(doc) {
       cocktailDataContainer.innerHTML = tplText;
       cocktailDataContainer.querySelector('.cocktail').innerHTML = cocktailData;
 
-      const rightCol = doc.querySelector('.cocktail>p');
+      const rightCol = cocktailDataContainer.querySelector('.cocktail>p');
       rightCol.remove();
-      const leftCol = doc.querySelector('.cocktail');
-      const cells = [
-        ['Columns'],
-        [leftCol, rightCol],
-      ];
-      const columnsTable = WebImporter.DOMUtils.createTable(cells, doc);
-      doc.querySelector('.cocktail').replaceWith(columnsTable);
+      const leftCol = cocktailDataContainer.querySelector('.cocktail');
+      leftCol.remove();
+      const columnsTable = buildBlock('columns', [[leftCol, rightCol]]);
+      const wrapper = document.createElement('div');
+      wrapper.append(columnsTable);
+      cocktailDataContainer.prepend(wrapper);
+      decorateBlock(columnsTable);
     }
   }
-  return '';
 }
