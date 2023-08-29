@@ -9,8 +9,6 @@ export default async function decorate(block) {
 
   if (resp.ok) {
     const html = await resp.text();
-
-    // decorate footer DOM
     const pocketguide = document.createElement('div');
     pocketguide.innerHTML = html;
     block.append(pocketguide);

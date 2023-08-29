@@ -8,11 +8,7 @@
     min-width: 200px;
 }
 
-.pocketguide>*>*>h2 {
-    text-transform: none;
-}
-
-.pocketguide>div>div>p:nth-child(4)>picture{
+.pocketguide picture{
     height:190.8px;
     width:127.4px;
     right:calc(50% - 63.7px);
@@ -22,7 +18,7 @@
 }
 
 @media only screen and (min-width:1000px) {
-    .pocketguide>*>*>h2 {
+    .pocketguide h2 {
         max-width: 50%;
     }
 
@@ -35,7 +31,7 @@
         justify-content:center;
     }
 
-    .pocketguide>div>div>p:nth-child(4)>picture{
+    .pocketguide picture{
         height:427.7px;
         width:285.8px;
         right:10%;
