@@ -7,11 +7,17 @@ main .hero-container > div {
 main .hero-container {
   padding: 0;
 }
-  
+
 main .hero {
   position: relative;
-  padding: 32px;
-  min-height: 300px;
+  padding: 0;
+  height: 178px;
+}
+
+@media (min-width: 1000px) {
+  main .hero {
+    height: 354px;
+  }
 }
 
 main .hero h1 {

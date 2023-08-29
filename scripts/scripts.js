@@ -25,7 +25,7 @@ function buildHeroBlock(main) {
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    section.append(buildBlock('hero', { elems: [picture] }));
     main.prepend(section);
   }
 }
@@ -130,6 +130,52 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+}
+
+export async function fetchIndex(indexFile, sheet, pageSize = 500) {
+  const idxKey = indexFile.concat(sheet || '');
+
+  const handleIndex = async (offset) => {
+    const sheetParam = sheet ? `&sheet=${sheet}` : '';
+
+    const resp = await fetch(`/${indexFile}.json?limit=${pageSize}&offset=${offset}${sheetParam}`);
+    const json = await resp.json();
+
+    const newIndex = {
+      complete: (json.limit + json.offset) === json.total,
+      offset: json.offset + pageSize,
+      promise: null,
+      data: [...window.index[idxKey].data, ...json.data],
+    };
+
+    return newIndex;
+  };
+
+  window.index = window.index || {};
+  window.index[idxKey] = window.index[idxKey] || {
+    data: [],
+    offset: 0,
+    complete: false,
+    promise: null,
+  };
+
+  if (window.index[idxKey].complete) {
+    return window.index[idxKey];
+  }
+
+  if (window.index[idxKey].promise) {
+    return window.index[idxKey].promise;
+  }
+
+  window.index[idxKey].promise = handleIndex(window.index[idxKey].offset);
+  const newIndex = await (window.index[idxKey].promise);
+  window.index[idxKey] = newIndex;
+
+  return newIndex;
+}
+
+export async function fetchQueryIndex() {
+  return fetchIndex('query-index');
 }
 
 loadPage();
