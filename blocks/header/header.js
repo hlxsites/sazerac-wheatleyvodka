@@ -1,4 +1,5 @@
 import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
+import { setActiveLink, updateNavHeight } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1000px)');
@@ -90,10 +91,13 @@ function addNavigationLogoForScrollingPage(nav) {
 
   if (!navBrandPrimary) return;
 
-  if (window.location.pathname !== '/') return;
-
   const homePageLink = navBrandPrimary.querySelector('a');
   homePageLink.setAttribute('aria-label', 'Navigate to homepage');
+
+  if (window.location.pathname !== '/') {
+    window.addEventListener('resize', updateNavHeight);
+    return;
+  }
 
   const scrollingLogo = homePageLink.firstChild;
   const defaultLogo = document.createElement('span');
@@ -109,15 +113,7 @@ function addNavigationLogoForScrollingPage(nav) {
   logo.innerHTML = defaultLogo.innerHTML;
   homePageLink.prepend(logo);
   nav.classList.add('wide');
-
-  const updateNavHeight = (isScrolled = false) => {
-    if (isScrolled) {
-      document.querySelector(':root').style.setProperty('--nav-height', '70px');
-    } else {
-      const navHeightWide = window.matchMedia('(min-width: 1000px)').matches ? '143px' : '106.5px';
-      document.querySelector(':root').style.setProperty('--nav-height', navHeightWide);
-    }
-  };
+  nav.parentElement.classList.add('no-background', false);
 
   let timeout;
   const updateScroll = () => {
@@ -126,6 +122,7 @@ function addNavigationLogoForScrollingPage(nav) {
       const isScrolled = window.scrollY > 40;
       nav.classList.toggle('narrow', isScrolled);
       nav.classList.toggle('wide', !isScrolled);
+      nav.parentElement.classList.toggle('no-background', !isScrolled);
       if (isScrolled) {
         logo.innerHTML = scrollingLogo.innerHTML;
         updateNavHeight(isScrolled);
@@ -133,10 +130,9 @@ function addNavigationLogoForScrollingPage(nav) {
         updateNavHeight(isScrolled);
         logo.innerHTML = defaultLogo.innerHTML;
       }
-    }, 50);
+    }, 10);
   };
 
-  updateNavHeight();
   window.addEventListener('scroll', updateScroll);
   window.addEventListener('resize', updateScroll);
 }
@@ -169,7 +165,10 @@ export default async function decorate(block) {
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         const link = navSection.querySelector('a');
-        if (link) link.className = 'navigation';
+        if (link) {
+          link.className = 'navigation';
+          setActiveLink([link], 'active');
+        }
         if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {
@@ -209,6 +208,10 @@ export default async function decorate(block) {
     toggleMenu(nav, navSections, isDesktop.matches);
     isDesktop.addEventListener('change', () => toggleMenu(nav, navSections, isDesktop.matches));
 
+    const navWrapper = document.createElement('div');
+    navWrapper.className = 'nav-wrapper';
+    navWrapper.append(nav);
+
     addNavigationLogoForScrollingPage(nav);
 
     decorateIcons(nav);
@@ -225,9 +228,6 @@ export default async function decorate(block) {
     overlay.addEventListener('click', () => toggleMenu(nav, navSections));
     nav.prepend(overlay);
 
-    const navWrapper = document.createElement('div');
-    navWrapper.className = 'nav-wrapper';
-    navWrapper.append(nav);
     block.append(navWrapper);
   }
 }
