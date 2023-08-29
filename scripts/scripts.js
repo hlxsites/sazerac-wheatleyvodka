@@ -12,6 +12,9 @@ import {
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
+import {
+  loadCocktail,
+} from './cocktails.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -107,6 +110,7 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
+  loadCocktail(doc);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
