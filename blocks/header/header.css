@@ -5,6 +5,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
+  height: var(--nav-height);
 }
 
 header nav {
@@ -29,11 +30,11 @@ header nav[aria-expanded="true"] {
 }
 
 header .wide {
-  height: 106px;
+  height: var(--nav-height);
   grid-template:
-    'brand hamburger' 106px
+    'brand hamburger' var(--nav-height)
     'sections sections' 1fr
-    'tools tools' 106px / auto 1fr;
+    'tools tools' var(--nav-height) / auto 1fr;
 }
 
 @media (min-width: 600px) {
@@ -201,7 +202,7 @@ header .nav-brand {
 header nav .nav-brand span {
   width: 188.4px;
   height: 30px;
-  transition: all .3s ease-out!important;
+  transition: all .3s ease-out;
 }
 
 header .wide .nav-brand span {
