@@ -108,7 +108,7 @@ main .hero h2 {
 
 main .hero > div > div > picture {
   position: absolute;
-  top: 0;
+  top: var(--nav-height);
   left: 0;
   bottom: 0;
   right: 0;
@@ -120,11 +120,14 @@ main .hero img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+}
+
+main .hero .right img {
   max-width: 375px;
 }
 
 @media (min-width: 1000px) {
-  main .hero img {
+  main .hero .right img {
     max-width: none;
   }
 }
