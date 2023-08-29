@@ -1,5 +1,5 @@
 import { getMetadata, decorateIcons } from '../../scripts/lib-franklin.js';
-import { updateNavHeight } from '../../scripts/scripts.js';
+import { setActiveLink, updateNavHeight } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1000px)');
@@ -94,7 +94,10 @@ function addNavigationLogoForScrollingPage(nav) {
   const homePageLink = navBrandPrimary.querySelector('a');
   homePageLink.setAttribute('aria-label', 'Navigate to homepage');
 
-  if (window.location.pathname !== '/') return;
+  if (window.location.pathname !== '/') {
+    window.addEventListener('resize', updateNavHeight);
+    return;
+  }
 
   const scrollingLogo = homePageLink.firstChild;
   const defaultLogo = document.createElement('span');
@@ -162,7 +165,10 @@ export default async function decorate(block) {
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         const link = navSection.querySelector('a');
-        if (link) link.className = 'navigation';
+        if (link) {
+          link.className = 'navigation';
+          setActiveLink([link], 'active');
+        }
         if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
         navSection.addEventListener('click', () => {
           if (isDesktop.matches) {

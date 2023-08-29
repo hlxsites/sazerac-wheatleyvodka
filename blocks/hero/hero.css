@@ -15,7 +15,6 @@ main .hero-container {
   position: relative;
   top: calc(0px - var(--nav-height));
   padding: 0;
-  padding-top: var(--nav-height);
   margin-bottom: calc(0px - var(--nav-height));
   background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png?width=2000&format=webply&optimize=medium');
   background-size: 100%;
@@ -24,15 +23,16 @@ main .hero-container {
 main .hero {
   position: relative;
   padding: 0;
+  padding-top: var(--nav-height);
   height: var(--hero-height);
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 main .hero .left,
 main .hero .right {
-  width: 50%;
+  width: 100%;
+  text-align: center;
 }
 
 @media (min-width: 1000px) {
@@ -43,7 +43,8 @@ main .hero .right {
 
   main .hero .left,
   main .hero .right {
-    width: 100%;
+    width: 50%;
+    text-align: left;
   }
 
   main .hero .left {
@@ -52,14 +53,57 @@ main .hero .right {
 }
 
 main .no-background {
+  max-width: 1425px;
+  margin-left: auto;
+  margin-right: auto;
   height: unset;
+  padding-top: 70px;
+}
+
+@media (min-width: 1200px) {
+  main .hero .left {
+    margin-left: 200px;
+  }
 }
 
 main .hero h1 {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 32px;
+  max-width: 350px;
+  margin: 75px auto 0;
   color: white;
+  line-height: 1.05;
+  font-weight: 900;
+}
+
+main .hero h2 {
+  font-size: 14px;
+  max-width: 350px;
+  color: white;
+  text-transform: uppercase;
+  margin: 20px auto 75px;
+  line-height: 1.15;
+  font-weight: 900;
+}
+
+@media (min-width: 1000px) {
+  main .no-background {
+    height: unset;
+    padding-top: 122px;
+  }
+
+  main .hero h1,
+  main .hero h2 {
+    max-width: 450px;
+    margin-left: 0;
+  }
+
+  main .hero h1 {
+    font-size: 56px;
+  }
+
+  main .hero h2 {
+    font-size: 21px;
+  }
 }
 
 main .hero > div > div > picture {
@@ -76,4 +120,11 @@ main .hero img {
   object-fit: cover;
   width: 100%;
   height: 100%;
+  max-width: 375px;
+}
+
+@media (min-width: 1000px) {
+  main .hero img {
+    max-width: none;
+  }
 }

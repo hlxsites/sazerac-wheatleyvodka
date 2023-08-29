@@ -66,11 +66,33 @@ function buildAutoBlocks(main) {
  */
 export function updateNavHeight(isScrolled = false) {
   if (isScrolled) {
-    document.querySelector(':root').style.setProperty('--nav-height', '70px');
+    const navHeight = window.location.pathname === '/'
+      || window.matchMedia('(min-width: 1000px)').matches ? '70px' : '65px';
+
+    document.querySelector(':root').style.setProperty('--nav-height', navHeight);
   } else {
-    const navHeightWide = window.matchMedia('(min-width: 1000px)').matches ? '143px' : '106.5px';
-    document.querySelector(':root').style.setProperty('--nav-height', navHeightWide);
+    const navHeight = window.matchMedia('(min-width: 1000px)').matches ? '143px' : '106.5px';
+    document.querySelector(':root').style.setProperty('--nav-height', navHeight);
   }
+}
+
+/**
+ * Set Link class to active when on the same page
+ * @param links {NodeListOf<Element>} Array of links to check
+ * @param className {string} Class to add to active link
+ */
+export function setActiveLink(links, className) {
+  if (!links || links.length === 0) return;
+  const ogUrl = window.location.pathname;
+  const slicer = ogUrl.endsWith('/') ? -2 : -1;
+  const actualPage = ogUrl.split('/').slice(slicer)[0].toLowerCase();
+  if (actualPage === '') return;
+  links.forEach((a) => {
+    const href = (a.getAttribute('href') || '').toLowerCase();
+    if (href.includes(actualPage)) {
+      a.classList.add(className);
+    }
+  });
 }
 
 /**
@@ -85,10 +107,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
-
-  if (window.location.pathname === '/') {
-    updateNavHeight();
-  }
+  updateNavHeight(window.location.pathname !== '/');
 }
 
 /**
