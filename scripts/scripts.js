@@ -25,7 +25,13 @@ function buildHeroBlock(main) {
   // eslint-disable-next-line no-bitwise
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
-    section.append(buildBlock('hero', { elems: [picture, h1] }));
+    if (window.location.pathname === '/') {
+      const h2 = main.querySelector('h2');
+      const a = main.querySelector('a');
+      section.append(buildBlock('hero', { elems: [picture, h1, h2, a] }));
+    } else {
+      section.append(buildBlock('hero', { elems: [picture] }));
+    }
     main.prepend(section);
   }
 }
@@ -56,6 +62,40 @@ function buildAutoBlocks(main) {
 }
 
 /**
+ * Updates the nav height based on scrollpostion and min-width
+ */
+export function updateNavHeight(isScrolled = false) {
+  if (isScrolled) {
+    const navHeight = window.location.pathname === '/'
+      || window.matchMedia('(min-width: 1000px)').matches ? '70px' : '65px';
+
+    document.querySelector(':root').style.setProperty('--nav-height', navHeight);
+  } else {
+    const navHeight = window.matchMedia('(min-width: 1000px)').matches ? '143px' : '106.5px';
+    document.querySelector(':root').style.setProperty('--nav-height', navHeight);
+  }
+}
+
+/**
+ * Set Link class to active when on the same page
+ * @param links {NodeListOf<Element>} Array of links to check
+ * @param className {string} Class to add to active link
+ */
+export function setActiveLink(links, className) {
+  if (!links || links.length === 0) return;
+  const ogUrl = window.location.pathname;
+  const slicer = ogUrl.endsWith('/') ? -2 : -1;
+  const actualPage = ogUrl.split('/').slice(slicer)[0].toLowerCase();
+  if (actualPage === '') return;
+  links.forEach((a) => {
+    const href = (a.getAttribute('href') || '').toLowerCase();
+    if (href.includes(actualPage)) {
+      a.classList.add(className);
+    }
+  });
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
@@ -67,6 +107,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  updateNavHeight(window.location.pathname !== '/');
 }
 
 /**
@@ -130,6 +171,52 @@ async function loadPage() {
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();
+}
+
+export async function fetchIndex(indexFile, sheet, pageSize = 500) {
+  const idxKey = indexFile.concat(sheet || '');
+
+  const handleIndex = async (offset) => {
+    const sheetParam = sheet ? `&sheet=${sheet}` : '';
+
+    const resp = await fetch(`/${indexFile}.json?limit=${pageSize}&offset=${offset}${sheetParam}`);
+    const json = await resp.json();
+
+    const newIndex = {
+      complete: (json.limit + json.offset) === json.total,
+      offset: json.offset + pageSize,
+      promise: null,
+      data: [...window.index[idxKey].data, ...json.data],
+    };
+
+    return newIndex;
+  };
+
+  window.index = window.index || {};
+  window.index[idxKey] = window.index[idxKey] || {
+    data: [],
+    offset: 0,
+    complete: false,
+    promise: null,
+  };
+
+  if (window.index[idxKey].complete) {
+    return window.index[idxKey];
+  }
+
+  if (window.index[idxKey].promise) {
+    return window.index[idxKey].promise;
+  }
+
+  window.index[idxKey].promise = handleIndex(window.index[idxKey].offset);
+  const newIndex = await (window.index[idxKey].promise);
+  window.index[idxKey] = newIndex;
+
+  return newIndex;
+}
+
+export async function fetchQueryIndex() {
+  return fetchIndex('query-index');
 }
 
 loadPage();
