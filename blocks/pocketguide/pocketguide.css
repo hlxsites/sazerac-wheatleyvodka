@@ -1,0 +1,41 @@
+.pocketguide {
+    text-align:center;
+    position:relative;
+    padding-top:136px;
+    border-radius:10px;
+    border:1px solid #7f5732;
+    margin:100px 15px;
+    min-width: 200px;
+}
+
+.pocketguide picture{
+    height:190.8px;
+    width:127.4px;
+    right:calc(50% - 63.7px);
+    top:-60px;
+    position:absolute;
+    transform:rotate(13deg)
+}
+
+
+@media only screen and (min-width:1152px){
+    .pocketguide h2 {
+        max-width: 50%;
+    }
+
+    .pocketguide {
+        height:405px;
+        padding:0 0 0 40px;
+        text-align:left;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+    }
+
+    .pocketguide picture{
+        height:427.7px;
+        width:285.8px;
+        right:10%;
+        top:-8px
+    }
+}
