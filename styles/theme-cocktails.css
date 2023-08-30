@@ -1,11 +1,7 @@
-main div.section {
+main div.section:not(.hero-container) {
   margin: 0 0.625rem;
   padding-left: 0;
   padding-right: 0;
-}
-
-main div.section.hero-container {
-  margin: 0 0 calc(0px - var(--nav-height)) 0;
 }
 
 main div.section.featured-container {
@@ -17,7 +13,7 @@ main h1 {
 }
 
 @media (min-width: 1000px) {
-  main div.section {
+  main div.section:not(.hero-container) {
     margin: 3.75rem 10.12rem 4.63rem 12.5rem;
   }
 }
