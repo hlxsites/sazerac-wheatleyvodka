@@ -1,7 +1,6 @@
 import {
   getMetadata,
   buildBlock,
-  decorateBlock, loadBlock,
 } from './lib-franklin.js';
 
 /**
@@ -9,6 +8,7 @@ import {
  * @param {Element} doc The container element
  * @returns {Promise}
  */
+// eslint-disable-next-line import/prefer-default-export
 export async function loadCocktail(doc) {
   const templatePath = getMetadata('template');
   if (templatePath !== '') {
@@ -20,35 +20,30 @@ export async function loadCocktail(doc) {
       const tplText = await resp.text();
 
       // retrieve the content wrapper, our top most div and put it's cocktail content aside
-      const cocktailDataContainer = doc.querySelector('div.default-content-wrapper');
-      const cocktailData = cocktailDataContainer.innerHTML; // FIXME do not use serialization
+      const main = doc.querySelector('main');
+      const cocktailData = main.innerHTML;
 
       // apply the template content
-      cocktailDataContainer.innerHTML = tplText;
+      main.innerHTML = tplText;
 
       // reapply the cocktails content
-      cocktailDataContainer.querySelector('div.cocktail').innerHTML = cocktailData; // FIXME do not use serialization
+      const cocktailDiv = main.querySelector('div.cocktail');
+      cocktailDiv.innerHTML = cocktailData;
+
+      const insertLocation = cocktailDiv.previousElementSibling;
 
       // create a new columns block, putting any paragraphs to the right column,
       // put the remainers to the left column (such as headers and lists)
-      const rightCol = cocktailDataContainer.querySelector('.cocktail>p');
-      const leftCol = cocktailDataContainer.querySelector('.cocktail');
+      const rightCol = main.querySelector('.cocktail picture');
+      const leftCol = main.querySelector('.cocktail');
       const columnsTable = buildBlock('columns', [[leftCol, rightCol]]);
       const wrapper = document.createElement('div');
       wrapper.append(columnsTable);
-      cocktailDataContainer.prepend(wrapper);
+      insertLocation.append(wrapper);
 
       // move the first header1 to top
       const firstHeaderOne = doc.querySelector('h1');
-      cocktailDataContainer.prepend(firstHeaderOne);
-
-      // init the blocks
-      decorateBlock(columnsTable);
-      loadBlock(columnsTable);
-
-      const pg = doc.querySelector('.pocketguide');
-      decorateBlock(pg);
-      loadBlock(pg);
+      wrapper.prepend(firstHeaderOne);
     }
   }
 }
