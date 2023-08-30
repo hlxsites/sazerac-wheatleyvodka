@@ -1,18 +1,6 @@
 import { fetchQueryIndex } from '../../scripts/scripts.js';
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
-function findRecipe(data, path) {
-  let i = 0;
-  while (i < data.length) {
-    const recipe = data[i];
-    if (recipe.path === path) {
-      return recipe;
-    }
-    i += 1;
-  }
-  return null;
-}
-
 export default async function decorate(block) {
   const contents = document.createElement('div');
   contents.className = 'featured-recipes';
@@ -31,7 +19,7 @@ export default async function decorate(block) {
   let parent = leftCol;
   items.forEach((link) => {
     const path = new URL(link.href).pathname;
-    const recipe = findRecipe(index.data, path);
+    const recipe = index.data.find((r) => r.path === path);
     if (recipe) {
       const item = document.createElement('div');
       item.className = 'featured-recipe';
