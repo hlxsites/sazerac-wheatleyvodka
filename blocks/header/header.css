@@ -15,6 +15,7 @@ header .no-background {
 }
 
 header nav {
+  overflow: hidden;
   box-sizing: border-box;
   display: grid;
   grid-template:
