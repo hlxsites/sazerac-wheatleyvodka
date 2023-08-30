@@ -8,8 +8,8 @@ export default async function decorate(block) {
   const index = await fetchQueryIndex();
   // sort index alphabetically
   index.data.sort((a, b) => {
-    const titleA = a.pageTitle.toUpperCase();
-    const titleB = b.pageTitle.toUpperCase();
+    const titleA = a.title.toUpperCase();
+    const titleB = b.title.toUpperCase();
     if (titleA < titleB) {
       return -1;
     }
@@ -33,11 +33,11 @@ export default async function decorate(block) {
       const newlink = document.createElement('a');
       newlink.href = recipe.path;
 
-      const img = createOptimizedPicture(recipe.image, recipe.pageTitle);
+      const img = createOptimizedPicture(recipe.image);
       img.className = 'recipe-image';
 
       const span = document.createElement('span');
-      span.textContent = recipe.pageTitle;
+      span.textContent = recipe.title;
 
       newlink.append(img);
       newlink.append(span);
