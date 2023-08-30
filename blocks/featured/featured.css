@@ -15,13 +15,18 @@
 }
 
 .featured .featured-recipe .featured-recipe-image {
-  background-size: cover;
-  background-position: center;
+  display: block;
   width: 100%;
   height: 100%;
   transition: opacity .1s ease-out;
   position: relative;
   opacity: 1;
+}
+
+.featured .featured-recipe .featured-recipe-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .featured .featured-recipe .featured-recipe-image:hover {
@@ -68,5 +73,9 @@
   .featured .featured-recipes-right .featured-recipe {
     width: 48%;
     height: 350px;
+  }
+
+  .featured .featured-recipe .featured-recipe-image img {
+    object-fit: fill;
   }
 }

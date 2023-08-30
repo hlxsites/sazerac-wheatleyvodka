@@ -1,4 +1,5 @@
 import { fetchQueryIndex } from '../../scripts/scripts.js';
+import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
 function findRecipe(data, path) {
   let i = 0;
@@ -38,9 +39,8 @@ export default async function decorate(block) {
       const newlink = document.createElement('a');
       newlink.href = recipe.path;
 
-      const img = document.createElement('div');
+      const img = createOptimizedPicture(recipe.image, recipe.pageTitle);
       img.className = 'featured-recipe-image';
-      img.style.backgroundImage = `url(${recipe.image})`;
 
       const span = document.createElement('span');
       span.textContent = recipe.pageTitle;

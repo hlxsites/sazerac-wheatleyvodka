@@ -1,5 +1,5 @@
 import { fetchQueryIndex } from '../../scripts/scripts.js';
-import { decorateButtons } from '../../scripts/lib-franklin.js';
+import { createOptimizedPicture, decorateButtons } from '../../scripts/lib-franklin.js';
 
 export default async function decorate(block) {
   const contents = document.createElement('div');
@@ -33,9 +33,8 @@ export default async function decorate(block) {
       const newlink = document.createElement('a');
       newlink.href = recipe.path;
 
-      const img = document.createElement('div');
+      const img = createOptimizedPicture(recipe.image, recipe.pageTitle);
       img.className = 'recipe-image';
-      img.style.backgroundImage = `url(${recipe.image})`;
 
       const span = document.createElement('span');
       span.textContent = recipe.pageTitle;
