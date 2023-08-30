@@ -120,6 +120,7 @@ export function decorateMain(main) {
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   decorateTemplateAndTheme();
+  loadCocktail(doc);
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
@@ -151,7 +152,6 @@ async function loadLazy(doc) {
 
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
-  loadCocktail(doc);
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
