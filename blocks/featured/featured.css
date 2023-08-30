@@ -6,8 +6,9 @@
 .featured .featured-recipe {
   width: 452px;
   height: 325px;
-  margin: 0.75rem auto;
+  margin: 0.75rem auto 0;
   position: relative;
+  max-width: 100%;
 }
 
 .featured .featured-recipe:hover {
@@ -52,6 +53,10 @@
 @media (min-width: 1152px) {
   .featured .featured-recipes {
     flex-direction: row;
+  }
+
+  .featured .featured-recipe {
+    margin: 0.75rem 0 0;
   }
 
   .featured .featured-recipes-left {

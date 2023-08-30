@@ -11,6 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  getMetadata,
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -31,6 +32,9 @@ function buildHeroBlock(main) {
       section.append(buildBlock('hero', { elems: [picture, h1, h2, a] }));
     } else {
       section.append(buildBlock('hero', { elems: [picture] }));
+      if (h1.previousElementSibling.tagName === 'P') {
+        h1.previousElementSibling.remove();
+      }
     }
     main.prepend(section);
   }
@@ -96,11 +100,22 @@ export function setActiveLink(links, className) {
 }
 
 /**
+ * Load theme css
+ */
+function loadTheme() {
+  const theme = getMetadata('theme');
+  if (theme) {
+    loadCSS(`${window.hlx.codeBasePath}/styles/theme-${theme}.css`);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  loadTheme();
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
