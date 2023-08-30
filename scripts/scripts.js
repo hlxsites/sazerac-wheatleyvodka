@@ -110,12 +110,36 @@ export function decorateMain(main) {
   updateNavHeight(window.location.pathname !== '/');
 }
 
+function setTitle(doc) {
+  const title = doc.querySelector('head title');
+  if (title) {
+    if (window.location.pathname !== '/') {
+      if (!title.textContent.endsWith('– Wheatley Vodka')) {
+        title.textContent = `${title.textContent} – Wheatley Vodka`;
+      }
+    } else {
+      title.textContent = 'Wheatley Vodka';
+    }
+  }
+  const metaTitle = doc.querySelector('head meta[property="og:title"]');
+  if (metaTitle) {
+    if (window.location.pathname !== '/') {
+      if (!metaTitle.content?.endsWith('– Wheatley Vodka')) {
+        metaTitle.content = `${metaTitle.content} – Wheatley Vodka`;
+      }
+    } else {
+      metaTitle.content = 'Wheatley Vodka';
+    }
+  }
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  setTitle(doc);
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
