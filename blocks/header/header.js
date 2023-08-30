@@ -178,6 +178,14 @@ export default async function decorate(block) {
           }
         });
       });
+
+      const close = document.createElement('div');
+      close.classList.add('nav-hamburger-close');
+      const icon = document.createElement('span');
+      icon.classList.add('nav-hamburger-icon');
+      close.append(icon);
+      close.addEventListener('click', () => toggleMenu(nav, navSections));
+      navSections.append(close);
     }
 
     const navBrand = nav.querySelector('.nav-brand');
@@ -189,7 +197,7 @@ export default async function decorate(block) {
           const social = document.createElement('div');
           social.className = 'header-social';
           social.append(ul);
-          navSections.append(social);
+          navSections.querySelector('.nav-hamburger-close').insertAdjacentElement('beforebegin', social);
         }
       }
     }
@@ -202,7 +210,12 @@ export default async function decorate(block) {
         <span class="nav-hamburger-icon"></span>
       </button>`;
     hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-    nav.append(hamburger);
+    if (navSections) {
+      navSections.insertAdjacentElement('beforebegin', hamburger);
+    } else {
+      nav.append(hamburger);
+    }
+
     nav.setAttribute('aria-expanded', 'false');
     // prevent mobile nav behavior on window resize
     toggleMenu(nav, navSections, isDesktop.matches);
@@ -214,7 +227,7 @@ export default async function decorate(block) {
 
     addNavigationLogoForScrollingPage(nav);
 
-    decorateIcons(nav);
+    await decorateIcons(nav);
 
     // remove empty sections
     Array.from(nav.children).forEach((section) => {

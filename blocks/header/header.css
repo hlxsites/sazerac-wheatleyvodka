@@ -15,6 +15,7 @@ header .no-background {
 }
 
 header nav {
+  overflow: hidden;
   box-sizing: border-box;
   display: grid;
   grid-template:
@@ -145,7 +146,10 @@ header nav .nav-hamburger-icon::after {
   box-sizing: border-box;
   display: block;
   position: relative;
-  width: 20px;
+  width: 20px;  
+  height: 2px;
+  border-radius: 2px;
+  background: currentcolor;
 }
 
 header nav .nav-hamburger-icon {
@@ -159,28 +163,36 @@ header nav .nav-hamburger-icon::after {
   background: currentcolor;
 }
 
-header nav[aria-expanded="false"] .nav-hamburger-icon,
-header nav[aria-expanded="false"] .nav-hamburger-icon::before,
-header nav[aria-expanded="false"] .nav-hamburger-icon::after {
-  height: 2px;
-  border-radius: 2px;
-  background: currentcolor;
-}
-
-header nav[aria-expanded="false"] .nav-hamburger-icon::before {
+header nav .nav-hamburger-icon::before {
   top: -6px;
 }
 
-header nav[aria-expanded="false"] .nav-hamburger-icon::after {
+header nav .nav-hamburger-icon::after {
   top: 6px;
 }
 
-header nav[aria-expanded="true"] .nav-hamburger-icon {
-  height: 22px;
+header nav[aria-expanded="false"] .nav-hamburger-close {
+  display: none;
+  visibility: hidden;
 }
 
-header nav[aria-expanded="true"] .nav-hamburger-icon::before,
-header nav[aria-expanded="true"] .nav-hamburger-icon::after {
+header nav[aria-expanded="true"] .nav-hamburger-close {
+  position: fixed;
+  height: 22px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  top: 0;
+  bottom: 0;
+  right: -270px;
+  transform: translate(-300px, 0);
+}
+
+header nav[aria-expanded="true"] .nav-hamburger-close .nav-hamburger-icon {
+  background: unset;
+}
+
+header nav[aria-expanded="true"] .nav-hamburger-close .nav-hamburger-icon::before,
+header nav[aria-expanded="true"] .nav-hamburger-close .nav-hamburger-icon::after {
   top: 3px;
   left: 1px;
   transform: rotate(45deg);
@@ -190,14 +202,19 @@ header nav[aria-expanded="true"] .nav-hamburger-icon::after {
   border-radius: 2px;
 }
 
-header nav[aria-expanded="true"] .nav-hamburger-icon::after {
+header nav[aria-expanded="true"] .nav-hamburger-close .nav-hamburger-icon::after {
   top: unset;
   bottom: 3px;
   transform: rotate(-45deg);
 }
 
+header nav[aria-expanded="true"] .nav-hamburger-close .nav-hamburger-icon::before {
+  top: -17px;
+}
+
 @media (min-width: 1000px) {
-  header nav .nav-hamburger {
+  header nav .nav-hamburger,
+  header nav .nav-hamburger-close {
     display: none;
     visibility: hidden;
   }
@@ -253,15 +270,6 @@ header nav .nav-sections {
 }
 
 @media (max-width: 999px) {
-  header nav[aria-expanded="true"] .nav-hamburger {
-    position: fixed;
-    right: 30px;
-  }
-
-  header nav[aria-expanded="true"] .nav-hamburger button i {
-    visibility: hidden;
-  }
-
   header nav .nav-sections {
     display: flex;
     flex-flow: column;

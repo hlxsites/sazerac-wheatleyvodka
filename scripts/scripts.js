@@ -11,6 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  getMetadata,
 } from './lib-franklin.js';
 import {
   loadCocktail,
@@ -34,6 +35,9 @@ function buildHeroBlock(main) {
       section.append(buildBlock('hero', { elems: [picture, h1, h2, a] }));
     } else {
       section.append(buildBlock('hero', { elems: [picture] }));
+      if (h1.previousElementSibling.tagName === 'P') {
+        h1.previousElementSibling.remove();
+      }
     }
     main.prepend(section);
   }
@@ -99,11 +103,22 @@ export function setActiveLink(links, className) {
 }
 
 /**
+ * Load theme css
+ */
+function loadTheme() {
+  const theme = getMetadata('theme');
+  if (theme) {
+    loadCSS(`${window.hlx.codeBasePath}/styles/theme-${theme}.css`);
+  }
+}
+
+/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  loadTheme();
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
@@ -113,12 +128,36 @@ export function decorateMain(main) {
   updateNavHeight(window.location.pathname !== '/');
 }
 
+function setTitle(doc) {
+  const title = doc.querySelector('head title');
+  if (title) {
+    if (window.location.pathname !== '/') {
+      if (!title.textContent.endsWith('– Wheatley Vodka')) {
+        title.textContent = `${title.textContent} – Wheatley Vodka`;
+      }
+    } else {
+      title.textContent = 'Wheatley Vodka';
+    }
+  }
+  const metaTitle = doc.querySelector('head meta[property="og:title"]');
+  if (metaTitle) {
+    if (window.location.pathname !== '/') {
+      if (!metaTitle.content?.endsWith('– Wheatley Vodka')) {
+        metaTitle.content = `${metaTitle.content} – Wheatley Vodka`;
+      }
+    } else {
+      metaTitle.content = 'Wheatley Vodka';
+    }
+  }
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  setTitle(doc);
   decorateTemplateAndTheme();
   await loadCocktail(doc);
   const main = doc.querySelector('main');
