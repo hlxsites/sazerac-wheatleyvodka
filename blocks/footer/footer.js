@@ -39,7 +39,7 @@ export default async function decorate(block) {
       });
     }
 
-    decorateIcons(footer);
+    await decorateIcons(footer);
     block.append(footer);
   }
 }

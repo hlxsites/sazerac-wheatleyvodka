@@ -227,7 +227,7 @@ export default async function decorate(block) {
 
     addNavigationLogoForScrollingPage(nav);
 
-    decorateIcons(nav);
+    await decorateIcons(nav);
 
     // remove empty sections
     Array.from(nav.children).forEach((section) => {

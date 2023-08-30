@@ -14,6 +14,3 @@ indices:
       image:
         select: head > meta[property="og:image"]
         value: match(attribute(el, "content"), "https:\/\/[^/]+(/.*)")
-      pageTitle:
-        select: main h1
-        value: textContent(el)

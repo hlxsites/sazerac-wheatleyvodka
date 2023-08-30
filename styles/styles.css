@@ -17,8 +17,9 @@
   --background-color: #fff;
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
-  --text-color: #000;
+  --text-color: #002855;
   --navigation-text-color: #fff;
+  --header-text-color: #002855;
 
   /* fonts */
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
@@ -281,7 +282,7 @@ h4, h5, h6 {
   margin-top: 1em;
   margin-bottom: .5em;
   scroll-margin: calc(var(--nav-height) + 1em);
-  color: #002855;
+  color: var(--header-text-color);
 }
 
 h1 {
