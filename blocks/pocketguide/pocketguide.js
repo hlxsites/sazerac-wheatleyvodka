@@ -1,3 +1,5 @@
+import { decorateButtons } from '../../scripts/lib-franklin.js';
+
 /**
  * loads and decorates the pocketguide
  * @param {Element} block The pocketguide block element
@@ -12,5 +14,6 @@ export default async function decorate(block) {
     const pocketguide = document.createElement('div');
     pocketguide.innerHTML = html;
     block.append(pocketguide);
+    decorateButtons(block);
   }
 }

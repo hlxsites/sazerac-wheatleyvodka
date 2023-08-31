@@ -32,6 +32,12 @@
         justify-content:center;
     }
 
+    .pocketguide a {
+        overflow: auto;
+        float: left;
+        width:285.8px;
+    }
+
     .pocketguide picture{
         height:427.7px;
         width:285.8px;
