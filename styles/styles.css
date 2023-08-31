@@ -299,29 +299,6 @@ h4 { font-size: var(--heading-font-size-m) }
 h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
 
-@media (min-width: 1000px){
-  .hero h1 {
-    font-size: var(--heading-font-size-xxl);
-  }
-}
-
-.hero h1 {
-  font-size: 32px;
-}
-
-@media (min-width: 1000px){
-  .hero h2 {
-    font-size: var(--heading-font-size-l);
-  }
-}
-
-.hero h2 {
-  font-size: var(--heading-font-size-l);
-}
-
-.hero h1 h2{
-  color: #fff;
-}
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
@@ -368,28 +345,29 @@ a:hover {
 
 /* buttons */
 a.button:any-link, button {
-  font-family: var(--body-font-family);
-  display: inline-block;
-  box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
-  font-style: normal;
-  font-weight: 600;
+  background-image: url('/media_1372b1ee12bd67fae1385a9639f30737bfa554606.png#width=521&height=112');
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background-size: 100% 100%;
+  font-weight: 700;
+  color: #002855;
+  text-transform: capitalize;
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  border-radius: 30px;
+  transition: all .3s ease-in-out;
+  max-width: 228px;
+  margin: auto;
+  border-radius: .25em;
 }
 
 a.button:hover, a.button:focus, button:hover, button:focus  {
   background-color: var(--link-hover-color);
+  background-image:url('/media_12de200726a79fbc39c47cf6a4be6ca9b2c5dbf0b.png#width=521&height=112');
+  color:#002855;
   cursor: pointer;
+  text-decoration: none;
+  border-radius: .25em;
 }
 
 button:disabled, button:disabled:hover {
