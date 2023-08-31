@@ -38,20 +38,23 @@ export async function loadCocktail(doc) {
       const rightCol = main.querySelector('.cocktail picture');
       const leftCol = main.querySelector('.cocktail');
       const columnsTable = buildBlock('columns', [[leftCol, rightCol]]);
-      const wrapper = document.createElement('div');
-      wrapper.append(columnsTable);
+
       if (insertLocation) {
         // in case when there is content before the cocktail details,
         // insert the columns block after that content
-        insertLocation.append(wrapper);
+        // no need for a wrapper as this is created automatically when loading the block
+        insertLocation.insertAdjacentElement('afterend', columnsTable);
       } else {
         // when there is no content before the cocktail details, just add it on top
+        // with no content before, a wrapper has to be introduced to load the columns block
+        const wrapper = document.createElement('div');
+        wrapper.append(columnsTable);
         main.prepend(wrapper);
       }
 
       // move the first header1 to top
       const firstHeaderOne = doc.querySelector('h1');
-      wrapper.prepend(firstHeaderOne);
+      main.querySelector('.columns').insertAdjacentElement('beforebegin', firstHeaderOne);
     }
   }
 }
