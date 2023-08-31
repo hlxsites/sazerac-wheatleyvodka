@@ -295,29 +295,6 @@ h4 { font-size: var(--heading-font-size-m) }
 h5 { font-size: var(--heading-font-size-s) }
 h6 { font-size: var(--heading-font-size-xs) }
 
-@media (min-width: 1000px){
-  .hero h1 {
-    font-size: var(--heading-font-size-xxl);
-  }
-}
-
-.hero h1 {
-  font-size: 32px;
-}
-
-@media (min-width: 1000px){
-  .hero h2 {
-    font-size: var(--heading-font-size-l);
-  }
-}
-
-.hero h2 {
-  font-size: var(--heading-font-size-l);
-}
-
-.hero h1 h2{
-  color: #fff;
-}
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
