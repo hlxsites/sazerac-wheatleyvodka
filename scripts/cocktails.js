@@ -39,7 +39,14 @@ export async function loadCocktail(doc) {
       const columnsTable = buildBlock('columns', [[leftCol, rightCol]]);
       const wrapper = document.createElement('div');
       wrapper.append(columnsTable);
-      insertLocation.append(wrapper);
+      if (insertLocation) {
+        // in case when there is content before the cocktail details,
+        // insert the columns block after that content
+        insertLocation.append(wrapper);
+      } else {
+        // when there is no content before the cocktail details, just add it on top
+        main.prepend(wrapper);
+      }
 
       // move the first header1 to top
       const firstHeaderOne = doc.querySelector('h1');
