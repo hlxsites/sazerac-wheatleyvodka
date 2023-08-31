@@ -151,6 +151,37 @@ function setTitle(doc) {
   }
 }
 
+function createMetadata(name, value) {
+  const meta = document.createElement('meta');
+  meta.setAttribute('name', name);
+  meta.setAttribute('content', value);
+
+  document.head.append(meta);
+}
+
+/**
+ * Adds a favicon.
+ * @param {string} href The favicon URL
+ * @param {string} rel The icon rel
+ * @param {string} type The icon content type
+ * @param {string} size The dimensions of the icon, e.g. 80x80
+ */
+function addFavIcon(
+  href,
+  rel = 'icon',
+) {
+  const link = document.createElement('link');
+  link.rel = rel;
+  link.href = href;
+
+  const existingLink = document.querySelector(`head link[rel="${rel}"]`);
+  if (existingLink) {
+    existingLink.parentElement.replaceChild(link, existingLink);
+  } else {
+    document.getElementsByTagName('head')[0].appendChild(link);
+  }
+}
+
 /**
  * Loads everything needed to get to LCP.
  * @param {Element} doc The container element
@@ -194,6 +225,10 @@ async function loadLazy(doc) {
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
+
+  addFavIcon(`${window.hlx.codeBasePath}/styles/icons/favicon-32x32.png`);
+  addFavIcon(`${window.hlx.codeBasePath}/styles/icons/favicon-180x180.png`, 'apple-touch-icon');
+  createMetadata('msapplication-TileImage', `${window.hlx.codeBasePath}/styles/icons/favicon-270x270.png`);
 
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
