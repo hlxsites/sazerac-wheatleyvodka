@@ -27,15 +27,15 @@ main h1 {
 
 #created-by+ul li {
   color: #002855;
-  font-weight: 700;
-  line-height: 1.35;
+  font-weight: var(--font-weight-m);
+  line-height: var(--font-line-height-s);
   font-size: var(--heading-font-size-l);
   display: inline;
 }
 
 #created-by+ul a{
-  font-weight: 400;
-  line-height: 1.55;
+  font-weight: var(--font-weight-s);
+  line-height: var(--font-line-height-m);
   color: #002855;
   text-decoration: underline;
   font-size: var(--heading-font-size-l);
