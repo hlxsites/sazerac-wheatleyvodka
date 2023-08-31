@@ -25,6 +25,10 @@
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
   --heading-font-family: 'HCo Ringside Extra Wide', 'HCo Ringside Extra Wide Fallback', sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --font-weight-s: 400;
+  --font-weight-m: 700;
+  --font-line-height-s: 1.35;
+  --font-line-height-m: 1.55;
 
   /* body sizes */
   --body-font-size-m: 14px;
@@ -498,4 +502,15 @@ a.navigation::after {
 
 a.navigation:hover::after {
   transform: scaleX(1);
+}
+
+ul, li {
+  list-style: none;
+  font-size: var(--heading-font-size-m);
+  padding: 8px 0;
+}
+
+ul {
+  margin-left: 40px;
+  margin-bottom: 30px;
 }

@@ -13,6 +13,9 @@ import {
   loadCSS,
   getMetadata,
 } from './lib-franklin.js';
+import {
+  loadCocktail,
+} from './cocktails.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 
@@ -187,6 +190,7 @@ async function loadEager(doc) {
   document.documentElement.lang = 'en';
   setTitle(doc);
   decorateTemplateAndTheme();
+  await loadCocktail(doc);
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
