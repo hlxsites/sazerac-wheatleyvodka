@@ -21,14 +21,15 @@ export async function loadCocktail(doc) {
 
       // retrieve the content wrapper, our top most div and put it's cocktail content aside
       const main = doc.querySelector('main');
-      const cocktailData = main.innerHTML;
+      const cocktailData = Array.from(main.children);
 
       // apply the template content
       main.innerHTML = tplText;
 
       // reapply the cocktails content
       const cocktailDiv = main.querySelector('div.cocktail');
-      cocktailDiv.innerHTML = cocktailData;
+      cocktailDiv.textContent = '';
+      cocktailDiv.append(...cocktailData);
 
       const insertLocation = cocktailDiv.previousElementSibling;
 

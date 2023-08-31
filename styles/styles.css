@@ -517,14 +517,14 @@ ul {
   color: #7f5732;
 }
 
-#created-by+ul > * > * > img {
+#created-by+ul img {
   width: 100px;
   height: 100px;
   margin: 0 20px 0 0;
   border-radius: 10px;
 }
 
-#created-by+ul > li {
+#created-by+ul li {
   color: #002855;
   font-weight: 700;
   line-height: 1.35;
@@ -532,7 +532,7 @@ ul {
   display: inline;
 }
 
-#created-by+ul > li > a{
+#created-by+ul a{
   font-weight: 400;
   line-height: 1.55;
   color: #002855;
