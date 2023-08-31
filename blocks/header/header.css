@@ -32,10 +32,6 @@ header nav {
   transition: transform .3s ease, height .3s ease, background .3s ease,opacity .3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-header nav[aria-expanded="true"] {
-  overflow-y: auto;
-}
-
 header .wide {
   height: var(--nav-height);
   grid-template:
