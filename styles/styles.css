@@ -361,9 +361,10 @@ a.button:any-link, button {
   max-width: 228px;
   margin: auto;
   border-radius: .25em;
+  text-decoration: none;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+button:hover, button:focus  {
   background-color: var(--link-hover-color);
   background-image:url('/media_12de200726a79fbc39c47cf6a4be6ca9b2c5dbf0b.png#width=521&height=112');
   color:#002855;
