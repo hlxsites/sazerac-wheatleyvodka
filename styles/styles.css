@@ -43,8 +43,9 @@
   --heading-font-size-s: 11px;
   --heading-font-size-xs: 10px;
 
-  /* nav height */
+  /* nav and footer height */
   --nav-height: 70px;
+  --footer-height:40.2rem;
 }
 
 @media (min-width: 1000px) {
@@ -58,6 +59,7 @@
     --body-font-size-m: 18px;
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
+    --footer-height:22.8rem;
   }
 }
 
