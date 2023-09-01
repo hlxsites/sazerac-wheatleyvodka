@@ -14,6 +14,7 @@ export default async function decorate(block) {
     agegateimage.className = 'agegate-image';
     const agegateform = document.createElement('div');
     agegateform.className = 'agegate-form';
+    agegateform.id = 'agegateform';
 
     const agegatelogo = document.createElement('div');
     agegatelogo.className = 'agegate-logo';
@@ -25,7 +26,7 @@ export default async function decorate(block) {
     const agegatetitle = document.createElement('div');
     agegatetitle.className = 'title-wrapper';
     const agetittletxt = document.createElement('h2');
-    agetittletxt.innerText = ageverification.querySelector('div').querySelector('h2').innerText;
+    agetittletxt.innerText = ageverification.querySelector('div').querySelector('h1').innerText;
     const agegatebutton = document.createElement('div');
     agegatebutton.className = 'agegate-button-wrap';
     const buttonyes = document.createElement('a');
@@ -36,9 +37,27 @@ export default async function decorate(block) {
     buttonno.id = 'agegate-button-no';
     buttonno.href = '#';
     buttonno.innerText = 'No';
+    buttonno.onclick = function () {
+      const targetDiv = document.getElementById('agefailscreen');
+      const hideDiv = document.getElementById('agegateform');
+      if (targetDiv.style.display === 'none') {
+        hideDiv.style.display = 'none';
+        targetDiv.style.display = 'block';
+        setTimeout(() => {
+          window.location.href = 'https://www.responsibility.org/';
+        }, (5000));
+      }
+    };
 
     const agefailscreen = document.createElement('div');
     agefailscreen.id = 'agefailscreen';
+    agefailscreen.style.display = 'none';
+    const afstitle = document.createElement('h3');
+    afstitle.innerText = ageverification.querySelector('div').querySelector('h2').innerText;
+    const afstext = document.createElement('p');
+    afstext.innerHTML = ageverification.querySelector('div').querySelector('h3').innerHTML;
+    agefailscreen.appendChild(afstitle);
+    agefailscreen.appendChild(afstext);
 
     agegatetitle.appendChild(agetittletxt);
     agegateform.appendChild(agegatelogo);
@@ -49,5 +68,6 @@ export default async function decorate(block) {
     block.append(agegateimage);
     await decorateIcons(agegateform);
     block.append(agegateform);
+    block.append(agefailscreen);
   }
 }
