@@ -69,6 +69,7 @@ export default async function decorate(block) {
       if (count + 8 >= contents.childNodes.length) {
         loadMore.style.display = 'none';
       }
+      link.blur();
       e.preventDefault();
     });
     loadMore.append(link);
