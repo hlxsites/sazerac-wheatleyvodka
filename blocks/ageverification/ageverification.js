@@ -1,4 +1,5 @@
 import { decorateIcons } from '../../scripts/lib-franklin.js';
+import { setCookie } from '../../scripts/scripts.js';
 /* age verification overlay */
 
 export default async function decorate(block) {
@@ -33,10 +34,17 @@ export default async function decorate(block) {
     buttonyes.id = 'agegate-button-yes';
     buttonyes.href = '#';
     buttonyes.innerText = 'Yes';
+    // eslint-disable-next-line func-names
+    buttonyes.onclick = function () {
+      setCookie('sazAgeOK', 'yes', 63113852000, '/');
+      document.getElementsByClassName('ageverification-container')[0].style.display = 'none';
+    };
+
     const buttonno = document.createElement('a');
     buttonno.id = 'agegate-button-no';
     buttonno.href = '#';
     buttonno.innerText = 'No';
+    // eslint-disable-next-line func-names
     buttonno.onclick = function () {
       const targetDiv = document.getElementById('agefailscreen');
       const hideDiv = document.getElementById('agegateform');

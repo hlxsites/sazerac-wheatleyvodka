@@ -68,7 +68,7 @@ export function setCookie(name, value, timeInMillis, path) {
  * @param {Element} main The container element
  */
 function buildAgeConfirmBlock(main) {
-  if (getCookie('sazAgeOK')) {
+  if (!getCookie('sazAgeOK')) {
     const section = document.createElement('div');
     section.append(buildBlock('ageverification', { elems: [] }));
     main.prepend(section);
