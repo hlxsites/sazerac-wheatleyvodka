@@ -1,3 +1,4 @@
+import { decorateIcons } from '../../scripts/lib-franklin.js';
 /* age verification overlay */
 
 export default async function decorate(block) {
@@ -16,10 +17,11 @@ export default async function decorate(block) {
 
     const agegatelogo = document.createElement('div');
     agegatelogo.className = 'agegate-logo';
-    const logo = document.createElement('img');
-    logo.src = '/templates/logo-agegate.svg';
-    logo.alt = '';
-    agegatelogo.appendChild(logo);
+    const logoicon = document.createElement('p');
+    const logo = document.createElement('span');
+    logo.className = 'icon icon-logo-agegate';
+    logoicon.appendChild(logo);
+    agegatelogo.appendChild(logoicon);
     const agegatetitle = document.createElement('div');
     agegatetitle.className = 'title-wrapper';
     const agetittletxt = document.createElement('h2');
@@ -45,6 +47,7 @@ export default async function decorate(block) {
     agegatebutton.appendChild(buttonno);
     agegateform.appendChild(agegatebutton);
     block.append(agegateimage);
+    await decorateIcons(agegateform);
     block.append(agegateform);
   }
 }
