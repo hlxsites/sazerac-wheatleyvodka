@@ -27,6 +27,7 @@
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --font-weight-s: 400;
   --font-weight-m: 700;
+  --font-weight-l: 900;
   --font-line-height-s: 1.35;
   --font-line-height-m: 1.55;
 
@@ -42,6 +43,9 @@
   --heading-font-size-m: 12px;
   --heading-font-size-s: 11px;
   --heading-font-size-xs: 10px;
+
+  /* Recipe title font size */
+  --recipe-title-font-size: 21px;
 
   /* nav and footer height */
   --nav-height: 70px;
@@ -60,6 +64,12 @@
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
     --footer-height:22.8rem;
+  }
+}
+
+@media (min-width: 1152px) {
+  :root {
+    --recipe-title-font-size: 24px;
   }
 }
 
