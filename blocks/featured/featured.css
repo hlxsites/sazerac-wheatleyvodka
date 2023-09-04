@@ -43,6 +43,8 @@
   white-space: nowrap;
   transition: color .3s ease-out;
   text-transform: uppercase;
+  font-weight: var(--font-weight-l);
+  font-size: var(--body-font-size-m);
 }
 
 .featured .featured-recipe .featured-recipe-image:hover + span {

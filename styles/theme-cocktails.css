@@ -14,7 +14,7 @@ main h1 {
 
 /* cocktail created by thumbnail */
 #ingredients, #directions, #created-by {
-  font-size: var(--heading-font-size-l);
+  font-size: var(--heading-font-size-m);
   color: #7f5732;
 }
 
@@ -26,23 +26,23 @@ main h1 {
 }
 
 #created-by+ul li {
-  color: #002855;
+  color: var(--text-color);
   font-weight: var(--font-weight-m);
   line-height: var(--font-line-height-s);
-  font-size: var(--heading-font-size-l);
+  font-size: var(--heading-font-size-m);
   display: inline;
 }
 
 #created-by+ul a{
   font-weight: var(--font-weight-s);
   line-height: var(--font-line-height-m);
-  color: #002855;
+  color: var(--text-color);
   text-decoration: underline;
-  font-size: var(--heading-font-size-l);
+  font-size: var(--heading-font-size-m);
 }
 
 @media (min-width: 1000px) {
   main div.section:not(.hero-container) {
-    margin: 3.75rem 10.12rem 4.63rem 12.5rem;
+    margin: 3.75rem 10.18rem 4.63rem 12.5rem;
   }
 }
