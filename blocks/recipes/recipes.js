@@ -72,6 +72,7 @@ export default async function decorate(block) {
       if (count + nextMax >= contents.childNodes.length) {
         loadMore.style.display = 'none';
       }
+      link.blur();
       e.preventDefault();
     });
     loadMore.append(link);
