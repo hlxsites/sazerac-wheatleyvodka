@@ -1,0 +1,7 @@
+div.background>div>div>div>div:first-child {
+  background-color: rgb(126 156 191 / 15%);
+}
+
+div.smallimage img {
+  width: 300px;
+}
