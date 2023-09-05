@@ -30,12 +30,15 @@ function buildHeroBlock(main) {
   if (h1 && picture && (h1.compareDocumentPosition(picture) & Node.DOCUMENT_POSITION_PRECEDING)) {
     const section = document.createElement('div');
     if (window.location.pathname === '/') {
+      const parent = h1.parentElement;
       const h2 = main.querySelector('h2');
       const a = main.querySelector('a');
-      section.append(buildBlock('hero', { elems: [picture, h1, h2, a] }));
+      const h3 = main.querySelector('h3');
+      section.append(buildBlock('hero', { elems: [picture, h1, h2, a, h3].filter((e) => e) }));
+      parent.remove();
     } else {
       section.append(buildBlock('hero', { elems: [picture] }));
-      if (h1.previousElementSibling.tagName === 'P') {
+      if (h1.previousElementSibling?.tagName === 'P') {
         h1.previousElementSibling.remove();
       }
     }
