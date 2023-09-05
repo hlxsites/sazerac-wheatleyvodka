@@ -12,6 +12,7 @@ header .nav-wrapper {
 
 header .no-background {
   background-image: none;
+  -webkit-font-smoothing: antialiased;
 }
 
 header nav {
@@ -297,10 +298,14 @@ header nav .nav-sections ul  {
   font-size: var(--body-font-size-xl);
   font-weight: 700;
   text-align: center;
+  margin-left: 0;
 }
 
 header nav .nav-sections ul > li {
   font-weight: 700;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 15px 0;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -426,4 +431,8 @@ header nav .nav-sections .header-social > ul .icon {
 /* tools */
 header nav .nav-tools {
   grid-area: tools;
+}
+
+header .navigation {
+  font-size: 21px;
 }

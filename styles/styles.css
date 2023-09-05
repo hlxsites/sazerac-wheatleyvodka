@@ -47,6 +47,12 @@
   --heading-font-size-s: 11px;
   --heading-font-size-xs: 10px;
 
+  /* button font sizes */
+  --button-font-size: 18px;
+
+  /* Recipe title font size */
+  --recipe-title-font-size: 21px;
+
   /* nav and footer height */
   --nav-height: 70px;
   --footer-height:40.2rem;
@@ -65,6 +71,12 @@
     --body-font-size-s: 16px;
     --body-font-size-xs: 14px;
     --footer-height:22.8rem;
+  }
+}
+
+@media (min-width: 1152px) {
+  :root {
+    --recipe-title-font-size: 24px;
   }
 }
 
@@ -366,9 +378,11 @@ a.button:any-link, button {
   max-width: 228px;
   margin: auto;
   border-radius: .25em;
+  text-decoration: none;
+  font-size: var(--button-font-size);
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+a.button:hover, a.button:focus  {
   background-color: var(--link-hover-color);
   background-image:url('/media_12de200726a79fbc39c47cf6a4be6ca9b2c5dbf0b.png#width=521&height=112');
   color:#002855;
@@ -500,6 +514,11 @@ ul {
   margin-bottom: 30px;
 }
 
+.default-content-wrapper > picture:only-child {
+  display: flex;
+}
 
-
-
+.default-content-wrapper > picture:only-child > img {
+  max-width: 130px;
+  margin: 0 auto;
+}

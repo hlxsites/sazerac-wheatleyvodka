@@ -3,6 +3,15 @@
 :root {
   --hero-height: 178px;
   --hero-height-desktop: 354px;
+  --hero-heading-font-size-h1: 32px;
+  --hero-heading-font-size-h2: 14px;
+}
+
+@media (min-width: 1000px) {
+  :root {
+    --hero-heading-font-size-h1: 56px;
+    --hero-heading-font-size-h2: 21px;
+  }
 }
 
 /* block specific CSS goes here */
@@ -66,50 +75,36 @@ main .no-background {
   }
 }
 
-.hero h1 {
-  font-size: 32px;
-}
-
 .hero a.button{
   margin: 0 auto 76px;
 }
 
 @media (min-width: 1000px){
-  .hero h2 {
-    font-size: var(--heading-font-size-l);
-  }
-
   .hero a.button {
     float: left;
     width:285.8px;
   }
 }
 
+.hero h1,
 .hero h2 {
-  font-size: var(--heading-font-size-l);
-}
-
-.hero h1 h2{
-  color: #fff;
+  color: var(--navigation-text-color);
 }
 
 main .hero h1 {
-  font-size: 32px;
   max-width: 350px;
   margin: 75px auto 0;
-  color: white;
   line-height: 1.05;
-  font-weight: 900;
+  font-size: var(--hero-heading-font-size-h1);
 }
 
 main .hero h2 {
-  font-size: 14px;
   max-width: 350px;
-  color: white;
   text-transform: uppercase;
   margin: 20px auto 75px;
   line-height: 1.15;
   font-weight: 900;
+  font-size: var(--hero-heading-font-size-h2);
 }
 
 @media (min-width: 1000px) {
@@ -122,14 +117,6 @@ main .hero h2 {
   main .hero h2 {
     max-width: 450px;
     margin-left: 0;
-  }
-
-  main .hero h1 {
-    font-size: 56px;
-  }
-
-  main .hero h2 {
-    font-size: 21px;
   }
 }
 
@@ -159,9 +146,36 @@ main .hero .right img {
   }
 }
 
+main .hero-footer {
+  background-image: url('/media_1afdc58966db5b7c243bf6dc251c4dc878da97c7a.png?width=2000&format=webply&optimize=medium');
+  background-size: cover;
+  height: 71px;
+  font-weight: 900;
+  font-size: 21px;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 375px;
+  margin: auto;
+  display: flex;
+  margin-top: -10px;
+  align-items: center;
+  justify-content: center;
+}
 
-@media (min-width: 1000px){
-  .hero h1 {
-    font-size: var(--heading-font-size-xxl);
+main .hero-footer.scrolled {
+  position: fixed;
+  top: 70px;
+}
+
+main .hero-footer h3 {
+  margin: 0 25px;
+
+}
+
+@media (min-width: 1000px) {
+  main .hero-footer {
+    width: 100%;
+    max-width: unset;
+    margin-top: 0;
   }
 }
