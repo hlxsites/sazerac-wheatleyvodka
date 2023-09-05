@@ -86,6 +86,8 @@
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+    color: #fff;
+    text-decoration: none;
 }
 
 .ageverification-container .ageverification-wrapper .ageverification .agegate-form .agegate-button-wrap a, .wheatley-button {
@@ -139,7 +141,7 @@
     }
 
     .ageverification-container .ageverification-wrapper .ageverification .agegate-form .title-wrapper {
-        padding-top: 80px;
+        padding-top: 50px;
     }
 
     .ageverification-container h2 {
