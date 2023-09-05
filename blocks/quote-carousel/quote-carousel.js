@@ -1,3 +1,7 @@
+function move(event) {
+  event.target.style.transform = 'translateX(42px)';
+}
+
 export default async function decorate(block) {
   [...block.children].forEach((quote) => {
     const aphoristContainer = document.createElement('div');
@@ -11,5 +15,6 @@ export default async function decorate(block) {
     const iconSpan = document.createElement('span');
     iconSpan.className = 'quote-icon';
     quote.querySelector('div').prepend(iconSpan);
+    quote.addEventListener('click', move);
   });
 }

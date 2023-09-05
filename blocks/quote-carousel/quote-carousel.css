@@ -1,6 +1,14 @@
+.quote-carousel-wrapper {
+    height: 400px;
+}
+
 .quote-carousel {
     display: flex;
     flex-wrap: nowrap;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    overflow: auto;
 }
 
 .quote-carousel>div {
@@ -14,6 +22,7 @@
     height: 75px;
     background-image: url('/media_10788bcbb6db2e4b2bad4e416ea24c809ebb030b0.png#width=150&height=150');
     background-size: cover;
+    position: absolute;
 }
 
 .quote-carousel>div>div {
