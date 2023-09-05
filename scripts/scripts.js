@@ -17,7 +17,7 @@ import {
   loadCocktail,
 } from './cocktails.js';
 
-const LCP_BLOCKS = []; // add your LCP blocks to the list
+const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
 
 /**
  * Builds hero block and prepends to main in a new section.
