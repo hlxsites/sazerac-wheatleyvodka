@@ -77,8 +77,9 @@
     text-align: center;
     display: -webkit-box;
     display: flex;
-    width: 136px;
-    height: 56px;
+    width: 106px;
+    height: 26px;
+    padding: 16px;
     margin: 0 10px;
     border-radius: 10px;
     background-color: #002855;
