@@ -1,0 +1,52 @@
+.quote-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.quote-carousel>div {
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.quote-icon {
+    display: block;
+    width: 75px;
+    height: 75px;
+    background-image: url('/media_10788bcbb6db2e4b2bad4e416ea24c809ebb030b0.png#width=150&height=150');
+    background-size: cover;
+}
+
+.quote-carousel>div>div {
+    background-color: #6a9fb5; /* --text-color */
+    width: 380px;
+    height:380px;
+    display: flex;
+    flex-direction: column;
+}
+
+.quote-carousel p{
+    margin: 0;
+    padding: 40px 60px 0;
+    flex-grow: 999;
+}
+
+.aphorist {
+    display:flex;
+    vertical-align: baseline;
+    padding: 0 60px;
+    flex-grow: 1;
+}
+
+.aphorist ul, .aphorist li{
+    margin: 0;
+    padding: 0;
+}
+
+.aphorist>ul>li:nth-child(1) {
+    font-weight: var(--font-weight-l);
+}
+
+.aphorist img{
+    height: 65px;
+    padding-right: 20px;
+}
