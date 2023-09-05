@@ -26,7 +26,9 @@
   --heading-font-family: 'HCo Ringside Extra Wide', 'HCo Ringside Extra Wide Fallback', sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --font-weight-s: 400;
+  --font-weight-sm: 600;
   --font-weight-m: 700;
+  --font-weight-l: 900;
   --font-line-height-s: 1.35;
   --font-line-height-m: 1.55;
   --font-line-height-l: 1.65;

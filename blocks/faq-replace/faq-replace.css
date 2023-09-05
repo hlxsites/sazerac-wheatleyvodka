@@ -27,6 +27,14 @@
     margin: 15px;
 }
 
+#faq-replace-questions-container picture{
+    height: 50px;
+    width: 50px;
+    padding-right: 10px;
+    /* take any image information, turn it black, then apply a chain of filters to get to the blue color needed (#002855) */
+    filter: brightness(0) invert(11%) sepia(98%) saturate(1796%) hue-rotate(196deg) brightness(89%) contrast(102%);
+}
+
 @media (min-width: 1000px) {
     .faq-replace {
         display: flex;
@@ -44,19 +52,14 @@
     #faq-replace-answer-container {
         margin: 60px;
     }
+
+    #faq-replace-questions-container picture {
+        padding-right: 20px;
+    }
 }
 
-#faq-replace-questions-container picture{
-    height: 50px;
-    width: 50px;
-    filter: brightness(0) invert(11%) sepia(98%) saturate(1796%) hue-rotate(196deg) brightness(89%) contrast(102%);
-}
-
-#faq-replace-questions-container .active > picture {
-    filter: brightness(0) invert(1);
-}
-
-#faq-replace-questions-container .inactive:hover > picture {
+#faq-replace-questions-container .active > picture, #faq-replace-questions-container .inactive:hover > picture {
+    /* turn any image information black, then invert to white */
     filter: brightness(0) invert(1);
 }
 
@@ -65,7 +68,7 @@
 }
 
 #faq-replace-questions-container .active, #faq-replace-questions-container>div:hover {
-    background-color: #002855;
+    background-color: var(--text-color);
     color: #fff;
 }
 
