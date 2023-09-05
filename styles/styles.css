@@ -509,3 +509,12 @@ ul {
   margin-left: 40px;
   margin-bottom: 30px;
 }
+
+.default-content-wrapper > picture:only-child {
+  display: flex;
+}
+
+.default-content-wrapper > picture:only-child > img {
+  max-width: 130px;
+  margin: 0 auto;
+}
