@@ -1,7 +1,12 @@
 main div.section:not(.hero-container) {
-  margin: 0 0.625rem;
   padding-left: 0;
   padding-right: 0;
+  margin: 0 auto;
+}
+
+main div.section:not(.hero-container) > div {
+  padding: 0;
+  margin: 0 0.625rem;
 }
 
 main div.section.featured-container {
@@ -12,8 +17,41 @@ main h1 {
   margin-top: 0;
 }
 
+/* cocktail created by thumbnail */
+#ingredients, #directions, #created-by {
+  font-size: var(--heading-font-size-l);
+  color: #7f5732;
+}
+
+#created-by+ul img {
+  width: 100px;
+  height: 100px;
+  margin: 0 20px 0 0;
+  border-radius: 10px;
+}
+
+#created-by+ul li {
+  color: var(--text-color);
+  font-weight: var(--font-weight-m);
+  line-height: var(--font-line-height-s);
+  font-size: var(--heading-font-size-l);
+  display: inline;
+}
+
+#created-by+ul a{
+  font-weight: var(--font-weight-s);
+  line-height: var(--font-line-height-m);
+  color: var(--text-color);
+  text-decoration: underline;
+  font-size: var(--heading-font-size-l);
+}
+
 @media (min-width: 1000px) {
   main div.section:not(.hero-container) {
-    margin: 3.75rem 10.12rem 4.63rem 12.5rem;
+    max-width: 1500px;
+  }
+
+  main div.section:not(.hero-container) > div {
+    margin: 3.75rem 10.18rem 4.63rem 12.5rem;
   }
 }

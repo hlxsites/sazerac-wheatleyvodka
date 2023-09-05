@@ -1,0 +1,12 @@
+{
+  "name": "Wheatley Vodka",
+  "short_name": "Wheatley Vodka",
+  "icons": [
+      {
+          "src": "/styles/icons/favicon-192x192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+      }
+  ],
+  "display": "standalone"
+}

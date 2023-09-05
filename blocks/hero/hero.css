@@ -66,6 +66,33 @@ main .no-background {
   }
 }
 
+.hero h1 {
+  font-size: 32px;
+}
+
+.hero a.button{
+  margin: 0 auto 76px;
+}
+
+@media (min-width: 1000px){
+  .hero h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .hero a.button {
+    float: left;
+    width:285.8px;
+  }
+}
+
+.hero h2 {
+  font-size: var(--heading-font-size-l);
+}
+
+.hero h1 h2{
+  color: #fff;
+}
+
 main .hero h1 {
   font-size: 32px;
   max-width: 350px;
@@ -129,5 +156,12 @@ main .hero .right img {
 @media (min-width: 1000px) {
   main .hero .right img {
     max-width: none;
+  }
+}
+
+
+@media (min-width: 1000px){
+  .hero h1 {
+    font-size: var(--heading-font-size-xxl);
   }
 }

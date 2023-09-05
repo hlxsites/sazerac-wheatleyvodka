@@ -3,7 +3,7 @@ footer {
   background-size: cover;
   color: var(--navigation-text-color);
   font-size: var(--body-font-size-xs);
-  height: 40.2rem;
+  height: var(--footer-height);
 }
 
 footer .footer {
@@ -27,10 +27,6 @@ footer .footer-social, footer .footer-links {
 }
 
 @media (min-width: 1000px) {
-  footer {
-    height: 22.8rem;
-  }
-
   footer .footer {
     padding-left: 2.5rem;
     padding-right: 2.5rem;
