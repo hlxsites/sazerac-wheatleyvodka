@@ -31,6 +31,7 @@
     height: 50px;
     width: 50px;
     padding-right: 10px;
+
     /* take any image information, turn it black, then apply a chain of filters to get to the blue color needed (#002855) */
     filter: brightness(0) invert(11%) sepia(98%) saturate(1796%) hue-rotate(196deg) brightness(89%) contrast(102%);
 }
@@ -73,5 +74,5 @@
 }
 
 #faq-replace-questions-container .inactive {
-    background-color: rgba(126,156,191,.15);
+    background-color: rgb(126 156 191 / 15%);
 }
