@@ -1,0 +1,25 @@
+.quote {
+    background-image: url('/media_10e933cb9a8ae64c02b86a40912ef4d4fce0db20e.png#width=166&height=120');
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 60px;
+    padding-top: 40px;
+    justify-content: center;
+    text-align: center;
+    font-size: var(--heading-font-size-xl);
+    font-weight: var(--font-weight-sm);
+    font-stretch: 75%;
+    font-style: italic;
+    line-height: 41.4px;
+    max-width: 600px;
+}
+
+.quote img {
+    height: 65px;
+}
+
+.quote-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
