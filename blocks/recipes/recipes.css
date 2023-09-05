@@ -39,7 +39,7 @@
 .recipes .recipe span {
   margin: 1.25rem 0 0;
   color: var(--text-color);
-  font-size: var(--heading-font-size-l);
+  font-size: var(--recipe-title-font-size);
   display: block;
   font-weight: 600;
 }
