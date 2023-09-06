@@ -1,14 +1,21 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+}
+
+.columns > div > div {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.reverse .columns > div {
+  flex-direction: column-reverse;
 }
 
 .columns img {
   width: 100%;
-}
-
-.columns > div > div {
-  order: 1;
 }
 
 .columns > div > .columns-img-col {
@@ -19,15 +26,28 @@
   display: block;
 }
 
-@media (min-width: 900px) {
+.background-image .columns > div > div:not(.columns-img-col) picture > img:nth-of-type(1) {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+@media (min-width: 1000px) {
   .columns > div {
-    align-items: center;
     flex-direction: unset;
     gap: 32px;
   }
 
   .columns > div > div {
     flex: 1;
-    order: unset;
+  }
+
+  .reverse .columns > div {
+    flex-direction: unset;
   }
 }
