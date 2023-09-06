@@ -80,13 +80,11 @@ main .ageverification-container {
 }
 
 .ageverification-container .ageverification-wrapper .ageverification .agegate-form .agegate-button-wrap a, .wheatley-button {
-    font-family: proxima-nova-condensed,sans-serif;
     line-height: 1;
     transition: all .3s ease-in-out;
 }
 
 .ageverification-container .ageverification-wrapper .ageverification #agefailscreen {
-    font-family: proxima-nova-condensed,sans-serif;
     color: #002855;
     display: none;
     text-align: center;
@@ -94,11 +92,6 @@ main .ageverification-container {
 }
 
 .ageverification-container h2 {
-    font-family: "HCo Ringside Extra Wide",sans-serif;
-    font-size: 14px;
-    font-weight: 900;
-    font-stretch: normal;
-    font-style: normal;
     line-height: 1.15;
     letter-spacing: normal;
     text-align: center;
