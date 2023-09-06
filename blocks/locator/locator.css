@@ -1,4 +1,12 @@
-.locator .wheatley-mikmak {
+.wheatley-mikmak {
   position: relative;
-  z-index: 1;
+  width: 100%;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+}
+
+main .section {
+  padding: 0;
 }

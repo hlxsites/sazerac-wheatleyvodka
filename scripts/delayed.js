@@ -12,7 +12,7 @@ if (curator) {
   loadScript('https://cdn.curator.io/published/704d1255-1e66-44bb-b7a5-5d48cf42802c.js');
 }
 
-const mikmak = document.querySelector('main .wheatley-mikmak');
+const mikmak = document.querySelector('body .wheatley-mikmak');
 if (mikmak) {
-  mikmak.style = 'display: block';
+  mikmak.style = 'visibility: visable';
 }
