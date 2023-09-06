@@ -55,6 +55,10 @@ export default async function decorate(block) {
     quote.classList.add('quotecard');
     if (index === 0) {
       quote.classList.add('active');
+      quote.style.marginLeft = 0;
+    }
+    if (block.children.length === index - 1) {
+      quote.style.marginRight = 0;
     }
   });
 
