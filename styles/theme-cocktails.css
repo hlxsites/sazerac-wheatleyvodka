@@ -24,6 +24,10 @@ body.templates-cocktail .columns-img-col {
   align-self: flex-start;
 }
 
+body.templates-cocktail .columns-img-col img {
+  border-radius: 10px;
+}
+
 body.templates-cocktail .creator {
   display:flex;
   flex-direction: row;

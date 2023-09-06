@@ -74,6 +74,12 @@ export async function loadCocktail(doc) {
         }
         creatorHeader.after(creator);
       }
+      // remove empty paragraphs
+      main.querySelectorAll('p').forEach((p) => {
+        if (p.textContent.trim() === '' && p.children.length === 0) {
+          p.remove();
+        }
+      });
     }
   }
 }
