@@ -61,7 +61,7 @@ main .ageverification-container {
 }
 
 .ageverification-container .ageverification-wrapper .ageverification .agegate-form .agegate-button-wrap a {
-    font-size: var(--heading-font-size-xxl);
+    font-size: var(--body-font-size-xl);
     font-weight: var(--font-weight-sm);
     font-stretch: condensed;
     font-style: normal;
@@ -128,7 +128,7 @@ main .ageverification-container {
     }
 
     .ageverification-container h2 {
-        font-size: var(--heading-font-size-xl);
+        font-size: var(--body-font-size-l);
         margin-bottom: 35px;
     }
 }
