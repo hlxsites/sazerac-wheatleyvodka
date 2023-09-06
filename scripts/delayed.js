@@ -15,4 +15,6 @@ if (curator) {
 const mikmak = document.querySelector('body .wheatley-mikmak');
 if (mikmak) {
   mikmak.style = 'visibility: visable';
+  // add script
+  loadScript('/blocks/locator/locator-init.js', { defer: true });
 }
