@@ -12,5 +12,5 @@ export default async function decorate() {
   // remove section
   section.remove();
   // add script
-  loadScript('/blocks/locator/locator-init.js', { defer: true });
+  window.setTimeout(() => loadScript('/blocks/locator/locator-init.js', { defer: true }), 100);
 }
