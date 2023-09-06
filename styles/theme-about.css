@@ -5,3 +5,8 @@ div.background>div>div>div>div:not(.columns-img-col) {
 div.smallimage img {
   width: 300px;
 }
+
+.smallimage .columns-img-col {
+  max-width: 300px;
+  margin: auto;
+}

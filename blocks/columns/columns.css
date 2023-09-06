@@ -1,10 +1,13 @@
 .columns > div {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
 }
 
 .columns > div > div {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .reverse .columns > div {
@@ -27,11 +30,14 @@
   height: 100%;
   object-fit: cover;
   position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
 @media (min-width: 1000px) {
   .columns > div {
-    align-items: center;
     flex-direction: unset;
     gap: 32px;
   }
