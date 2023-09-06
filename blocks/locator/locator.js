@@ -1,3 +1,5 @@
+import { loadScript } from '../../scripts/lib-franklin.js';
+
 export default async function decorate() {
   // create locator div
   const locator = document.createElement('div');
@@ -9,9 +11,6 @@ export default async function decorate() {
   section.before(locator);
   // remove section
   section.remove();
-  // add script at the end of the body
-  const s = document.createElement('script');
-  s.src = '/blocks/locator/locator-init.js';
-  s.async = true;
-  document.body.appendChild(s);
+  // add script
+  loadScript('/blocks/locator/locator-init.js', { defer: true });
 }
