@@ -5,6 +5,8 @@ let x;
 const sliderContainer = document.querySelector('.quote-carousel-wrapper');
 const innerSlider = document.querySelector('.quote-carousel');
 
+let centerCard = null;
+
 function move(event) {
   if (!pressed) return;
   event.preventDefault();
@@ -14,11 +16,26 @@ function move(event) {
     const r = sliderContainer.getBoundingClientRect();
     x = (event.touches[0].clientX - r.left);
   }
-  innerSlider.style.left = `${x - startX}px`;
+  const newOffsetX = x - startX;
+  innerSlider.style.left = `${newOffsetX}px`;
+
+  const xCenter = (sliderContainer.getBoundingClientRect().width / 2)
+    + sliderContainer.getBoundingClientRect().x;
+  const cards = document.querySelectorAll('.quotecard');
+  cards.forEach((card) => {
+    if (card.getBoundingClientRect().left < xCenter
+      && card.getBoundingClientRect().right > xCenter) {
+      centerCard = card;
+    }
+    card.classList.remove('active');
+  });
+  if (centerCard) {
+    centerCard.classList.add('active');
+  }
 }
 
 export default async function decorate(block) {
-  [...block.children].forEach((quote) => {
+  [...block.children].forEach((quote, index) => {
     const aphoristContainer = document.createElement('div');
     aphoristContainer.className = 'aphorist';
     const picture = quote.querySelector('picture');
@@ -36,6 +53,9 @@ export default async function decorate(block) {
     innderDiv.remove();
     quote.prepend(iconSpan);
     quote.classList.add('quotecard');
+    if (index === 0) {
+      quote.classList.add('active');
+    }
   });
 
   sliderContainer.addEventListener('mousedown', (e) => {
