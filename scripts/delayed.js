@@ -11,3 +11,10 @@ if (curator) {
   curator.parentElement.id = 'curator-feed-wheatley-vodka-layout';
   loadScript('https://cdn.curator.io/published/704d1255-1e66-44bb-b7a5-5d48cf42802c.js');
 }
+
+const mikmak = document.querySelector('body .wheatley-mikmak');
+if (mikmak) {
+  mikmak.style = 'visibility: visable';
+  // add script
+  loadScript('/blocks/locator/locator-init.js', { defer: true });
+}
