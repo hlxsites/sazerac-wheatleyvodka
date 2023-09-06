@@ -9,36 +9,47 @@ main div.section:not(.hero-container) > div {
   margin: 0 0.625rem;
 }
 
-main div.section.featured-container {
-  margin-top: 0;
-}
-
 main h1 {
   margin-top: 0;
 }
 
-/* cocktail created by thumbnail */
-#ingredients, #directions, #created-by {
+body.templates-cocktail h2 {
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
   font-size: var(--heading-font-size-l);
   color: #7f5732;
 }
 
-#created-by+ul img {
+body.templates-cocktail .columns-img-col {
+  align-self: flex-start;
+}
+
+body.templates-cocktail .creator {
+  display:flex;
+  flex-direction: row;
+  margin-left: 2.5rem;
+}
+
+body.templates-cocktail .creator-img img {
   width: 100px;
   height: 100px;
   margin: 0 20px 0 0;
   border-radius: 10px;
 }
 
-#created-by+ul li {
+body.templates-cocktail .creator-info {
+  padding-top: 0;
+}
+
+body.templates-cocktail .creator-info li {
   color: var(--text-color);
   font-weight: var(--font-weight-m);
   line-height: var(--font-line-height-s);
   font-size: var(--heading-font-size-l);
-  display: inline;
+  padding-top: 0;
 }
 
-#created-by+ul a{
+body.templates-cocktail .creator-info a {
   font-weight: var(--font-weight-s);
   line-height: var(--font-line-height-m);
   color: var(--text-color);

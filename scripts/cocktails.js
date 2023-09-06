@@ -55,6 +55,25 @@ export async function loadCocktail(doc) {
       // move the first header1 to top
       const firstHeaderOne = doc.querySelector('h1');
       main.querySelector('.columns').insertAdjacentElement('beforebegin', firstHeaderOne);
+
+      // rearrange creator structure and apply classes
+      const creator = document.createElement('div');
+      creator.className = 'creator';
+      const creatorHeader = main.querySelector('#created-by');
+      if (creatorHeader) {
+        // iterate over adjacent elements until the next header is found
+        let next = creatorHeader.nextElementSibling;
+        while (next && next.tagName !== 'H2') {
+          if (next.tagName === 'P') {
+            next.classList.add('creator-img');
+          } else if (next.tagName === 'UL') {
+            next.classList.add('creator-info');
+          }
+          creator.append(next);
+          next = creatorHeader.nextElementSibling;
+        }
+        creatorHeader.after(creator);
+      }
     }
   }
 }
