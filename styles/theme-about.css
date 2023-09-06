@@ -1,4 +1,4 @@
-div.background>div>div>div>div:first-child {
+div.background>div>div>div>div:not(.columns-img-col) {
   background-color: rgb(126 156 191 / 15%);
 }
 

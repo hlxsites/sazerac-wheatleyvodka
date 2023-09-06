@@ -3,12 +3,16 @@
   flex-direction: column;
 }
 
-.columns img {
-  width: 100%;
+.columns > div > div {
+  position: relative;
 }
 
-.columns > div > div {
-  order: 1;
+.reverse .columns > div {
+  flex-direction: column-reverse;
+}
+
+.columns img {
+  width: 100%;
 }
 
 .columns > div > .columns-img-col {
@@ -19,7 +23,13 @@
   display: block;
 }
 
-@media (min-width: 900px) {
+.columns > div > :not(.columns-img-col) img {
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+}
+
+@media (min-width: 1000px) {
   .columns > div {
     align-items: center;
     flex-direction: unset;
@@ -28,6 +38,9 @@
 
   .columns > div > div {
     flex: 1;
-    order: unset;
+  }
+
+  .reverse .columns > div {
+    flex-direction: unset;
   }
 }
