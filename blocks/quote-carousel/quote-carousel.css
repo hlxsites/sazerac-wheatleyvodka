@@ -1,11 +1,9 @@
-/* slidercontainer */
 .quote-carousel-wrapper {
     height: 480px;
     position: relative;
     overflow: hidden;
 }
 
-/* inner-slider */
 .quote-carousel {
     width: 100%;
     display: flex;
