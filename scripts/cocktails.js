@@ -32,11 +32,13 @@ export async function loadCocktail(doc) {
       cocktailDiv.append(...cocktailData);
 
       const insertLocation = cocktailDiv.previousElementSibling;
+      const parent = cocktailDiv.parentElement;
 
       // create a new columns block, putting any paragraphs to the right column,
       // put the remainers to the left column (such as headers and lists)
       const rightCol = main.querySelector('.cocktail picture');
       const leftCol = main.querySelector('.cocktail');
+      leftCol.classList.remove('cocktail');
       const columnsTable = buildBlock('columns', [[leftCol, rightCol]]);
 
       if (insertLocation) {
@@ -47,9 +49,7 @@ export async function loadCocktail(doc) {
       } else {
         // when there is no content before the cocktail details, just add it on top
         // with no content before, a wrapper has to be introduced to load the columns block
-        const wrapper = document.createElement('div');
-        wrapper.append(columnsTable);
-        main.prepend(wrapper);
+        parent.prepend(columnsTable);
       }
 
       // move the first header1 to top

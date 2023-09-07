@@ -1,0 +1,20 @@
+.wheatley-mikmak {
+  position: relative;
+  width: 100%;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  min-height: 850px;
+}
+
+main div.section:not(.hero-container) {
+  padding: 0;
+  margin: 0 0.5rem;
+}
+
+@media (min-width: 1000px) {
+  main div.section:not(.hero-container) > div {
+    margin: 3.75rem 10.18rem 4.63rem 12.5rem;
+  }
+}
