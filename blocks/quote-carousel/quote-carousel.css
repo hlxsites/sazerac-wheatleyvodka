@@ -56,11 +56,11 @@
     flex-grow: 999;
 }
 
-.quotecard.active, .quotecard.active p {
+.quotecard.active, .quotecard.active p, .quotecard.active>.aphorist {
     background-color: var(--text-color);
+    transition: all .3s ease-in-out;
     color: white;
     opacity: 1;
-    transition: all .3s ease-in-out;
 }
 
 .leftspacer {
