@@ -40,6 +40,7 @@ body.templates-cocktail main li {
   padding: 0.5rem 0;
   margin-top: 0;
   font-size: var(--body-font-size-m);
+  color: var(--recipe-text-color);
 }
 
 body.templates-cocktail main .columns-img-col {
@@ -94,12 +95,12 @@ body.templates-cocktail main .creator-info a {
 }
 
 @media (min-width: 1000px) {
-  body.templates-cocktail main div.section {
-    margin: 0 auto;
-  }
-
   main div.section:not(.hero-container) {
     max-width: 1500px;
+  }
+
+  body.templates-cocktail main div.section {
+    margin: 0 auto;
   }
 
   main div.section:not(.hero-container) > div {
