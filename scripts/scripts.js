@@ -69,12 +69,27 @@ export function setCookie(name, value, timeInMillis, path) {
   const cookie = `${name}=${value}; ${expiry}; path=${path}; SameSite=None; Secure`;
   document.cookie = cookie;
 }
+
+export function getUrlParameter(sParam) {
+  const sPageURL = window.location.search.substring(1);
+  const sURLVariables = sPageURL.split('&');
+  /* eslint-disable-next-line no-plusplus */
+  for (let i = 0; i < sURLVariables.length; i++) {
+    const sParameterName = sURLVariables[i].split('=');
+
+    if (sParameterName[0] === sParam) {
+      return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+    }
+  }
+  return false;
+}
+
 /**
  * Builds ageconfirm block and prepends to main in a new section.
  * @param {Element} main The container element
  */
 function buildAgeConfirmBlock(main) {
-  if (!getCookie('sazAgeOK')) {
+  if (!(getCookie('sazAgeOK') || getUrlParameter('noAgeCheck'))) {
     const section = document.createElement('div');
     section.append(buildBlock('ageverification', { elems: [] }));
     main.prepend(section);
