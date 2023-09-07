@@ -40,6 +40,10 @@ export async function loadCocktail(doc) {
       const leftCol = main.querySelector('.cocktail');
       leftCol.classList.remove('cocktail');
       const columnsTable = buildBlock('columns', [[leftCol, rightCol]]);
+      // load image eager
+      rightCol.querySelectorAll('img').forEach((img) => {
+        img.loading = 'eager';
+      });
 
       if (insertLocation) {
         // in case when there is content before the cocktail details,
@@ -79,9 +83,6 @@ export async function loadCocktail(doc) {
         if (p.textContent.trim() === '' && p.children.length === 0) {
           p.remove();
         }
-      });
-      main.querySelectorAll('img').forEach((img) => {
-        img.loading = 'eager';
       });
     }
   }
