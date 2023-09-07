@@ -39,7 +39,7 @@ export default async function decorate(block) {
       item.className = 'featured-recipe';
 
       // create an img and a link element
-      const img = createOptimizedPicture(recipe.image, recipe.title, true);
+      const img = createOptimizedPicture(recipe.image, usePlain ? null : recipe.title, true);
       img.className = 'featured-recipe-image';
       const newlink = document.createElement('a');
       newlink.href = recipe.path;
