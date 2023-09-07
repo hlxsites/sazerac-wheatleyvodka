@@ -196,6 +196,15 @@ export default async function decorate(block) {
           const social = document.createElement('div');
           social.className = 'header-social';
           social.append(ul);
+          ul.querySelectorAll('a').forEach((a) => {
+            if (a.href.startsWith('https://www.facebook.com/')) {
+              a.title = 'Facebook';
+            } else if (a.href.startsWith('https://www.youtube.com/')) {
+              a.title = 'YouTube';
+            } else if (a.href.startsWith('https://www.instagram.com/')) {
+              a.title = 'Instagram';
+            }
+          });
           navSections.querySelector('.nav-hamburger-close').insertAdjacentElement('beforebegin', social);
         }
       }
@@ -204,7 +213,7 @@ export default async function decorate(block) {
     // hamburger for mobile
     const hamburger = document.createElement('div');
     hamburger.classList.add('nav-hamburger');
-    hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
+    hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Menu">
         <i>Menu</i>
         <span class="nav-hamburger-icon"></span>
       </button>`;

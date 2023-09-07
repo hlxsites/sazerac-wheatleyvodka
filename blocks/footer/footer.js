@@ -22,6 +22,15 @@ export default async function decorate(block) {
     // get first and second child element
     const first = footer.firstElementChild;
     if (first) first.className = 'footer-social';
+    footer.querySelectorAll('a').forEach((a) => {
+      if (a.href.startsWith('https://www.facebook.com/')) {
+        a.title = 'Facebook';
+      } else if (a.href.startsWith('https://www.youtube.com/')) {
+        a.title = 'YouTube';
+      } else if (a.href.startsWith('https://www.instagram.com/')) {
+        a.title = 'Instagram';
+      }
+    });
     const second = first.nextElementSibling;
     if (second) {
       second.className = 'footer-links';
