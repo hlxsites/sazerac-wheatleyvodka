@@ -11,7 +11,6 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
-  getMetadata,
 } from './lib-franklin.js';
 import {
   loadCocktail,
@@ -157,22 +156,11 @@ export function setActiveLink(links, className) {
 }
 
 /**
- * Load theme css
- */
-function loadTheme() {
-  const theme = getMetadata('theme');
-  if (theme) {
-    loadCSS(`${window.hlx.codeBasePath}/styles/theme-${theme}.css`);
-  }
-}
-
-/**
  * Decorates the main element.
  * @param {Element} main The main element
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
-  loadTheme();
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
@@ -203,6 +191,16 @@ function setTitle(doc) {
       metaTitle.content = 'Wheatley Vodka';
     }
   }
+}
+
+function setMetaTag(type, name, value) {
+  let meta = document.querySelector(`meta[${type}='${name}']`);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = name;
+    document.querySelector('head').append(meta);
+  }
+  meta.content = value;
 }
 
 function createMetadata(name, value) {
@@ -243,6 +241,11 @@ function addFavIcon(
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   setTitle(doc);
+  const h1 = doc.querySelector('body h1');
+  if (h1) {
+    setMetaTag('name', 'og:description', h1.textContent);
+    setMetaTag('name', 'description', h1.textContent);
+  }
   decorateTemplateAndTheme();
   await loadCocktail(doc);
   const main = doc.querySelector('main');

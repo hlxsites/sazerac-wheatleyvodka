@@ -4,7 +4,7 @@ import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 const DEFAULT_RECIPE = {
   path: '/cocktails',
   title: 'All Cocktails',
-  image: '/images/all-cocktails.png#width=905&height=650',
+  image: '/images/all-cocktails.png?width=905&height=650&format=webply&optimize=medium',
 };
 
 export default async function decorate(block) {
@@ -39,7 +39,7 @@ export default async function decorate(block) {
       item.className = 'featured-recipe';
 
       // create an img and a link element
-      const img = createOptimizedPicture(recipe.image, recipe.title, true);
+      const img = createOptimizedPicture(recipe.image, usePlain ? null : recipe.title, true);
       img.className = 'featured-recipe-image';
       const newlink = document.createElement('a');
       newlink.href = recipe.path;
