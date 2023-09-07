@@ -94,13 +94,26 @@ body.templates-cocktail main .creator-info a {
   font-size: var(--button-font-size);
 }
 
+@media (min-width: 480px) {
+  body.templates-cocktail main div.section {
+    max-width: 420px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 691px) {
+  body.templates-cocktail main div.section {
+    max-width: 600px;
+  }
+}
+
 @media (min-width: 1000px) {
   main div.section:not(.hero-container) {
     max-width: 1500px;
   }
 
   body.templates-cocktail main div.section {
-    margin: 0 auto;
+    max-width: 1500px;
   }
 
   main div.section:not(.hero-container) > div {
