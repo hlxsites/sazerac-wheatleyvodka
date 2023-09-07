@@ -1,0 +1,155 @@
+.section.buy-container {
+  padding: 0;
+}
+
+@media (min-width: 1000px) {
+  .section > div.buy-wrapper {
+    max-width: unset;
+  }
+}
+
+.buy {
+  position: relative;
+  padding-top: 240px;
+}
+
+.buy .block-background-image {
+  display: none;
+}
+
+
+@media (min-width: 1000px) {
+  .buy {
+    padding-top: 0;
+  }
+
+  .buy .block-background-image-mobile {
+    display: none;
+  }
+
+  .buy .block-background-image {
+    display: block;
+  }
+}
+
+.buy .buy-template {
+  background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png?width=2000&format=webply&optimize=medium');
+  background-size: contain;
+  top: 0;
+  left: calc(50% - 172.5px);
+  width: 345px;
+  height: 277px;
+  border-radius: 10px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 1000px) {
+  .buy .buy-template {
+    top: calc(50% - 250px);
+    left: calc(75% - 260px);
+    width: 520px;
+    height: 500px;
+  }
+}
+
+.buy .buy-template > div.title {
+  font-weight: 900;
+  font-size: 21px;
+  font-family: var(--heading-font-family);
+  line-height: 1.15;
+  color: #fff;
+  max-width: 250px;
+  text-align: center;
+  padding: 10px 25px;
+  display: inline-block;
+}
+
+.buy .buy-template > div.buttons {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 50px 20px 25px;
+  gap: 15px;
+}
+
+@media (min-width: 1000px) {
+  .buy .buy-template > div.buttons {
+    flex-direction: row;
+  }
+
+  .buy .buy-template > div.title {
+    padding: 20px 50px 20px 25px;
+    font-size: 36px;
+    max-width: 300px;
+  }
+}
+
+.buy .buy-template a {
+  margin: auto;
+  width: 180px;
+  height: 56px;
+  display: flex;
+}
+
+.buy .button-container {
+  position: relative;
+  width: 180px;
+  height: 56px;
+}
+
+.buy .buy-template .locator-link a {
+  color: #fff;
+  border: 4px solid #fff;
+  margin: 0;
+  font-size: 18px;
+  background-image: none;
+  width: 172px;
+  height: 48px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.buy .buy-template .buy-link-image {
+  display: inline-block;
+  margin: -6px 0 0 6px;
+  width: 36px;
+  height: 36px;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+}
+
+.buy .buy-template .locator-link-image {
+  display: inline-block;
+  position: absolute;
+  margin: 0 0 0 7px;
+  width: 20px;
+  height: 20px;
+  top: 10px;
+  right: 10px;
+}
+
+@media (min-width: 1000px) {
+  .buy .button-container {
+    width: 200px;
+    height: 70px;
+  }
+
+  .buy .buy-template a {
+    width: 200px;
+    height: 70px;
+  }
+
+  .buy .buy-template .locator-link a {
+    width: 192px;
+    height: 62px;
+  }
+
+  .buy .buy-template .buy-link-image {
+    top: 25px;
+    right: 20px;
+  }
+}
