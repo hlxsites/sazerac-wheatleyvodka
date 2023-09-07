@@ -4,7 +4,7 @@ import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 const DEFAULT_RECIPE = {
   path: '/cocktails',
   title: 'All Cocktails',
-  image: '/images/all-cocktails.png#width=905&height=650',
+  image: '/images/all-cocktails.png?width=905&height=650&format=webply&optimize=medium',
 };
 
 export default async function decorate(block) {

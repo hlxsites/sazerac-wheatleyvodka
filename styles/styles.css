@@ -369,7 +369,7 @@ a:hover {
 
 /* buttons */
 a.button:any-link, button {
-  background-image: url('/media_1372b1ee12bd67fae1385a9639f30737bfa554606.png#width=521&height=112&format=webply&optimize=medium');
+  background-image: url('/media_1372b1ee12bd67fae1385a9639f30737bfa554606.png?width=521&height=112&format=webply&optimize=medium');
   display: flex;
   align-items: center;
   justify-content: center;
@@ -389,7 +389,7 @@ a.button:any-link, button {
 
 a.button:hover, a.button:focus  {
   background-color: var(--link-hover-color);
-  background-image:url('/media_12de200726a79fbc39c47cf6a4be6ca9b2c5dbf0b.png#width=521&height=112&format=webply&optimize=medium');
+  background-image:url('/media_12de200726a79fbc39c47cf6a4be6ca9b2c5dbf0b.png?width=521&height=112&format=webply&optimize=medium');
   color:#002855;
   cursor: pointer;
   text-decoration: none;
