@@ -80,6 +80,9 @@ export async function loadCocktail(doc) {
           p.remove();
         }
       });
+      main.querySelectorAll('img').forEach((img) => {
+        img.loading = 'eager';
+      });
     }
   }
 }
