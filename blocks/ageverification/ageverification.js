@@ -5,35 +5,33 @@ import { setCookie } from '../../scripts/scripts.js';
 export default async function decorate(block) {
   block.textContent = '';
 
-  const resp = await fetch('/templates/ageverification.plain.html', window.location.pathname.endsWith('/templates/ageverification') ? { cache: 'reload' } : {});
+  const resp = await fetch('/templates/verification.plain.html', window.location.pathname.endsWith('/templates/verification') ? { cache: 'reload' } : {});
 
   if (resp.ok) {
     const html = await resp.text();
     const ageverification = document.createElement('div');
     ageverification.innerHTML = html;
+
+    const verification = ageverification.getElementsByClassName('verification')[0];
+    const rejection = ageverification.getElementsByClassName('rejection')[0];
+
     const agegateimage = document.createElement('div');
     agegateimage.className = 'agegate-image';
+    agegateimage.style.backgroundImage = `url(${ageverification.querySelector('p picture img').getAttribute('src')})`;
     const agegateform = document.createElement('div');
     agegateform.className = 'agegate-form';
     agegateform.id = 'agegateform';
 
-    const agegatelogo = document.createElement('div');
-    agegatelogo.className = 'agegate-logo';
-    const logoicon = document.createElement('p');
-    const logo = document.createElement('span');
-    logo.className = 'icon icon-logo-agegate';
-    logoicon.appendChild(logo);
-    agegatelogo.appendChild(logoicon);
+    const agegatelogo = ageverification.getElementsByClassName('agegate-logo')[0];
     const agegatetitle = document.createElement('div');
     agegatetitle.className = 'title-wrapper';
-    const agetittletxt = document.createElement('h2');
-    agetittletxt.innerText = ageverification.querySelector('div').querySelector('h1').innerText;
+    const agetittletxt = verification.querySelector('h1');
     const agegatebutton = document.createElement('div');
     agegatebutton.className = 'agegate-button-wrap';
     const buttonyes = document.createElement('a');
     buttonyes.id = 'agegate-button-yes';
     buttonyes.href = '#';
-    buttonyes.innerText = 'Yes';
+    buttonyes.innerText = verification.querySelectorAll('div')[2].querySelector('div').innerText;
     // eslint-disable-next-line func-names
     buttonyes.onclick = function () {
       setCookie('sazAgeOK', 'yes', 63113852000, '/');
@@ -43,7 +41,7 @@ export default async function decorate(block) {
     const buttonno = document.createElement('a');
     buttonno.id = 'agegate-button-no';
     buttonno.href = '#';
-    buttonno.innerText = 'No';
+    buttonno.innerText = verification.querySelectorAll('div')[4].querySelector('div').innerText;
     // eslint-disable-next-line func-names
     buttonno.onclick = function () {
       const targetDiv = document.getElementById('agefailscreen');
@@ -60,12 +58,7 @@ export default async function decorate(block) {
     const agefailscreen = document.createElement('div');
     agefailscreen.id = 'agefailscreen';
     agefailscreen.style.display = 'none';
-    const afstitle = document.createElement('h3');
-    afstitle.innerText = ageverification.querySelector('div').querySelector('h2').innerText;
-    const afstext = document.createElement('p');
-    afstext.innerHTML = ageverification.querySelector('div').querySelector('h3').innerHTML;
-    agefailscreen.appendChild(afstitle);
-    agefailscreen.appendChild(afstext);
+    agefailscreen.innerHTML = rejection.innerHTML;
 
     agegatetitle.appendChild(agetittletxt);
     agegateform.appendChild(agegatelogo);

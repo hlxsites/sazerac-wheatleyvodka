@@ -37,7 +37,6 @@ main .ageverification-container {
     min-height: 345px;
     background-position: center 80%;
     background-size: cover;
-    background-image: url('/media_13d508f09cff01ffd9d9b33277f862b8aca734e14.webp?width=750&format=webp&optimize=medium');
 }
 
 .ageverification-container .ageverification-wrapper .ageverification .agegate-form {
@@ -91,7 +90,7 @@ main .ageverification-container {
     margin: auto;
 }
 
-.ageverification-container h2 {
+.ageverification-container h1 {
     line-height: 1.15;
     letter-spacing: normal;
     text-align: center;
@@ -127,7 +126,7 @@ main .ageverification-container {
         padding-top: 50px;
     }
 
-    .ageverification-container h2 {
+    .ageverification-container h1 {
         font-size: var(--body-font-size-l);
         margin-bottom: 35px;
     }
