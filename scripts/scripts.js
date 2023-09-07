@@ -11,10 +11,8 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  getMetadata,
 } from './lib-franklin.js';
-import {
-  loadCocktail,
-} from './cocktails.js';
 
 const LCP_BLOCKS = ['hero']; // add your LCP blocks to the list
 
@@ -196,7 +194,10 @@ async function loadEager(doc) {
     setMetaTag('name', 'description', h1.textContent);
   }
   decorateTemplateAndTheme();
-  await loadCocktail(doc);
+  if (getMetadata('template')) {
+    const cocktails = await import(`${window.hlx.codeBasePath}/scripts/cocktails.js`);
+    await cocktails.loadCocktail(doc);
+  }
   const main = doc.querySelector('main');
   if (main) {
     decorateMain(main);
