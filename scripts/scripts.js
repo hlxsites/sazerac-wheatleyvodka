@@ -193,6 +193,7 @@ async function loadEager(doc) {
   const h1 = doc.querySelector('body h1');
   if (h1) {
     setMetaTag('name', 'og:description', h1.textContent);
+    setMetaTag('name', 'description', h1.textContent);
   }
   decorateTemplateAndTheme();
   await loadCocktail(doc);
