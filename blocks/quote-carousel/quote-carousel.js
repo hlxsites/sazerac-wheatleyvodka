@@ -1,18 +1,11 @@
-let pressed = false;
-let startX;
-let x;
-let centerCard = null;
-const sliderContainer = document.querySelector('.quote-carousel-wrapper');
-const innerSlider = document.querySelector('.quote-carousel');
-
 /**
  * decorates all cards and marks the current one active
  * @param event the triggered event or null if none
  */
-function decorateCards(event) {
+function decorateCards(event, block) {
   // the center of the entire carousel, used to determine style and snap
-  const xCenter = (sliderContainer.getBoundingClientRect().width / 2)
-    + sliderContainer.getBoundingClientRect().x;
+  const xCenter = (block.sliderContainer.getBoundingClientRect().width / 2)
+    + block.sliderContainer.getBoundingClientRect().x;
 
   // style all cards, and when triggered by event, choose the card in the center
   const cards = document.querySelectorAll('.quotecard');
@@ -20,22 +13,22 @@ function decorateCards(event) {
     if (event != null && card.getBoundingClientRect().left < xCenter
       && card.getBoundingClientRect().right > xCenter) {
       // center is between left and right of this card, choose it as the card to center
-      centerCard = card;
-    } else if (centerCard !== card) {
+      block.centerCard = card;
+    } else if (block.centerCard !== card) {
       // style all cards that are not centered, update the pagedots
       card.classList.remove('active');
       card.ariaSelected = false;
       const cardId = card.id.replace('card-', '');
-      sliderContainer.querySelectorAll('.quote-carousel-wrapper>ol>li').item(cardId).classList.remove('active');
+      block.sliderContainer.querySelectorAll('.quote-carousel-wrapper>ol>li').item(cardId).classList.remove('active');
     }
   });
 
-  if (centerCard) {
+  if (block.centerCard) {
     // mark current card as the center card
-    centerCard.classList.add('active');
-    centerCard.ariaSelected = true;
-    const cardId = centerCard.id.replace('card-', '');
-    sliderContainer.querySelectorAll('.quote-carousel-wrapper>ol>li').item(cardId).classList.add('active');
+    block.centerCard.classList.add('active');
+    block.centerCard.ariaSelected = true;
+    const cardId = block.centerCard.id.replace('card-', '');
+    block.sliderContainer.querySelectorAll('.quote-carousel-wrapper>ol>li').item(cardId).classList.add('active');
   }
 }
 
@@ -43,43 +36,43 @@ function decorateCards(event) {
  * moves all cards in the carousel, by dragging with mouse or touch
  * @param event the user event
  */
-function move(event) {
-  if (!pressed) return;
+function move(event, block) {
+  if (!block.pressed) return;
   event.preventDefault();
 
   // find current horizontal offset
-  x = event.offsetX;
+  block.x = event.offsetX;
   if (event.type === 'touchmove') {
-    const r = sliderContainer.getBoundingClientRect();
-    x = (event.touches[0].clientX - r.left);
+    const r = block.sliderContainer.getBoundingClientRect();
+    block.x = (event.touches[0].clientX - r.left);
   }
 
   // determine the amount of moved pixels horizontally and move the cards accordingly
-  const newOffsetX = x - startX;
-  innerSlider.style.left = `${newOffsetX}px`;
-  decorateCards(event);
+  const newOffsetX = block.x - block.startX;
+  block.innerSlider.style.left = `${newOffsetX}px`;
+  decorateCards(event, block);
 }
 
 /**
  * snaps the currently selected card to the center
  */
-function snap() {
-  if (centerCard) {
+function snap(block) {
+  if (block.centerCard) {
     // the middle of the card to center
-    const cardCurrentMiddle = centerCard.getBoundingClientRect().x
-      + (centerCard.getBoundingClientRect().width / 2);
+    const cardCurrentMiddle = block.centerCard.getBoundingClientRect().x
+      + (block.centerCard.getBoundingClientRect().width / 2);
 
     // the snap point in the center. the middle of the card and
     // this snap point must overlay to center it
-    const snapCenterPoint = sliderContainer.getBoundingClientRect().x
-      + (sliderContainer.getBoundingClientRect().width / 2);
+    const snapCenterPoint = block.sliderContainer.getBoundingClientRect().x
+      + (block.sliderContainer.getBoundingClientRect().width / 2);
 
     // the deviation between the two, or said different:
     // the amount of pixels to move in order to snap
     const deviationToCenterPoint = Math.abs(snapCenterPoint - cardCurrentMiddle);
 
     // calculate the new horizontal offset
-    let newOffsetX = Number(innerSlider.style.left.replace('px', ''));
+    let newOffsetX = Number(block.innerSlider.style.left.replace('px', ''));
     if (cardCurrentMiddle < snapCenterPoint) {
       newOffsetX += deviationToCenterPoint;
     } else {
@@ -87,19 +80,19 @@ function snap() {
     }
 
     // apply the new offset with a transition
-    innerSlider.style.transition = 'all .5s ease-in-out';
-    innerSlider.style.left = `${newOffsetX}px`;
+    block.innerSlider.style.transition = 'all .5s ease-in-out';
+    block.innerSlider.style.left = `${newOffsetX}px`;
   }
-  decorateCards(null);
+  decorateCards(null, block);
 }
 
 /**
  * selects the given card and snaps it, so it is moved into center
  * @param quote the card to select
  */
-function selectCard(quote) {
-  centerCard = quote;
-  snap();
+function selectCard(quote, block) {
+  block.centerCard = quote;
+  snap(block);
 }
 
 /**
@@ -108,10 +101,18 @@ function selectCard(quote) {
  * @returns {Promise<void>}
  */
 export default async function decorate(block) {
+  // store some information
+  block.pressed = false;
+  block.startX = null;
+  block.x = null;
+  block.centerCard = null;
+  block.sliderContainer = document.querySelector('.quote-carousel-wrapper');
+  block.innerSlider = document.querySelector('.quote-carousel');
+
   // add page dots at the bottom to choose a card (or a quote)
   const pageDots = document.createElement('ol');
   pageDots.classList.add('pagedots');
-  sliderContainer.append(pageDots);
+  block.sliderContainer.append(pageDots);
 
   // for all cards, create their content and style it accordingly
   [...block.children].forEach((quote, index) => {
@@ -154,7 +155,7 @@ export default async function decorate(block) {
     pageDot.classList.add('pagedot');
     pageDot.ariaLabel = `Page Dot ${index}`;
     pageDot.addEventListener('click', () => {
-      selectCard(quote);
+      selectCard(quote, block);
     });
     pageDots.append(pageDot);
 
@@ -167,33 +168,33 @@ export default async function decorate(block) {
   });
 
   // register all event listeners for mouse and touch
-  sliderContainer.addEventListener('mousedown', (e) => {
-    pressed = true;
-    startX = e.offsetX - innerSlider.offsetLeft;
-    sliderContainer.style.cursor = 'grabbing';
-    innerSlider.style.transition = null;
+  block.sliderContainer.addEventListener('mousedown', (e) => {
+    block.pressed = true;
+    block.startX = e.offsetX - block.innerSlider.offsetLeft;
+    block.sliderContainer.style.cursor = 'grabbing';
+    block.innerSlider.style.transition = null;
   });
 
-  sliderContainer.addEventListener('mouseenter', () => {
-    sliderContainer.style.cursor = 'grab';
+  block.sliderContainer.addEventListener('mouseenter', () => {
+    block.sliderContainer.style.cursor = 'grab';
   });
 
-  sliderContainer.addEventListener('mouseup', () => {
-    sliderContainer.style.cursor = 'grab';
-    pressed = false;
-    snap();
+  block.sliderContainer.addEventListener('mouseup', () => {
+    block.sliderContainer.style.cursor = 'grab';
+    block.pressed = false;
+    snap(block);
   });
-  sliderContainer.addEventListener('mousemove', move);
+  block.sliderContainer.addEventListener('mousemove', (e) => { move(e, block); });
 
-  sliderContainer.addEventListener('touchstart', (e) => {
-    pressed = true;
-    innerSlider.style.transition = null;
-    const r = sliderContainer.getBoundingClientRect();
-    startX = (e.touches[0].clientX - r.left) - innerSlider.offsetLeft;
+  block.sliderContainer.addEventListener('touchstart', (e) => {
+    block.pressed = true;
+    block.innerSlider.style.transition = null;
+    const r = block.sliderContainer.getBoundingClientRect();
+    block.startX = (e.touches[0].clientX - r.left) - block.innerSlider.offsetLeft;
   });
-  sliderContainer.addEventListener('touchend', () => {
-    pressed = false;
-    snap();
+  block.sliderContainer.addEventListener('touchend', () => {
+    block.pressed = false;
+    snap(block);
   });
-  sliderContainer.addEventListener('touchmove', move);
+  block.sliderContainer.addEventListener('touchmove', (e) => { move(e, block); });
 }
