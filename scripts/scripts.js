@@ -142,6 +142,16 @@ function setTitle(doc) {
   }
 }
 
+function setMetaTag(type, name, value) {
+  let meta = document.querySelector(`meta[${type}='${name}']`);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = name;
+    document.querySelector('head').append(meta);
+  }
+  meta.content = value;
+}
+
 function createMetadata(name, value) {
   const meta = document.createElement('meta');
   meta.setAttribute('name', name);
@@ -180,6 +190,10 @@ function addFavIcon(
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
   setTitle(doc);
+  const h1 = doc.querySelector('body h1');
+  if (h1) {
+    setMetaTag('name', 'og:description', h1.textContent);
+  }
   decorateTemplateAndTheme();
   await loadCocktail(doc);
   const main = doc.querySelector('main');
