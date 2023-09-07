@@ -94,6 +94,10 @@ export default async function decorate(block) {
     }
     quote.id = `card-${index}`;
 
+    const leftSpacer = document.createElement('div');
+    leftSpacer.classList.add('leftspacer');
+    quote.prepend(leftSpacer);
+
     const pageDot = document.createElement('li');
     pageDot.classList.add('pagedot');
     pageDot.ariaLabel = `Page Dot ${index}`;
