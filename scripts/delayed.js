@@ -4,6 +4,9 @@ import { loadScript, sampleRUM } from './lib-franklin.js';
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
 
+// GTM
+loadScript('/scripts/gtm-init.js', { defer: true });
+
 // add more delayed functionality here
 const curator = document.querySelector('main a[href="https://curator.io"]');
 
