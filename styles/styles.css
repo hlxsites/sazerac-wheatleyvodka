@@ -50,6 +50,9 @@
   /* button font sizes */
   --button-font-size: 18px;
 
+  /** Footer font size */
+  --footer-font-size: 16px;
+
   /* Recipe title font size */
   --recipe-title-font-size: 21px;
 
