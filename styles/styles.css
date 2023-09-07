@@ -20,6 +20,8 @@
   --text-color: #002855;
   --navigation-text-color: #fff;
   --header-text-color: #002855;
+  --highlight-text-color: #7f5732;
+  --recipe-text-color: black;
 
   /* fonts */
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
