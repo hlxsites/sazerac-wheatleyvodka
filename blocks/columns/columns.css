@@ -18,15 +18,7 @@
   width: 100%;
 }
 
-.columns > div > .columns-img-col {
-  order: 0;
-}
-
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
-.background-image .columns > div > div:not(.columns-img-col) picture > img:nth-of-type(1) {
+.background-image picture > img {
   height: 100%;
   object-fit: cover;
   position: absolute;
@@ -35,6 +27,14 @@
   left: 0;
   right: 0;
   z-index: -1;
+}
+
+.columns > div > .columns-img-col {
+  order: 0;
+}
+
+.columns > div > .columns-img-col img {
+  display: block;
 }
 
 @media (min-width: 1000px) {
