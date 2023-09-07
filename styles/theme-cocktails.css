@@ -94,6 +94,10 @@ body.templates-cocktail main .creator-info a {
 }
 
 @media (min-width: 1000px) {
+  body.templates-cocktail main div.section {
+    margin: 0 auto;
+  }
+
   main div.section:not(.hero-container) {
     max-width: 1500px;
   }
