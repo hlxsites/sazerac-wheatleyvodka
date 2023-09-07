@@ -3,7 +3,7 @@
     position:relative;
     padding-top:136px;
     border-radius:10px;
-    border:1px solid #7f5732;
+    border:1px solid var(--highlight-text-color);
     margin:100px 15px;
     min-width: 200px;
 }
