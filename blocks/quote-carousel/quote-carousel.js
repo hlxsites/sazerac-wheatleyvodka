@@ -82,6 +82,8 @@ function snap(block) {
       newOffsetX -= deviationToCenterPoint;
     }
 
+    console.log('cardmiddle: '+cardCurrentMiddle+', devi: '+deviationToCenterPoint+', newOffsetX: '+newOffsetX+', snapcenter: '+snapCenterPoint);
+
     // apply the new offset with a transition
     block.style.transition = 'all .5s ease-in-out';
     block.style.left = `${newOffsetX}px`;
@@ -199,4 +201,24 @@ export default async function decorate(block) {
     snap(block);
   });
   block.parentElement.addEventListener('touchmove', (e) => { move(e, block); });
+
+  /**
+   * tiny function to start a timer when window is resized and stop/replace
+   * that timer as long as the resize is going on. this way, there is no
+   * unneeded painting executed(with invalid measurements for card center)
+   * and when the window resize has stopped,
+   * the last timer runs out and executes the given function.
+   * @param func the function to execute once the resizing has stopped
+   */
+  function resizeWhenDone(func) {
+    block.timer = null;
+    return function (event) {
+      if (block.timer) clearTimeout(block.timer);
+      block.timer = setTimeout(func, 100, event);
+    };
+  }
+
+  window.addEventListener('resize', resizeWhenDone(() => {
+    snap(block);
+  }));
 }
