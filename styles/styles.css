@@ -530,7 +530,7 @@ ul {
 }
 
 /** Themes */
-body.templates-cocktail main div.section {
+body.templates-cocktail main div.section:not(.ageverification-container) {
   padding: 0;
   margin: 0 2.25rem;
 }
@@ -627,14 +627,14 @@ body.templates-cocktail main .creator-info a {
 }
 
 @media (min-width: 480px) {
-  body.templates-cocktail main div.section {
+  body.templates-cocktail main div.section:not(.ageverification-container) {
     max-width: 420px;
     margin: 0 auto;
   }
 }
 
 @media (min-width: 691px) {
-  body.templates-cocktail main div.section {
+  body.templates-cocktail main div.section:not(.ageverification-container) {
     max-width: 600px;
   }
 }
