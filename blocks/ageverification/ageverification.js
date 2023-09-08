@@ -42,6 +42,7 @@ export default async function decorate(block) {
     buttonno.id = 'agegate-button-no';
     buttonno.href = '#';
     buttonno.innerText = verification.querySelectorAll('div')[4].querySelector('div').innerText;
+    const rejectionLink = rejection.querySelector('a').getAttribute('href');
     // eslint-disable-next-line func-names
     buttonno.onclick = function () {
       const targetDiv = document.getElementById('agefailscreen');
@@ -50,7 +51,7 @@ export default async function decorate(block) {
         hideDiv.style.display = 'none';
         targetDiv.style.display = 'block';
         setTimeout(() => {
-          window.location.href = 'https://www.responsibility.org/';
+          window.location.href = rejectionLink;
         }, (5000));
       }
     };
