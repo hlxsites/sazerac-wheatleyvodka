@@ -56,6 +56,7 @@ main .ageverification-container {
 
 .ageverification .agegate-button-wrap {
     margin-top: 30px;
+    margin-bottom: 30px;
     flex-grow: 0;
     display: flex;
     flex-direction: row;
@@ -84,10 +85,21 @@ main .ageverification-container {
     transition: all .3s ease-in-out;
 }
 
-.ageverification .rejection {
+.ageverification .rejection h3 {
+    font-family: var(--heading-font-family);
+    font-weight: var(--font-weight-sm);
+    font-size: var(--body-font-size-l);
+    line-height: 34px;
+    letter-spacing: 0;
     color: #002855;
     text-align: center;
-    margin: auto;
+}
+
+.ageverification .rejection div {
+    font-weight: var(--font-weight-s);
+    font-size: var(--body-font-size-s);
+    padding-bottom: 5px;
+    text-align: center;
 }
 
 .ageverification .agegate-button.hidden,
@@ -96,11 +108,13 @@ main .ageverification-container {
 }
 
 .ageverification h1 {
+    font-size: var(--heading-font-size-l);
     line-height: 1.15;
     letter-spacing: normal;
     text-align: center;
     color: #002855;
     text-transform: uppercase;
+    margin-top: 0px;
 }
 
 .ageverification .agegate-logo {
@@ -129,8 +143,18 @@ main .ageverification-container {
 
     .ageverification h1 {
         padding-top: 50px;
-        font-size: var(--body-font-size-l);
+        font-size: var(--heading-font-size-l);
         margin-bottom: 35px;
+    }
+
+    .ageverification .rejection  {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .ageverification .rejection h3 {
+        padding-top: 150px;
+        font-size: var(--heading-font-size-l);
     }
 }
 
