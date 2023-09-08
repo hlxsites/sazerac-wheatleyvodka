@@ -8,8 +8,7 @@
   min-height: 850px;
 }
 
-
-.wheatley-mikmak #mikmak_embed__thumbnail_gallery {
+.wheatley-mikmak #mikmak_embed__thumbnail_gallery { /* stylelint-disable-line */
 	display: none !important
 }
 
@@ -25,16 +24,16 @@
 	text-align: center
 }
 
-.wheatley-mikmak .mm-3aiRS img {
+.wheatley-mikmak .mm-3aiRS img { /* stylelint-disable-line */
 	height: 17px;
 	max-width: 12px;
 	margin-right: 13px
 }
 
-.wheatley-mikmak .mikmak_embed__online-btn {
+.wheatley-mikmak .mikmak_embed__online-btn { /* stylelint-disable-line */
 	margin: 3px auto
 }
 
-.mikmak_embed__powered-by-logo {
+.mikmak_embed__powered-by-logo { /* stylelint-disable-line */
 	display: none
 }
