@@ -57,6 +57,10 @@
   color: var(--text-color);
 }
 
+.featured.plain .featured-recipe span:hover {
+  color: var(--background-color);
+}
+
 .featured .featured-recipe.button-container a {
   position: absolute;
   left: 50%;
@@ -69,13 +73,16 @@
 .featured .featured-recipe:hover {
   background-color: var(--text-color);
 }
-  
-.featured.special .featured-recipe .featured-recipe-image:hover {
+
+.featured .featured-recipe:hover span {
+  color: var(--background-color);
+}
+
+.featured.special .featured-recipe:hover .featured-recipe-image{
   opacity: .55;
 }
   
-.featured .featured-recipe .featured-recipe-image:hover + span {
-  color: var(--background-color);
+.featured.special .featured-recipe:hover span {
   display: block;
 }
 
