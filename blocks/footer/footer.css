@@ -4,6 +4,8 @@ footer {
   color: var(--navigation-text-color);
   font-size: var(--footer-font-size);
   height: var(--footer-height);
+  z-index: 1010;
+  position: relative;
 }
 
 footer .footer {

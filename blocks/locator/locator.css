@@ -8,13 +8,32 @@
   min-height: 850px;
 }
 
-main div.section:not(.hero-container) {
-  padding: 0;
-  margin: 0 0.5rem;
+.wheatley-mikmak #mikmak_embed__thumbnail_gallery { /* stylelint-disable-line */
+	display: none !important
 }
 
-@media (min-width: 1000px) {
-  main div.section:not(.hero-container) > div {
-    margin: 3.75rem 10.18rem 4.63rem 12.5rem;
-  }
+.wheatley-mikmak ul li {
+	list-style: none
+}
+
+.wheatley-mikmak ul li img {
+	margin: auto !important
+}
+
+.wheatley-mikmak ul li label {
+	text-align: center
+}
+
+.wheatley-mikmak .mm-3aiRS img { /* stylelint-disable-line */
+	height: 17px;
+	max-width: 12px;
+	margin-right: 13px
+}
+
+.wheatley-mikmak .mikmak_embed__online-btn { /* stylelint-disable-line */
+	margin: 3px auto
+}
+
+.mikmak_embed__powered-by-logo { /* stylelint-disable-line */
+	display: none
 }
