@@ -57,6 +57,10 @@
   color: var(--text-color);
 }
 
+.featured .featured-recipe:hover span {
+  color: var(--background-color);
+}
+
 .featured.plain .featured-recipe span:hover {
   color: var(--background-color);
 }
@@ -72,10 +76,6 @@
 
 .featured .featured-recipe:hover {
   background-color: var(--text-color);
-}
-
-.featured .featured-recipe:hover span {
-  color: var(--background-color);
 }
 
 .featured.special .featured-recipe:hover .featured-recipe-image{
