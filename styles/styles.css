@@ -36,6 +36,7 @@
   --font-line-height-l: 1.65;
 
   /* body sizes */
+  --body-font-size-xl: 24px;
   --body-font-size-l: 21px;
   --body-font-size-m: 14px;
   --body-font-size-s: 12px;
@@ -529,18 +530,18 @@ ul {
 }
 
 /** Themes */
-body.templates-cocktail main div.section {
+body.templates-cocktail main div.section:not(.ageverification-container) {
   padding: 0;
   margin: 0 2.25rem;
 }
 
-body.cocktails main div.section:not(.hero-container) {
+body.cocktails main div.section:not(.hero-container, .ageverification-container) {
   padding-left: 0;
   padding-right: 0;
   margin: 0 auto;
 }
 
-body.cocktails main div.section:not(.hero-container) > div {
+body.cocktails main div.section:not(.hero-container, .ageverification-container) > div {
   padding: 0;
   margin: 0 0.625rem;
 }
@@ -626,20 +627,20 @@ body.templates-cocktail main .creator-info a {
 }
 
 @media (min-width: 480px) {
-  body.templates-cocktail main div.section {
+  body.templates-cocktail main div.section:not(.ageverification-container) {
     max-width: 420px;
     margin: 0 auto;
   }
 }
 
 @media (min-width: 691px) {
-  body.templates-cocktail main div.section {
+  body.templates-cocktail main div.section:not(.ageverification-container) {
     max-width: 600px;
   }
 }
 
 @media (min-width: 1000px) {
-  body.cocktails main div.section:not(.hero-container) {
+  body.cocktails main div.section:not(.hero-container, .ageverification-container) {
     max-width: 1500px;
   }
 
@@ -647,7 +648,7 @@ body.templates-cocktail main .creator-info a {
     max-width: 1500px;
   }
 
-  body.cocktails main div.section:not(.hero-container) > div {
+  body.cocktails main div.section:not(.hero-container, .ageverification-container) > div {
     margin: 3.75rem 10.18rem 4.63rem 12.5rem;
   }
 
@@ -669,13 +670,13 @@ body.about main .smallimage .columns-img-col {
   margin: auto;
 }
 
-body.locator main div.section:not(.hero-container) {
+body.locator main div.section:not(.hero-container, .ageverification-container) {
   padding: 0;
   margin: 0 0.5rem;
 }
 
 @media (min-width: 1000px) {
-  body.locator main div.section:not(.hero-container) > div {
+  body.locator main div.section:not(.hero-container, .ageverification-container) > div {
     margin: 3.75rem 10.18rem 4.63rem 12.5rem;
   }
 }
