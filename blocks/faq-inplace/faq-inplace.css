@@ -1,0 +1,47 @@
+.faq-inplace > div {
+    border-top: 1px solid #7e9cbf;
+    padding: 20px 0;
+    margin-right: 20px;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill-rule='evenodd' clip-rule='evenodd'%3E%3Cpath fill='%23002855' d='M11.5 0c6.347 0 11.5 5.153 11.5 11.5s-5.153 11.5-11.5 11.5-11.5-5.153-11.5-11.5 5.153-11.5 11.5-11.5zm0 1c5.795 0 10.5 4.705 10.5 10.5s-4.705 10.5-10.5 10.5-10.5-4.705-10.5-10.5 4.705-10.5 10.5-10.5zm.5 10h6v1h-6v6h-1v-6h-6v-1h6v-6h1v6z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    background-size: 24px;
+}
+
+.faq-inplace > div.active {
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3Csvg viewBox='0 0 24 24' fill-rule='evenodd' clip-rule='evenodd' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23002855' d='M 11.5 0 C 17.847 0 23 5.153 23 11.5 C 23 17.847 17.847 23 11.5 23 C 5.153 23 0 17.847 0 11.5 C 0 5.153 5.153 0 11.5 0 Z M 11.5 1 C 17.295 1 22 5.705 22 11.5 C 22 17.295 17.295 22 11.5 22 C 5.705 22 1 17.295 1 11.5 C 1 5.705 5.705 1 11.5 1 Z M 12 11 L 18 11 L 18 12 L 12 12 L 12 18 L 11 18 L 11 12 L 5 12 L 5 11 L 11 11 L 11 5 L 12 5 L 12 11 Z' style='transform-origin: 11.5px 11.5px;' transform='matrix(0.707107007504, -0.707107007504, 0.707107007504, 0.707107007504, 5.9605e-8, 0)'/%3E%3C/svg%3E");
+}
+
+.faq-inplace > div:last-child {
+    border-bottom: 1px solid #7e9cbf;
+}
+
+.faq-inplace>div>div:last-child {
+    display: none;
+    padding-right: 50px;
+    padding-top: 15px;
+}
+
+.faq-inplace>div>div:first-of-type {
+    padding-right: 50px;
+    font-size: var(--body-font-size-m);
+    font-weight: var(--font-weight-m);
+    line-height: var(--font-line-height-m);
+    color: var(--text-color);
+}
+
+@media (min-width: 1000px) {
+    .faq-inplace {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .faq-inplace > div {
+        width: 45%;
+    }
+
+    .faq-inplace > div:nth-last-child(-n + 2){
+        border-bottom: 1px solid #7e9cbf;
+    }
+}
