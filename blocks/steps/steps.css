@@ -16,7 +16,7 @@
     line-height: 1.55;
 }
 
-.step {
+.steps .step {
     margin: 0 auto;
     min-height: 65px;
     max-width: 65px;
@@ -27,6 +27,11 @@
     border-radius: 100px;
     font-size:40px;
     font-weight: bold;
+}
+
+.steps .step span {
+    position: relative;
+    top: 3px;
 }
 
 .steps > div {
