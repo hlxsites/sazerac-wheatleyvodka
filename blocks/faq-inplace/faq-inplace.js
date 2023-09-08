@@ -15,7 +15,6 @@ function doToggle(event) {
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
-  // go through all rows in the table and process questions and answers, remove the rows
   [...block.children].forEach((row) => {
     row.firstElementChild.addEventListener('click', (e) => doToggle(e));
     row.lastElementChild.addEventListener('click', (e) => doToggle(e));
