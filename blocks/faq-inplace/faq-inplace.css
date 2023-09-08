@@ -1,0 +1,45 @@
+.faq-inplace > div {
+    border-top: 1px solid #7e9cbf;
+    padding: 20px 0;
+    margin-right: 20px;
+    background-image: url('/images/media_1f30edcd52220115c0d2024bb6d2cd4d8b82e3e88.png');
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+}
+
+.faq-inplace > div.active {
+    background-image: url('/images/circle-cross.png');
+}
+
+.faq-inplace > div:last-child {
+    border-bottom: 1px solid #7e9cbf;
+}
+
+.faq-inplace>div>div:last-child {
+    display: none;
+    padding-right: 50px;
+}
+
+.faq-inplace>div>div:first-of-type {
+    padding-right: 50px;
+    font-size: var(--body-font-size-m);
+    font-weight: var(--font-weight-m);
+    line-height: var(--font-line-height-m);
+    color: var(--text-color);
+}
+
+@media (min-width: 1000px) {
+    .faq-inplace {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .faq-inplace > div {
+        width: 45%;
+    }
+
+    .faq-inplace > div:nth-last-child(-n + 2){
+        border-bottom: 1px solid #7e9cbf;
+    }
+}
