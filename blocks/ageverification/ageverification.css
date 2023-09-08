@@ -1,0 +1,160 @@
+main .ageverification-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: rgb(0 40 85 / 75%);
+    z-index: 10002;
+}
+
+.ageverification-container .ageverification-wrapper {
+    height: 632px;
+    max-height: 100%;
+    width: 95%;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 999;
+    background-color: #fff;
+}
+
+.ageverification {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 0;
+}
+
+.ageverification  .agegate-image {
+    height: 100%;
+    width: 100%;
+    min-height: 345px;
+}
+
+.ageverification  .agegate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 80%;
+}
+
+.ageverification .verification {
+    height: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.ageverification .icon {
+    width: 100%;
+    height: 100%;
+}
+
+.ageverification .agegate-button-wrap {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.ageverification .agegate-button {
+    font-size: var(--body-font-size-xl);
+    font-weight: var(--font-weight-sm);
+    font-stretch: condensed;
+    font-style: normal;
+    letter-spacing: normal;
+    text-align: center;
+    display: flex;
+    width: 106px;
+    height: 26px;
+    padding: 16px;
+    margin: 0 10px;
+    border-radius: 10px;
+    background-color: #002855;
+    justify-content: center;
+    color: var(--navigation-text-color);
+    text-decoration: none;
+    line-height: 1;
+    transition: all .3s ease-in-out;
+}
+
+.ageverification .rejection h3 {
+    font-family: var(--heading-font-family);
+    font-weight: var(--font-weight-sm);
+    font-size: var(--body-font-size-l);
+    line-height: 34px;
+    letter-spacing: 0;
+    color: #002855;
+    text-align: center;
+}
+
+.ageverification .rejection div {
+    font-weight: var(--font-weight-s);
+    font-size: var(--body-font-size-s);
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.ageverification .agegate-button.hidden,
+.ageverification-container .hidden {
+    display: none;
+}
+
+.ageverification h1 {
+    font-size: var(--heading-font-size-l);
+    line-height: 1.15;
+    letter-spacing: normal;
+    text-align: center;
+    color: #002855;
+    text-transform: uppercase;
+    margin-top: 0;
+}
+
+.ageverification .agegate-logo {
+    margin: 30px auto;
+    width: 137px;
+}
+
+@media only screen and (min-width: 960px) {
+    .ageverification-container .ageverification-wrapper {
+        max-width: 850px;
+        height: 550px;
+    }
+
+    .ageverification {
+        flex-direction: row;
+    }
+
+    .ageverification .agegate-image {
+        order: 1;
+    }
+
+    .ageverification .agegate-logo {
+        width: 340px;
+        margin: 40px;
+    }
+
+    .ageverification h1 {
+        padding-top: 50px;
+        font-size: var(--heading-font-size-l);
+        margin-bottom: 35px;
+    }
+
+    .ageverification .rejection  {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .ageverification .rejection h3 {
+        padding-top: 150px;
+        font-size: var(--heading-font-size-l);
+    }
+}
+
