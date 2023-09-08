@@ -1,4 +1,4 @@
-import { decorateIcons } from '../../scripts/lib-franklin.js';
+import { createOptimizedPicture, decorateIcons } from '../../scripts/lib-franklin.js';
 import { setCookie } from '../../scripts/scripts.js';
 /* age verification overlay */
 
@@ -9,67 +9,64 @@ export default async function decorate(block) {
 
   if (resp.ok) {
     const html = await resp.text();
-    const ageverification = document.createElement('div');
-    ageverification.innerHTML = html;
+    block.innerHTML = html;
 
-    const verification = ageverification.getElementsByClassName('verification')[0];
-    const rejection = ageverification.getElementsByClassName('rejection')[0];
-
+    const picture = block.querySelector('picture');
+    if (picture.parentElement.tagName === 'P') {
+      picture.parentElement.remove();
+    } else {
+      picture.remove();
+    }
     const agegateimage = document.createElement('div');
     agegateimage.className = 'agegate-image';
-    agegateimage.style.backgroundImage = `url(${ageverification.querySelector('p picture img').getAttribute('src')})`;
-    const agegateform = document.createElement('div');
-    agegateform.className = 'agegate-form';
-    agegateform.id = 'agegateform';
+    agegateimage.append(
+      createOptimizedPicture(
+        picture.querySelector('img').src,
+        '',
+        false,
+        [{ media: '(min-width: 750px)', width: '2000' }, { width: '450' }],
+      ),
+    );
+    agegateimage.querySelector('img').loading = 'eager';
+    block.prepend(agegateimage);
 
-    const agegatelogo = ageverification.getElementsByClassName('agegate-logo')[0];
-    const agegatetitle = document.createElement('div');
-    agegatetitle.className = 'title-wrapper';
-    const agetittletxt = verification.querySelector('h1');
-    const agegatebutton = document.createElement('div');
-    agegatebutton.className = 'agegate-button-wrap';
-    const buttonyes = document.createElement('a');
-    buttonyes.id = 'agegate-button-yes';
-    buttonyes.href = '#';
-    buttonyes.innerText = verification.querySelectorAll('div')[2].querySelector('div').innerText;
-    // eslint-disable-next-line func-names
-    buttonyes.onclick = function () {
+    block.querySelector('.rejection').classList.add('hidden');
+
+    const buttons = block.querySelectorAll('.verification a');
+
+    buttons[0].parentElement.append(buttons[1]);
+    buttons[0].parentElement.classList.add('agegate-button-wrap');
+
+    const buttonyes = buttons[0];
+    buttonyes.classList.add('agegate-button');
+
+    buttonyes.onclick = (event) => {
       setCookie('sazAgeOK', 'yes', 63113852000, '/');
-      document.getElementsByClassName('ageverification-container')[0].style.display = 'none';
+      document.querySelector('.ageverification-container').remove();
+      event.preventDefault();
     };
 
-    const buttonno = document.createElement('a');
-    buttonno.id = 'agegate-button-no';
-    buttonno.href = '#';
-    buttonno.innerText = verification.querySelectorAll('div')[4].querySelector('div').innerText;
-    const rejectionLink = rejection.querySelector('a').getAttribute('href');
-    // eslint-disable-next-line func-names
-    buttonno.onclick = function () {
-      const targetDiv = document.getElementById('agefailscreen');
-      const hideDiv = document.getElementById('agegateform');
-      if (targetDiv.style.display === 'none') {
-        hideDiv.style.display = 'none';
-        targetDiv.style.display = 'block';
+    const buttonno = buttons[1];
+    buttonno.classList.add('agegate-button');
+
+    buttonno.onclick = (event) => {
+      const targetDiv = block.querySelector('.rejection');
+      if (targetDiv.classList.contains('hidden')) {
+        [
+          block.querySelector('.agegate-logo'),
+          block.querySelector('.verification'),
+          buttonyes,
+          buttonno,
+        ].forEach((e) => e.classList.add('hidden'));
+
+        targetDiv.classList.remove('hidden');
         setTimeout(() => {
-          window.location.href = rejectionLink;
+          window.location.href = buttonno.href;
         }, (5000));
       }
+      event.preventDefault();
     };
 
-    const agefailscreen = document.createElement('div');
-    agefailscreen.id = 'agefailscreen';
-    agefailscreen.style.display = 'none';
-    agefailscreen.innerHTML = rejection.innerHTML;
-
-    agegatetitle.appendChild(agetittletxt);
-    agegateform.appendChild(agegatelogo);
-    agegateform.appendChild(agegatetitle);
-    agegatebutton.appendChild(buttonyes);
-    agegatebutton.appendChild(buttonno);
-    agegateform.appendChild(agegatebutton);
-    block.append(agegateimage);
-    await decorateIcons(agegateform);
-    block.append(agegateform);
-    block.append(agefailscreen);
+    await decorateIcons(block);
   }
 }

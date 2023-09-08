@@ -212,6 +212,7 @@ export async function decorateIcons(element) {
           ICONS_CACHE[iconName] = false;
           // eslint-disable-next-line no-console
           console.error(error);
+          resolve();
         });
     });
     return ICONS_CACHE[`${iconName}-loaded`];
