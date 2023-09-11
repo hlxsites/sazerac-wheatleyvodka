@@ -14,28 +14,28 @@
     left: calc(50% - 190px);
 }
 
-.aphorist {
+.quote-carousel .aphorist {
     display:flex;
     vertical-align: baseline;
     padding: 0 0 0 80px;
     flex-grow: 1;
 }
 
-.aphorist ul, .aphorist li{
+.quote-carousel .aphorist ul, .quote-carousel .aphorist li{
     margin: 0;
     padding: 0;
 }
 
-.aphorist>ul>li:nth-child(1) {
+.quote-carousel .aphorist>ul>li:nth-child(1) {
     font-weight: var(--font-weight-l);
 }
 
-.aphorist img{
+.quote-carousel .aphorist img{
     height: 65px;
     padding-right: 20px;
 }
 
-.quotecard {
+.quote-carousel .quotecard {
     min-width: 380px;
     max-width: 380px;
     min-height: 380px;
@@ -48,27 +48,27 @@
     border-radius: 5px;
 }
 
-.quotecard p{
+.quote-carousel .quotecard p{
     margin: 0;
     padding: 25px 60px 0 80px;
     flex-grow: 999;
 }
 
-.quotecard.active, .quotecard.active p, .quotecard.active>.aphorist {
+.quote-carousel .quotecard.active, .quote-carousel .quotecard.active p, .quote-carousel .quotecard.active>.aphorist {
     background-color: var(--text-color);
     transition: all .3s ease-in-out;
     color: white;
     opacity: 1;
 }
 
-.leftspacer {
+.quote-carousel .leftspacer {
     position: absolute;
     background-color: white;
     width: 32px;
     height: 100%;
 }
 
-.quote-icon {
+.quote-carousel .quote-icon {
     display: block;
     width: 65px;
     height: 65px;
@@ -78,12 +78,12 @@
     z-index: 1;
 }
 
-.quotecard.active .quote-icon {
+.quote-carousel .quotecard.active .quote-icon {
     background-image: url('/media_13850cfda22f885dd74d8241ff10b9458b1b0dfac.png#width=150&height=150&format=webply&optimize=medium');
     transition: all .3s ease-in-out;
 }
 
-.pagedot {
+.quote-carousel-wrapper .pagedot {
     height: 4px;
     width: 40px;
     background-color: var(--text-color);
@@ -92,12 +92,12 @@
     padding: 0;
 }
 
-.pagedot.active, .pagedot:hover {
+.quote-carousel-wrapper .pagedot.active, .quote-carousel-wrapper .pagedot:hover {
     opacity: 1;
     cursor: pointer;
 }
 
-.pagedots {
+.quote-carousel-wrapper .pagedots {
     position: absolute;
     width: 100%;
     top: 420px;
