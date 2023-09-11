@@ -1,3 +1,7 @@
+.section.recipes-container {
+  padding: 0;
+}
+
 .recipes .all-recipes {
   display: flex;
   flex-flow: row wrap;

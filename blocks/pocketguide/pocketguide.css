@@ -1,3 +1,7 @@
+.section.pocketguide-container {
+    padding: 0;
+}
+
 .pocketguide {
     text-align:center;
     position:relative;
