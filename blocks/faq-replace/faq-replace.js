@@ -14,11 +14,15 @@ function answerQuestion(event) {
   answerContainer.innerHTML = '';
 
   // get the answer from the question selected, it's the last child
-  answerContainer.append(event.target.lastElementChild.cloneNode(true));
+  let { target } = event;
+  if (target.tagName === 'IMG') {
+    target = target.parentElement.parentElement;
+  }
+  answerContainer.append(target.lastElementChild.cloneNode(true));
 
   // mark the current question as active
-  event.target.classList.add('active');
-  event.target.classList.remove('inactive');
+  target.classList.add('active');
+  target.classList.remove('inactive');
 }
 
 /**
