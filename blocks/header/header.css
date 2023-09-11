@@ -1,6 +1,6 @@
 /* header and nav layout */
 header .nav-wrapper {
-  z-index: 1010;
+  z-index: 1011;
   position: fixed;
   height: var(--nav-height);
   background-image: url('/media_1702b8b19fe5b7dbded179ab832dcb32b1b3005ba.png?width=2000&format=webply&optimize=medium');
