@@ -211,7 +211,7 @@ export default async function decorate(block) {
     block.pressed = false;
     snap(block);
   }, { passive: true });
-  block.parentElement.addEventListener('touchmove', (e) => { move(e, block); });
+  block.parentElement.addEventListener('touchmove', (e) => { move(e, block); }, { passive: true });
 
   /**
    * tiny function to start a timer when window is resized and stop/replace
