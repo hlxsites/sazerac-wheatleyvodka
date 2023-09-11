@@ -1,8 +1,13 @@
 main .embed {
-    width: unset;
-    text-align: center;
-    max-width: 800px;
-    margin: 32px auto;
+  margin: 0 1rem;
+  padding: 3.125rem 0;
+}
+
+@media (min-width: 1000px) {
+  main .embed {
+    margin: 0;
+    padding: 3.125rem 12.5rem;
+  }
 }
 
 main .embed .embed-placeholder {
@@ -11,10 +16,9 @@ main .embed .embed-placeholder {
 }
 
 main .embed .embed-placeholder img {
-  width: 100%;
-  height: auto;
   transition: all .7s cubic-bezier(.2,1,.22,1);
   transform: translateZ(0) scale(1.05);
+  object-fit: cover;
 }
 
 main .embed .embed-placeholder:hover img {

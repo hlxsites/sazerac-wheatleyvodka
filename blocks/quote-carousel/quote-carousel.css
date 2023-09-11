@@ -1,0 +1,117 @@
+.quote-carousel-wrapper {
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-carousel {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 190px);
+}
+
+.quote-carousel .aphorist {
+    display:flex;
+    vertical-align: baseline;
+    padding: 0 0 0 80px;
+    flex-grow: 1;
+}
+
+.quote-carousel .aphorist ul, .quote-carousel .aphorist li{
+    margin: 0;
+    padding: 0;
+}
+
+.quote-carousel .aphorist>ul>li:nth-child(1) {
+    font-weight: var(--font-weight-l);
+}
+
+.quote-carousel .aphorist img{
+    height: 65px;
+    padding-right: 20px;
+}
+
+.quote-carousel .quotecard {
+    min-width: 380px;
+    max-width: 380px;
+    min-height: 380px;
+    max-height: 380px;
+    margin-right: 40px;
+    margin-left: 40px;
+    display: flex;
+    flex-direction: column;
+    opacity: .3;
+    border-radius: 5px;
+}
+
+.quote-carousel .quotecard:last-of-type {
+    margin-right: 0;
+}
+
+.quote-carousel .quotecard:first-of-type {
+    margin-left: 0;
+}
+
+.quote-carousel .quotecard p{
+    margin: 0;
+    padding: 25px 60px 0 80px;
+    flex-grow: 999;
+}
+
+.quote-carousel .quotecard.active, .quote-carousel .quotecard.active p, .quote-carousel .quotecard.active>.aphorist {
+    background-color: var(--text-color);
+    transition: all .3s ease-in-out;
+    color: white;
+    opacity: 1;
+}
+
+.quote-carousel .leftspacer {
+    position: absolute;
+    background-color: white;
+    width: 32px;
+    height: 100%;
+}
+
+.quote-carousel .quote-icon {
+    display: block;
+    width: 65px;
+    height: 65px;
+    background-image: url('/media_10788bcbb6db2e4b2bad4e416ea24c809ebb030b0.png#width=150&height=150&format=webply&optimize=medium');
+    background-size: cover;
+    position: absolute;
+    z-index: 1;
+}
+
+.quote-carousel .quotecard.active .quote-icon {
+    background-image: url('/media_13850cfda22f885dd74d8241ff10b9458b1b0dfac.png#width=150&height=150&format=webply&optimize=medium');
+    transition: all .3s ease-in-out;
+}
+
+.quote-carousel-wrapper .pagedot {
+    height: 4px;
+    width: 40px;
+    background-color: var(--text-color);
+    opacity: 0.25;
+    margin: 0 5px;
+    padding: 0;
+}
+
+.quote-carousel-wrapper .pagedot.active, .quote-carousel-wrapper .pagedot:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.quote-carousel-wrapper .pagedots {
+    position: absolute;
+    width: 100%;
+    top: 420px;
+    padding:0;
+    margin:0;
+    display: flex;
+    list-style: none;
+    justify-content:center;
+}

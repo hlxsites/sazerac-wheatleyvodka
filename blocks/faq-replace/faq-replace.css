@@ -37,6 +37,11 @@
 }
 
 @media (min-width: 1000px) {
+    #faq-replace-questions-container {
+        justify-content: left;
+        width: 336px;
+    }
+
     .faq-replace {
         display: flex;
         flex-direction: row;
@@ -52,6 +57,7 @@
 
     #faq-replace-answer-container {
         margin: 60px;
+        width: 100%;
     }
 
     #faq-replace-questions-container picture {
