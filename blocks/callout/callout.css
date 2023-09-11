@@ -12,6 +12,11 @@ main .section .callout-wrapper picture:nth-of-type(1) {
   display: none;
 }
 
+main .section .callout-wrapper picture:nth-of-type(1) > img {
+  width: 100%;
+  height: auto;
+}
+
 main .section .callout-wrapper picture:nth-of-type(2) > img {
   margin: auto;
   display: block;
@@ -22,11 +27,12 @@ main .section .callout-wrapper h2 {
   margin: 50px auto;
   padding: 0 15px;
   text-align: center;
+  font-weight: 700;
 }
 
 @media (min-width: 1000px) {
   main .section .callout-wrapper picture:nth-of-type(1) {
-    display: block;
+    display: flex;
   }
 
   main .section .callout-wrapper picture:nth-of-type(2) {

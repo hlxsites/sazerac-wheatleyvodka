@@ -1,5 +1,5 @@
 .section.buy-container {
-  padding: 0;
+  padding: 40px 0 0;
 }
 
 @media (min-width: 1000px) {
@@ -17,6 +17,10 @@
   display: none;
 }
 
+.buy .block-background-image img {
+  width: 100%;
+}
+
 
 @media (min-width: 1000px) {
   .buy {
@@ -29,6 +33,7 @@
 
   .buy .block-background-image {
     display: block;
+    width: 111%;
   }
 }
 
