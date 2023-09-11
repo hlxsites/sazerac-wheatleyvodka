@@ -529,6 +529,14 @@ ul {
   margin: 0 auto;
 }
 
+.section.curator-feed {
+  padding: 0;
+}
+
+.section.curator-feed > div {
+  max-width: unset;
+}
+
 /** Themes */
 body.templates-cocktail main div.section:not(.ageverification-container) {
   padding: 0;
