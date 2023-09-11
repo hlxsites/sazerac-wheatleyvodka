@@ -23,7 +23,11 @@
   width: 100%;
 }
 
-.background-image picture > img {
+.columns .background-image-column {
+  justify-content: center;
+}
+
+.columns .background-image picture > img {
   height: 100%;
   object-fit: cover;
   position: absolute;
@@ -54,5 +58,10 @@
 
   .reverse .columns > div {
     flex-direction: unset;
+  }
+
+  .columns .background-image-column > h2,
+  .columns .background-image-column > p {
+    max-width: 65%;
   }
 }

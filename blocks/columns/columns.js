@@ -24,6 +24,7 @@ export default function decorate(block) {
           [{ media: '(min-width: 750px)', width: '2000' }, { width: '450' }],
         ));
         col.prepend(div);
+        col.classList.add('background-image-column');
       }
     });
   });
