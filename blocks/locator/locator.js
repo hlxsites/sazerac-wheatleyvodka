@@ -1,5 +1,6 @@
 export default async function decorate() {
-  // create locator div
+  const loader = document.createElement('div');
+  loader.className = 'locator-loader';
   const locator = document.createElement('div');
   locator.className = 'wheatley-mikmak';
   locator.style = 'visibility: hidden';
@@ -7,6 +8,7 @@ export default async function decorate() {
   // append locator before section
   const section = document.querySelector('.section.locator-container');
   section.before(locator);
+  locator.before(loader);
   // remove section
   section.remove();
 }
