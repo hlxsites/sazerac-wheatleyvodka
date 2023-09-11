@@ -1,36 +1,50 @@
-/**
- * decorates all cards and marks the current one active
- * @param event the triggered event or null if none
- * @param block the carousel block
- */
-function decorateCards(event, block) {
+const snapple = 250; // number of pixels that the snapping looks further for possible cards
+
+function changeCard(event, block) {
   // the center of the entire carousel, used to determine style and snap
   const xCenter = (block.parentElement.getBoundingClientRect().width / 2)
     + block.parentElement.getBoundingClientRect().x;
 
   // style all cards, and when triggered by event, choose the card in the center
   const cards = block.querySelectorAll('.quotecard');
+  let changedCardThisRun = false;
   cards.forEach((card) => {
-    if (event != null && card.getBoundingClientRect().left < xCenter
-      && card.getBoundingClientRect().right > xCenter) {
+    if (!changedCardThisRun && event != null
+      && card.getBoundingClientRect().left - snapple < xCenter
+      && card.getBoundingClientRect().right + snapple > xCenter
+      && block.centerCard.id !== card.id) {
       // center is between left and right of this card, choose it as the card to center
       block.centerCard = card;
-    } else if (block.centerCard !== card) {
+      changedCardThisRun = true;
+    }
+  });
+}
+
+/**
+ * decorates all cards and marks the current one active
+ * @param block the carousel block
+ */
+function decorateCards(block) {
+  // style all cards, and when triggered by event, choose the card in the center
+  const cards = block.querySelectorAll('.quotecard');
+  cards.forEach((card) => {
+    if (block.centerCard !== card) {
       // style all cards that are not centered, update the pagedots
       card.classList.remove('active');
       card.ariaSelected = false;
       const cardId = card.id.replace('card-', '');
-      block.parentElement.querySelectorAll('.quote-carousel-wrapper>ol>li').item(cardId).classList.remove('active');
+      block.parentElement.querySelectorAll('.quote-carousel-wrapper>ol>li')
+        .item(cardId)
+        .classList
+        .remove('active');
+    } else {
+      // mark current card as the center card
+      block.centerCard.classList.add('active');
+      block.centerCard.ariaSelected = true;
+      const cardId = block.centerCard.id.replace('card-', '');
+      block.parentElement.querySelectorAll('.quote-carousel-wrapper>ol>li').item(cardId).classList.add('active');
     }
   });
-
-  if (block.centerCard) {
-    // mark current card as the center card
-    block.centerCard.classList.add('active');
-    block.centerCard.ariaSelected = true;
-    const cardId = block.centerCard.id.replace('card-', '');
-    block.parentElement.querySelectorAll('.quote-carousel-wrapper>ol>li').item(cardId).classList.add('active');
-  }
 }
 
 /**
@@ -52,7 +66,7 @@ function move(event, block) {
   // determine the amount of moved pixels horizontally and move the cards accordingly
   const newOffsetX = block.x - block.startX;
   block.style.left = `${newOffsetX}px`;
-  decorateCards(event, block);
+  changeCard(event, block);
 }
 
 /**
@@ -82,13 +96,11 @@ function snap(block) {
       newOffsetX -= deviationToCenterPoint;
     }
 
-    console.log('cardmiddle: '+cardCurrentMiddle+', devi: '+deviationToCenterPoint+', newOffsetX: '+newOffsetX+', snapcenter: '+snapCenterPoint);
-
     // apply the new offset with a transition
     block.style.transition = 'all .5s ease-in-out';
     block.style.left = `${newOffsetX}px`;
   }
-  decorateCards(null, block);
+  decorateCards(block);
 }
 
 /**
@@ -97,6 +109,7 @@ function snap(block) {
  * @param block the carousel block
  */
 function selectCard(quote, block) {
+  if (block.centerCard === quote) { return; }
   block.centerCard = quote;
   snap(block);
 }
@@ -158,8 +171,9 @@ export default async function decorate(block) {
     const pageDot = document.createElement('li');
     pageDot.classList.add('pagedot');
     pageDot.ariaLabel = `Page Dot ${index}`;
-    pageDot.addEventListener('click', () => {
+    pageDot.addEventListener('click', (e) => {
       selectCard(quote, block);
+      e.stopPropagation();
     });
     pageDots.append(pageDot);
 
@@ -168,6 +182,7 @@ export default async function decorate(block) {
       quote.classList.add('active');
       pageDot.classList.add('active');
       quote.style.marginLeft = 0;
+      block.centerCard = quote;
     }
   });
 
@@ -212,7 +227,7 @@ export default async function decorate(block) {
    */
   function resizeWhenDone(func) {
     block.timer = null;
-    return function (event) {
+    return function checktimeout(event) {
       if (block.timer) clearTimeout(block.timer);
       block.timer = setTimeout(func, 100, event);
     };
