@@ -153,11 +153,8 @@ export default async function decorate(block) {
     iconSpan.className = 'quote-icon';
     quote.prepend(iconSpan);
 
-    // style the card, do not add a margin right for the last one
+    // style the card
     quote.classList.add('quotecard');
-    if (block.children.length === index - 1) {
-      quote.style.marginRight = 0;
-    }
 
     // define id of card
     quote.id = `card-${index}`;
@@ -177,11 +174,10 @@ export default async function decorate(block) {
     });
     pageDots.append(pageDot);
 
-    // for the first card, mark active and remove left margin, also mark page dot active
+    // for the first card, mark active, also mark page dot active
     if (index === 0) {
       quote.classList.add('active');
       pageDot.classList.add('active');
-      quote.style.marginLeft = 0;
       block.centerCard = quote;
     }
   });
@@ -210,11 +206,11 @@ export default async function decorate(block) {
     block.style.transition = null;
     const r = block.parentElement.getBoundingClientRect();
     block.startX = (e.touches[0].clientX - r.left) - block.offsetLeft;
-  });
+  }, { passive: true });
   block.parentElement.addEventListener('touchend', () => {
     block.pressed = false;
     snap(block);
-  });
+  }, { passive: true });
   block.parentElement.addEventListener('touchmove', (e) => { move(e, block); });
 
   /**

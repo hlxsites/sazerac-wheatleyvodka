@@ -48,6 +48,14 @@
     border-radius: 5px;
 }
 
+.quote-carousel .quotecard:last-of-type {
+    margin-right: 0;
+}
+
+.quote-carousel .quotecard:first-of-type {
+    margin-left: 0;
+}
+
 .quote-carousel .quotecard p{
     margin: 0;
     padding: 25px 60px 0 80px;
