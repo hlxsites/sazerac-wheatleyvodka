@@ -688,6 +688,8 @@ body.templates-cocktail main .creator-info a {
 
 body.about main div.background>div>div>div>div:not(.columns-img-col) {
   background-color: rgb(126 156 191 / 15%);
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 body.about main div.smallimage img {
@@ -699,9 +701,21 @@ body.about main .smallimage .columns-img-col {
   margin: auto;
 }
 
+body.about main div.section.columns-container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 body.locator main div.section:not(.hero-container, .ageverification-container) {
   padding: 0;
   margin: 0 0.5rem;
+}
+
+@media (min-width: 600px) {
+  body.about main div.section.columns-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 @media (min-width: 1000px) {
