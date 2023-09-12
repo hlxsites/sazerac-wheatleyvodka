@@ -2,7 +2,7 @@
 
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+![example.png](..%2Fassets%2Fexample.png)
 
 ### Variations
 
@@ -10,4 +10,4 @@
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+![example.png](..%2Fassets%2Fexample.png)
