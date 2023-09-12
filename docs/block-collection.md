@@ -25,4 +25,4 @@ This is a collection of blocks, specifically developed as part of the Sazerac Wh
 
 ### Age Verification:
 
-- [Age Verification](blocks/age-verification.md)
+- [Age Verification](blocks/ageverification.md)
