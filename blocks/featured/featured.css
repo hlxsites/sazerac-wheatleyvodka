@@ -23,6 +23,10 @@
   max-width: 100%;
 }
 
+.featured.plain .featured-recipe {
+  margin: 0.75rem 0;
+}
+
 .featured .featured-recipe .featured-recipe-image {
   display: block;
   width: 100%;
@@ -91,6 +95,16 @@
   display: block;
 }
 
+@media (min-width: 1000px) {
+  .featured.plain .featured-recipes {
+    flex-direction: row;
+  }
+
+  .featured.plain .featured-recipe {
+    margin: 0.75rem auto 0;
+  }
+}
+
 @media (min-width: 1152px) {
   .featured.special .featured-recipes {
     flex-direction: row;
@@ -127,11 +141,5 @@
 
   .featured.special .featured-recipe .featured-recipe-image img {
     object-fit: fill;
-  }
-}
-
-@media (min-width: 1000px) {
-  .featured.plain .featured-recipes {
-    flex-direction: row;
   }
 }
