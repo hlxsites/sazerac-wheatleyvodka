@@ -711,6 +711,12 @@ body.locator main div.section:not(.hero-container, .ageverification-container) {
   margin: 0 0.5rem;
 }
 
+body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 60px;
+}
+
 @media (min-width: 600px) {
   body.about main div.section.columns-container {
     padding-left: 32px;
@@ -721,5 +727,9 @@ body.locator main div.section:not(.hero-container, .ageverification-container) {
 @media (min-width: 1000px) {
   body.locator main div.section:not(.hero-container, .ageverification-container) > div {
     margin: 3.75rem 10.18rem 4.63rem 12.5rem;
+  }
+
+  body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
+    padding: 0;
   }
 }
