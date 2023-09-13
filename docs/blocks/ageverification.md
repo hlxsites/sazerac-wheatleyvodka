@@ -14,7 +14,7 @@ The content for the age verification is administered in templates/verification.d
 | (a)  text    |
 | (a)  text    |
 
-![verification.png](..%2Fassets%verification-author-verification.png)
+![author-verification.png](../assets/verification-author-verification.png)
 
 | rejection |
 |-----------|
@@ -22,12 +22,12 @@ The content for the age verification is administered in templates/verification.d
 | text      |
 | text      |
 
-![verification.png](..%2Fassets%verification-author-rejection.png)
+![author-rejection.png](../assets/verification-author-rejection.png)
 
 picture
 
 ### Example
 
-![verification.png](..%2Fassets%verification-verification.png)
+![verification.png](../assets/verification-verification.png)
 
-![rejection.png](..%2Fassets%verification-rejection.png)
+![rejection.png](../assets/verification-rejection.png)
