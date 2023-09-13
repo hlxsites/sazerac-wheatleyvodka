@@ -22,9 +22,24 @@ function toggleRow(event) {
  * @param {Element} block The block element
  */
 export default async function decorate(block) {
-  [...block.children].forEach((row) => {
+
+  const half = block.children.length / 2;
+  const leftCol = document.createElement('div');
+  const rightCol = document.createElement('div');
+
+  [...block.children].forEach((row, index) => {
     row.addEventListener('click', toggleRow);
     row.firstElementChild.addEventListener('click', toggleChild);
     row.lastElementChild.addEventListener('click', toggleChild);
+
+    let divToAdd = leftCol;
+    if (index >= half) {
+      divToAdd = rightCol;
+    }
+
+    divToAdd.appendChild(row);
   });
+
+  block.appendChild(leftCol);
+  block.appendChild(rightCol);
 }
