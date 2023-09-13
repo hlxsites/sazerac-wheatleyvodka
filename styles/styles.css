@@ -21,7 +21,7 @@
   --navigation-text-color: #fff;
   --header-text-color: #002855;
   --highlight-text-color: #7f5732;
-  --recipe-text-color: black;
+  --columns-text-color: black;
 
   /* fonts */
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
@@ -289,7 +289,7 @@ body {
   margin: 0;
   font-family: var(--body-font-family);
   line-height: 1.6;
-  color: var(--text-color);
+  color: var(--columns-text-color);
   background-color: var(--background-color);
   display: none;
   font-weight: 400;
@@ -369,7 +369,7 @@ a:hover {
 }
 
 /* buttons */
-a.button:any-link, button {
+a.button:any-link, main button {
   background-image: url('/media_1372b1ee12bd67fae1385a9639f30737bfa554606.png?width=521&height=112&format=webply&optimize=medium');
   display: flex;
   align-items: center;
@@ -598,7 +598,7 @@ body.templates-cocktail main li {
   padding: 0.5rem 0;
   margin-top: 0;
   font-size: var(--body-font-size-m);
-  color: var(--recipe-text-color);
+  color: var(--columns-text-color);
 }
 
 body.templates-cocktail main .columns-img-col {
@@ -688,6 +688,8 @@ body.templates-cocktail main .creator-info a {
 
 body.about main div.background>div>div>div>div:not(.columns-img-col) {
   background-color: rgb(126 156 191 / 15%);
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 body.about main div.smallimage img {
@@ -699,13 +701,43 @@ body.about main .smallimage .columns-img-col {
   margin: auto;
 }
 
+body.about main div.section.columns-container {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
 body.locator main div.section:not(.hero-container, .ageverification-container) {
   padding: 0;
   margin: 0 0.5rem;
+}
+
+body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 60px;
+}
+
+@media (min-width: 600px) {
+  body.about main div.section.columns-container {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
 }
 
 @media (min-width: 1000px) {
   body.locator main div.section:not(.hero-container, .ageverification-container) > div {
     margin: 3.75rem 10.18rem 4.63rem 12.5rem;
   }
+
+  body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
+    padding: 0;
+  }
+}
+
+main .section.curator-feed > div > h2 {
+  font-size: var(--body-font-size-l);
+}
+
+body.cocktails main .section.featured-container {
+  color: var(--text-color);
 }

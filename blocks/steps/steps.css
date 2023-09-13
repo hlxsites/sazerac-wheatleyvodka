@@ -9,6 +9,7 @@
     font-size: var(--heading-font-size-l);
     font-weight: var(--font-weight-l);
     text-transform: uppercase;
+    color: var(--header-text-color);
 }
 
 .steps p:last-of-type {
@@ -27,6 +28,7 @@
     border-radius: 100px;
     font-size:40px;
     font-weight: bold;
+    color: var(--header-text-color);
 }
 
 .steps .step span {
