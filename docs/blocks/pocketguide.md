@@ -1,13 +1,17 @@
 ## Pocket Guide
 
+download block for the pocket guide pdf
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+title<br/>text<br/>link to pdf<br/>image<br/>
 
-### Variations
-
-### Card link
+![expample.png](../assets/pocketguide-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/pocketguide-desktop.png)
+
+#### Mobile
+![expample.png](../assets/pocketguide-mobile.png)

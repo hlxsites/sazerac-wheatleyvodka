@@ -1,13 +1,18 @@
 ## Recipes
 
+recipes with ingredients and directions including image
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+title (h1)<br/>image<br/>text (h2)<br/>list<br/>text (h2)<br/>list<br/>
 
-### Variations
-
-### Card link
+![expample.png](../assets/recipe-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/recipe-desktop.png)
+
+#### Mobile
+![expample.png](../assets/recipe-mobile.png)
+

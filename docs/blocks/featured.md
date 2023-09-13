@@ -1,13 +1,22 @@
 ## Featured
 
+list of featured cocktails selected by author using cocktails image
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+| Featured / Featured(plain)             |
+|:---------------------------------------|
+| (List with links to selected coctails) |
 
-### Variations
 
-### Card link
+![expample.png](../assets/featured-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### standard display
+
+![expample.png](../assets/featured.png)
+
+#### plain display
+
+![expample.png](../assets/featured-plain.png)

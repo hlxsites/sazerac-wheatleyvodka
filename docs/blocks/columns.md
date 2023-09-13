@@ -2,12 +2,16 @@
 
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+| columns                    |                            |
+|----------------------------|----------------------------|
+| [image]<br/>[text]/[links] | [image]<br/>[text]/[links] |
 
-### Variations
-
-### Card link
+![expample.png](../assets/columns-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/columns-desktop.png)
+
+#### Mobile
+![expample.png](../assets/columns-mobile.png)

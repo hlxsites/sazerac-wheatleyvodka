@@ -3,13 +3,12 @@
 This is a collection of blocks, specifically developed as part of the Sazerac Wheatley Vodka Franklin project.
 
 - [Callout](blocks/callout.md)
-- [Hero](blocks/hero.md)
 - [Columns](blocks/columns.md)
 - [Embedded](blocks/embedded.md)
-- [FAQ](blocks/faq.md)
+- [FAQ](blocks/faq-inplace.md)
 - [Featured](blocks/featured.md)
 - [Footer](blocks/footer.md)
-- [Header](blocks/header.md)
+- [Navigation](blocks/nav.md)
 - [Locator](blocks/locator.md)
 - [Pocket Guide](blocks/pocketguide.md)
 - [Quote](blocks/quote.md)

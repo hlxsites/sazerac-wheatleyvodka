@@ -1,13 +1,22 @@
 ## Steps
 
+creates numbered list using svg icon
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+| steps          |
+|----------------|
+| title<br/>text |
+| title<br/>text |
+| ...            |
 
-### Variations
 
-### Card link
+![expample.png](../assets/steps-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/steps-desktop.png)
+
+#### Mobile
+![expample.png](../assets/steps-mobile.png)

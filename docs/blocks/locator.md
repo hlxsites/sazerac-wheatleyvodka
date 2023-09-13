@@ -1,13 +1,18 @@
 ## Locator
 
+includes external JS for location
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+| Locator |                  |
+|---------|------------------|
 
-### Variations
-
-### Card link
+![expample.png](../assets/locator-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/locator-desktop.png)
+
+#### Mobile
+![expample.png](../assets/locator-mobile.png)

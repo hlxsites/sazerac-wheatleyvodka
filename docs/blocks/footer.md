@@ -2,12 +2,24 @@
 
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+logo (:wheatly-stacked: will use the svg icon /icon/wheatly-stacked.svg)
+list with social media links (using also icons from /icon/...)
+new div (---)
+text
+text
+list with links
 
-### Variations
+| Metadata |                  |
+|----------|------------------|
+| Robots   | noindex,nofollow |
 
-### Card link
+
+![expample.png](../assets/footer-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/footer-desktop.png)
+
+#### Mobile
+![expample.png](../assets/footer-mobile.png)

@@ -1,13 +1,19 @@
 ## Embed
+block for embedding youtube/vimeo/twitter players (if not youtube/vimeo/twitter generic player will be embedded)
 
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+| Embed                 |
+|-----------------------|
+| (img)<br>(embed link) |
 
-### Variations
 
-### Card link
+![expample.png](../assets/embeded-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/embeded-desktop.png)
+
+#### Mobile
+![expample.png](../assets/embeded-mobile.png)
