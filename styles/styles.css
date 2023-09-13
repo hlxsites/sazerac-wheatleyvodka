@@ -737,3 +737,7 @@ body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-conta
 main .section.curator-feed > div > h2 {
   font-size: var(--body-font-size-l);
 }
+
+body.cocktails main .section.featured-container {
+  color: var(--text-color);
+}
