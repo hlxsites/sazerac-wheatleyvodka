@@ -756,7 +756,7 @@ body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-conta
     padding-right: 0;
   }
 
-  body.about main div.section > div > * {
+  body.about main div.section > div:not(.quote-carousel-wrapper) > * {
     margin-left: 200px;
     margin-right: 200px;
   }
