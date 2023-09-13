@@ -369,7 +369,7 @@ a:hover {
 }
 
 /* buttons */
-a.button:any-link, button {
+a.button:any-link, main button {
   background-image: url('/media_1372b1ee12bd67fae1385a9639f30737bfa554606.png?width=521&height=112&format=webply&optimize=medium');
   display: flex;
   align-items: center;
