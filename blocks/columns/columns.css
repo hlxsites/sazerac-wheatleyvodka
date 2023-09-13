@@ -3,7 +3,7 @@
 }
 
 .columns div {
-  color: var(--recipe-text-color);
+  color: var(--columns-text-color);
 }
 
 .columns > div {
