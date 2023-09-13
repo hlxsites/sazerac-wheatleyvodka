@@ -12,6 +12,7 @@
     font-style: italic;
     line-height: 41.4px;
     max-width: 600px;
+    color: var(--text-color);
 }
 
 .quote img {

@@ -1,6 +1,7 @@
 .faq-replace {
     display: flex;
     flex-direction: column;
+    color: var(--text-color);
 }
 
 #faq-replace-questions-container {
