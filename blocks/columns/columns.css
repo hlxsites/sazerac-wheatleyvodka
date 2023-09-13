@@ -2,6 +2,10 @@
   padding: 0;
 }
 
+.columns div {
+  color: var(--recipe-text-color);
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
