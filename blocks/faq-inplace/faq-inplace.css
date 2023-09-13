@@ -41,14 +41,18 @@
     }
 
     .faq-inplace >  div {
-        width: calc(50% - 10px);
+        width: calc(50% - 50px);
     }
 
     .faq-inplace > div:first-of-type {
-        padding-right: 20px;
+        padding-right: 60px;
     }
-
+ 
     .faq-inplace > div > div:nth-last-child(-n + 1){
         border-bottom: 1px solid #7e9cbf;
+    }
+
+    .faq-inplace> div > div > div:first-of-type {
+        font-size: 21px;
     }
 }
