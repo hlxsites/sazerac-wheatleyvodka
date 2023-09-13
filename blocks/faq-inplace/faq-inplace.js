@@ -21,8 +21,7 @@ function toggleRow(event) {
  * loads and decorates the faq inplace block
  * @param {Element} block The block element
  */
-export default async function decorate(block){
-
+export default async function decorate(block) {
   const half = block.children.length / 2;
   const leftCol = document.createElement('div');
   const rightCol = document.createElement('div');
