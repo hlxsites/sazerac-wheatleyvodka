@@ -1,13 +1,14 @@
 ## Buy
 
+Displaying the buy block - only the block definition is needed. No other content.
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+| buy |
+|-----|
 
-### Variations
-
-### Card link
+![expample.png](../assets/buy-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+![expample.png](../assets/buy.png)

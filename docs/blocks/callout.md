@@ -1,13 +1,19 @@
 ## Callout
 
+Callout block used for the homepage
+
+| Callout               |                      |
+|:----------------------|:---------------------|
+| (h2) text             |                      |
+| calloud-desktop-image | callout-mobile-image |
+
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+![expample.png](../assets/callout-author.png)
 
-### Variations
+#### Desktop
+![expample.png](../assets/callout-desktop.png)
 
-### Card link
-
-### Example
-
-![expample.png](..%2Fassets%2Fexample.png)
+#### Mobile
+![expample.png](../assets/callout-mobile.png)

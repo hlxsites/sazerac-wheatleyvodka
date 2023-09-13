@@ -5,7 +5,6 @@ This is a collection of blocks, specifically developed as part of the Sazerac Wh
 - [Callout](blocks/callout.md)
 - [Hero](blocks/hero.md)
 - [Columns](blocks/columns.md)
-- [Cards](blocks/cards.md)
 - [Embedded](blocks/embedded.md)
 - [FAQ](blocks/faq.md)
 - [Featured](blocks/featured.md)
@@ -22,6 +21,7 @@ This is a collection of blocks, specifically developed as part of the Sazerac Wh
 ### Product related block:
 
 - [Buy](blocks/buy.md)
+- [Buy Template](blocks/buy-template.md)
 
 ### Age Verification:
 

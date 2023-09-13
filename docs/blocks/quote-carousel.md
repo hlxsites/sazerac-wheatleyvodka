@@ -1,13 +1,22 @@
 ## Quote Carousel
 
+Carousel for multiple quotes
+
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
+| Quote-carousel                          |
+|-----------------------------------------|
+| text<br/>(img)<br/>(ul)(li)name(li)text |
+| text<br/>(img)<br/>(ul)(li)name(li)text |
+| ...                                     |
 
-### Variations
 
-### Card link
+![expample.png](../assets/quote-carousel-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/quote-carousel-desktop.png)
+
+#### Mobile
+![expample.png](../assets/quote-carousel-mobile.png)

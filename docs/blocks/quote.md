@@ -2,12 +2,18 @@
 
 ### Content Structure
 
-![expample.png](..%2Fassets%2Fexample.png)
 
-### Variations
+| quote          |
+|----------------|
+| text<br/>(img) |
 
-### Card link
+
+![expample.png](../assets/quote-author.png)
 
 ### Example
 
-![expample.png](..%2Fassets%2Fexample.png)
+#### Desktop
+![expample.png](../assets/quote-desktop.png)
+
+#### Mobile
+![expample.png](../assets/quote-mobile.png)
