@@ -21,7 +21,7 @@
   --navigation-text-color: #fff;
   --header-text-color: #002855;
   --highlight-text-color: #7f5732;
-  --recipe-text-color: black;
+  --columns-text-color: black;
 
   /* fonts */
   --body-font-family: proxima-nova-condensed, proxima-nova-condensed-fallback, sans-serif;
@@ -598,7 +598,7 @@ body.templates-cocktail main li {
   padding: 0.5rem 0;
   margin-top: 0;
   font-size: var(--body-font-size-m);
-  color: var(--recipe-text-color);
+  color: var(--columns-text-color);
 }
 
 body.templates-cocktail main .columns-img-col {
@@ -732,4 +732,8 @@ body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-conta
   body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
     padding: 0;
   }
+}
+
+main .section.curator-feed > div > h2 {
+  font-size: var(--body-font-size-l);
 }

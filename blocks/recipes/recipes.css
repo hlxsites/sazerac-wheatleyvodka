@@ -36,8 +36,11 @@
 }
 
 .recipes .recipe .recipe-image:hover {
-  opacity: .55;
   background-color: var(--text-color);
+}
+
+.recipes .recipe .recipe-image:hover img {
+  opacity: .55;
 }
 
 .recipes .recipe span {
