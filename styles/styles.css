@@ -470,6 +470,10 @@ main .section {
   }
 }
 
+body.about main .section {
+  padding: 0 16px;
+}
+
 @media (min-width: 900px) {
   .section > div {
     max-width: 1500px;
@@ -697,18 +701,8 @@ body.about main div.smallimage img {
 }
 
 body.about main .smallimage .columns-img-col {
-  max-width: 300px;
+  max-width: 364px;
   margin: auto;
-}
-
-body.about main div.section.columns-container {
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-body.locator main div.section:not(.hero-container, .ageverification-container) {
-  padding: 0;
-  margin: 0 0.5rem;
 }
 
 body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
@@ -718,21 +712,79 @@ body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-conta
 }
 
 @media (min-width: 600px) {
-  body.about main div.section.columns-container {
-    padding-left: 32px;
-    padding-right: 32px;
+  body.about main div.section {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
 
 @media (min-width: 1000px) {
+  body.about main .smallimage .columns-img-col {
+    margin: 0;
+  }
+
+  body.about main .smallimage .columns-img-col+div {
+    max-width: 650px;
+  }
+
   body.locator main div.section:not(.hero-container, .ageverification-container) > div {
     margin: 3.75rem 10.18rem 4.63rem 12.5rem;
+  }
+
+  body.about main div.background>div>div>div>div:not(.columns-img-col) {
+    background-color: rgb(126 156 191 / 15%);
+    margin-left: -200px;
+    padding-left: 200px;
+    padding-right: 15px;
+    max-width: 450px;
+  }
+
+  body.about main .section.background .columns > div {
+    gap: 0;
+  }
+
+  body.about main .section.background .columns > div > .columns-img-col {
+    margin: 0 15px;
   }
 
   body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
     padding: 0;
   }
+
+  body.about main div.section {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  body.about main div.section > div:not(.quote-carousel-wrapper) > * {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+
+  body.about main .section.background .columns img {
+    min-width: calc(100% + 52px);
+    max-height: 750px;
+  }
+
+  body.about main div.section .faq-replace,
+  body.about main div.section.smallimage > div > * {
+    margin-right: 80px;
+  }
+
+  #faq-replace-answer-container {
+    max-width: 650px;
+  }
 }
+
+body.locator main div.section:not(.hero-container, .ageverification-container) {
+  padding: 0;
+  margin: 0 0.5rem;
+}
+
 
 main .section.curator-feed > div > h2 {
   font-size: var(--body-font-size-l);

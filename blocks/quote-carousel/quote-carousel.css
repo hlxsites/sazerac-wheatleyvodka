@@ -21,13 +21,15 @@
     flex-grow: 1;
 }
 
-.quote-carousel .aphorist ul, .quote-carousel .aphorist li{
+.quote-carousel .aphorist ul, .quote-carousel .aphorist li {
     margin: 0;
     padding: 0;
 }
 
 .quote-carousel .aphorist>ul>li:nth-child(1) {
     font-weight: var(--font-weight-l);
+    font-family: var(--heading-font-family);
+    font-size: var(--footer-font-size);
 }
 
 .quote-carousel .aphorist img{
