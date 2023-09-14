@@ -35,8 +35,6 @@ function getModal(modalId, createContent, addEventListeners) {
     const contentHTML = createContent?.() || '';
 
     dialogElement.innerHTML = `
-          <div class="embed-modal-bg"></div>
-          <button name="close"><span class="close-x"></span></button>
           ${contentHTML}
       `;
 
