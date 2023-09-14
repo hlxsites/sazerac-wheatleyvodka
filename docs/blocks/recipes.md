@@ -1,6 +1,7 @@
 ## Recipes
 
-recipes with ingredients and directions including image
+Recipes with ingredients and directions including image. Every Recipe is defined as single document under
+/coctails/ and uses the /template/cocktail.docx template for generating the html (Sharepoint).
 
 ### Content Structure
 
@@ -15,4 +16,3 @@ title (h1)<br/>image<br/>text (h2)<br/>list<br/>text (h2)<br/>list<br/>
 
 #### Mobile
 ![expample.png](../assets/recipe-mobile.png)
-

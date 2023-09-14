@@ -6,8 +6,8 @@ based on visual differences between sections such as a different background colo
 <!-- TOC -->
 * [Section Metadata](#section-metadata)
 * [Usage](#usage)
-    * [Style](#style)
-    * [Callout](#callout)
+  * [Style](#style)
+    * [Columns](#columns)
 <!-- TOC -->
 
 
@@ -15,3 +15,24 @@ based on visual differences between sections such as a different background colo
 
 A Section is represented by a leading `---` and a trailing `---`. The Section Metadata Table is being added at the end of the section.
 Section Metadata allows the author to add two parameters to a section table with the following attributes (1st column)
+
+`---`
+
+| Section Metadata |                             |
+|------------------| --------------------------- |
+| Style            | [see style options below]   |
+| background-image | [image]                     |
+
+`---`
+
+
+## Style
+
+### Columns
+
+Design columns section
+
+**_Example:_**
+
+see [Columns](blocks/columns.md)
+

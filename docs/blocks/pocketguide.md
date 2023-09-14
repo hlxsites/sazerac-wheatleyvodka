@@ -1,6 +1,7 @@
 ## Pocket Guide
 
-download block for the pocket guide pdf
+Block for the pocket guide pdf. Authoring has to be done via templates/pocketguide.docx (Sharepoint).
+
 
 ### Content Structure
 

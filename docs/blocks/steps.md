@@ -1,6 +1,6 @@
 ## Steps
 
-creates numbered list using svg icon
+creates numbered list using svg icons
 
 ### Content Structure
 

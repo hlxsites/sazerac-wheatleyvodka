@@ -1,6 +1,6 @@
 ## Buy
 
-Definition of the output of the buy block. Authoring has to done via templates/buy.docx.
+Definition of the output of the buy block. Authoring has to be done via templates/buy.docx (Sharepoint).
 
 ### Content Structure
 

@@ -4,7 +4,7 @@ This is a collection of blocks, specifically developed as part of the Sazerac Wh
 
 - [Callout](blocks/callout.md)
 - [Columns](blocks/columns.md)
-- [Embedded](blocks/embedded.md)
+- [Embedded](blocks/embed.md)
 - [FAQ](blocks/faq-inplace.md)
 - [Featured](blocks/featured.md)
 - [Footer](blocks/footer.md)

@@ -1,6 +1,9 @@
 ## Age Verification
-The age verification block is automatically integrated into every page delivered if the cookie sazAgeOK is missing.<br>
-The content for the age verification is administered in templates/verification.docx document.
+The age verification block is automatically integrated into every page delivered
+if the cookie sazAgeOK is missing. Rejecting the age verification check by clicking no will
+bring up the rejection section and automatically redirect after 30 seconds to the defined
+link in the rejection section. Accepting the age confirmation will set the sazAgeOK cookie.<br>
+The content for the age verification is administered in templates/verification.docx document (Sharepoint).
 
 ### Content Structure
 
@@ -20,7 +23,7 @@ The content for the age verification is administered in templates/verification.d
 |-----------|
 | (h3) text |
 | text      |
-| text      |
+| text/link |
 
 ![author-rejection.png](../assets/verification-author-rejection.png)
     
