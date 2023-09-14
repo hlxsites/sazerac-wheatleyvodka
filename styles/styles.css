@@ -745,6 +745,10 @@ body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-conta
     gap: 0;
   }
 
+  body.about main .section.background .columns > div > .columns-img-col {
+    margin: 0 15px;
+  }
+
   body:not(.cocktails, .templates-cocktail, .about) main div.section.columns-container .columns > div {
     padding: 0;
   }
