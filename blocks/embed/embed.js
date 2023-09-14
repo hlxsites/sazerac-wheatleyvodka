@@ -16,6 +16,42 @@ const loadScript = (url, callback, type) => {
   return script;
 };
 
+/**
+ * Creates a modal with id modalId, or if that id already exists, returns the existing modal.
+ * To show the modal, call `modal.showModal()`.
+ * @param modalId
+ * @param createContent Callback called when the modal is first opened; should return html string
+ * for the modal content
+ * @param addEventListeners Optional callback called when the modal is first opened;
+ * should add event listeners to body if needed
+ * @returns {Promise<HTMLElement>} The <dialog> element, after loading css
+ */
+function getModal(modalId, createContent, addEventListeners) {
+  let dialogElement = document.getElementById(modalId);
+  if (!dialogElement) {
+    dialogElement = document.createElement('dialog');
+    dialogElement.id = modalId;
+
+    const contentHTML = createContent?.() || '';
+
+    dialogElement.innerHTML = `
+          <div class="embed-modal-bg"></div>
+          <button name="close"><span class="close-x"></span></button>
+          ${contentHTML}
+      `;
+
+    document.body.appendChild(dialogElement);
+
+    dialogElement.querySelector('button[name="close"]')
+      .addEventListener('click', () => {
+        dialogElement.close();
+      });
+
+    addEventListeners?.(dialogElement);
+  }
+  return dialogElement;
+}
+
 const getDefaultEmbed = (url) => `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
     <iframe src="${url.href}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen=""
       scrolling="no" allow="encrypted-media" title="Content from ${url.hostname}" loading="lazy">
@@ -30,8 +66,8 @@ const embedYoutube = (url, autoplay) => {
   if (url.origin.includes('youtu.be')) {
     [, vid] = url.pathname.split('/');
   }
-  const embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : `${embed}?rel=0&v=${vid}${suffix}`}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
+  const embedHTML = `<div class="embed-video">
+      <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : `${embed}?rel=0&v=${vid}${suffix}`}" 
       allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" allowfullscreen="" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
     </div>`;
   return embedHTML;
@@ -78,8 +114,9 @@ const loadEmbed = (block, link, autoplay) => {
   const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
   const url = new URL(link);
   if (config) {
-    block.innerHTML = config.embed(url, autoplay);
-    block.classList = `block embed embed-${config.match[0]}`;
+    const innerHTML = config.embed(url, autoplay);
+    const modal = getModal('embed-modal', () => innerHTML);
+    modal.showModal();
   } else {
     block.innerHTML = getDefaultEmbed(url);
     block.classList = 'block embed';
@@ -114,4 +151,6 @@ export default function decorate(block) {
     });
     observer.observe(block);
   }
+  // FOR TESTING ONLY:
+  loadEmbed(block, link, true);
 }

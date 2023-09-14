@@ -30,4 +30,40 @@ main .embed .embed-placeholder img {
 main .embed .embed-placeholder:hover img {
   transform: scale(1.14);
 }
-  
+
+#embed-modal,
+#embed-modal .embed-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+#embed-modal {
+  transition-duration: 350ms;
+  padding: 0;
+  border: 0;
+}
+
+#embed-modal .embed-modal-bg {
+  opacity: .95;
+  transition-timing-function: cubic-bezier(.22, .61, .36, 1);
+  background-color: black;
+}
+
+#embed-modal .embed-video{
+  display: flex;
+  position: relative;
+  padding: 44px;
+  margin: auto;
+}
+
+#embed-modal .embed-video iframe {
+  border: 0;
+  display: flex;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16/9;
+}
