@@ -12,17 +12,7 @@ const loadScript = (url, callback, type) => {
   return script;
 };
 
-/**
- * Creates a modal with id modalId, or if that id already exists, returns the existing modal.
- * To show the modal, call `modal.showModal()`.
- * @param modalId
- * @param createContent Callback called when the modal is first opened; should return html string
- * for the modal content
- * @param addEventListeners Optional callback called when the modal is first opened;
- * should add event listeners to body if needed
- * @returns {Promise<HTMLElement>} The <dialog> element, after loading css
- */
-function getModal(modalId, createContent, addEventListeners) {
+function getModal(modalId, createContent, closeListener) {
   let dialogElement = document.getElementById(modalId);
   if (!dialogElement) {
     dialogElement = document.createElement('dialog');
@@ -31,11 +21,11 @@ function getModal(modalId, createContent, addEventListeners) {
     const contentHTML = createContent?.() || '';
 
     dialogElement.innerHTML = `
-          <div class="embed-navigation">
-            <button name="fullscreen" class="embed-fullscreen" title="Fullscreen"><span class="icon icon-fullscreen"></button>
-            <button name="close" class="embed-close" title="Close"><span class="icon icon-close"></button>
-          </div>
-          ${contentHTML}
+        <div class="embed-navigation">
+          <button name="fullscreen" class="embed-fullscreen" title="Fullscreen"><span class="icon icon-fullscreen"></button>
+          <button name="close" class="embed-close" title="Close"><span class="icon icon-close"></button>
+        </div>  
+        ${contentHTML}
       `;
 
     decorateIcons(dialogElement);
@@ -46,7 +36,7 @@ function getModal(modalId, createContent, addEventListeners) {
         dialogElement.close();
       });
 
-    addEventListeners?.(dialogElement);
+    dialogElement.addEventListener('close', (event) => closeListener(event));
   }
   return dialogElement;
 }
@@ -66,7 +56,7 @@ const embedYoutube = (url, autoplay) => {
     [, vid] = url.pathname.split('/');
   }
   const embedHTML = `<div class="embed-video">
-      <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : `${embed}?rel=0&v=${vid}${suffix}`}" 
+      <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : `${embed}?rel=0${suffix}`}" 
       allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" allowfullscreen="" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
     </div>`;
   return embedHTML;
@@ -92,6 +82,8 @@ const embedTwitter = (url) => {
 
 const loadEmbed = (block, link, autoplay) => {
   if (block.classList.contains('embed-is-loaded')) {
+    const dialogElement = document.getElementById('embed-modal');
+    if (dialogElement) dialogElement.showModal();
     return;
   }
 
@@ -114,13 +106,16 @@ const loadEmbed = (block, link, autoplay) => {
   const url = new URL(link);
   if (config) {
     const innerHTML = config.embed(url, autoplay);
-    const modal = getModal('embed-modal', () => innerHTML);
+    const modal = getModal('embed-modal', () => innerHTML, () => {
+      const dialog = document.getElementById('embed-modal');
+      dialog.remove();
+    });
     modal.showModal();
   } else {
     block.innerHTML = getDefaultEmbed(url);
     block.classList = 'block embed';
+    block.classList.add('embed-is-loaded');
   }
-  block.classList.add('embed-is-loaded');
 };
 
 export default function decorate(block) {
@@ -150,6 +145,4 @@ export default function decorate(block) {
     });
     observer.observe(block);
   }
-  // FOR TESTING ONLY:
-  loadEmbed(block, link, true);
 }
