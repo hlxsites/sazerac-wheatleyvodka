@@ -1,8 +1,4 @@
-/*
- * Embed Block
- * Show videos and social posts directly on your page
- * https://www.hlx.live/developer/block-collection/embed
- */
+import { decorateIcons } from '../../scripts/lib-franklin.js';
 
 const loadScript = (url, callback, type) => {
   const head = document.querySelector('head');
@@ -35,9 +31,14 @@ function getModal(modalId, createContent, addEventListeners) {
     const contentHTML = createContent?.() || '';
 
     dialogElement.innerHTML = `
+          <div class="embed-navigation">
+            <button name="fullscreen" class="embed-fullscreen" title="Fullscreen"><span class="icon icon-fullscreen"></button>
+            <button name="close" class="embed-close" title="Close"><span class="icon icon-close"></button>
+          </div>
           ${contentHTML}
       `;
 
+    decorateIcons(dialogElement);
     document.body.appendChild(dialogElement);
 
     dialogElement.querySelector('button[name="close"]')
