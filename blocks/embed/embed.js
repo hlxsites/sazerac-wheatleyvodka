@@ -1,8 +1,4 @@
-/*
- * Embed Block
- * Show videos and social posts directly on your page
- * https://www.hlx.live/developer/block-collection/embed
- */
+import { decorateIcons } from '../../scripts/lib-franklin.js';
 
 const loadScript = (url, callback, type) => {
   const head = document.querySelector('head');
@@ -15,6 +11,71 @@ const loadScript = (url, callback, type) => {
   head.append(script);
   return script;
 };
+
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+
+function getModal(modalId, createContent, closeListener) {
+  let dialogElement = document.getElementById(modalId);
+  if (!dialogElement) {
+    dialogElement = document.createElement('dialog');
+    dialogElement.id = modalId;
+
+    const contentHTML = createContent?.() || '';
+
+    dialogElement.innerHTML = `
+    <div>
+        <div class="embed-navigation">
+          <button name="normalscreen" style="display:none;" class="embed-normalscreen" title="Close Fullscreen"><span class="icon icon-normalscreen"></button>
+          <button name="fullscreen" class="embed-fullscreen" title="Fullscreen"><span class="icon icon-fullscreen"></button>
+          <button name="close" class="embed-close" title="Close"><span class="icon icon-close"></button>
+        </div>  
+        ${contentHTML}
+        </div>
+      `;
+
+    decorateIcons(dialogElement);
+    document.body.appendChild(dialogElement);
+
+    const buttonNormal = dialogElement.querySelector('button[name="normalscreen"]');
+    const buttonFull = dialogElement.querySelector('button[name="fullscreen"]');
+    buttonNormal.addEventListener('click', () => {
+      buttonNormal.style.display = 'none';
+      buttonFull.style.display = 'block';
+      closeFullscreen();
+    });
+    buttonFull.addEventListener('click', () => {
+      buttonNormal.style.display = 'block';
+      buttonFull.style.display = 'none';
+      openFullscreen(dialogElement.querySelector('div'));
+    });
+    dialogElement.querySelector('button[name="close"]')
+      .addEventListener('click', () => {
+        dialogElement.close();
+      });
+
+    dialogElement.addEventListener('close', (event) => closeListener(event));
+  }
+  return dialogElement;
+}
 
 const getDefaultEmbed = (url) => `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
     <iframe src="${url.href}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" allowfullscreen=""
@@ -30,8 +91,8 @@ const embedYoutube = (url, autoplay) => {
   if (url.origin.includes('youtu.be')) {
     [, vid] = url.pathname.split('/');
   }
-  const embedHTML = `<div style="left: 0; width: 100%; height: 0; position: relative; padding-bottom: 56.25%;">
-      <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : `${embed}?rel=0&v=${vid}${suffix}`}" style="border: 0; top: 0; left: 0; width: 100%; height: 100%; position: absolute;" 
+  const embedHTML = `<div class="embed-video">
+      <iframe src="https://www.youtube.com${vid ? `/embed/${vid}?rel=0&v=${vid}${suffix}` : `${embed}?rel=0${suffix}`}" 
       allow="autoplay; fullscreen; picture-in-picture; encrypted-media; accelerometer; gyroscope; picture-in-picture" allowfullscreen="" scrolling="no" title="Content from Youtube" loading="lazy"></iframe>
     </div>`;
   return embedHTML;
@@ -57,6 +118,8 @@ const embedTwitter = (url) => {
 
 const loadEmbed = (block, link, autoplay) => {
   if (block.classList.contains('embed-is-loaded')) {
+    const dialogElement = document.getElementById('embed-modal');
+    if (dialogElement) dialogElement.showModal();
     return;
   }
 
@@ -78,13 +141,17 @@ const loadEmbed = (block, link, autoplay) => {
   const config = EMBEDS_CONFIG.find((e) => e.match.some((match) => link.includes(match)));
   const url = new URL(link);
   if (config) {
-    block.innerHTML = config.embed(url, autoplay);
-    block.classList = `block embed embed-${config.match[0]}`;
+    const innerHTML = config.embed(url, autoplay);
+    const modal = getModal('embed-modal', () => innerHTML, () => {
+      const dialog = document.getElementById('embed-modal');
+      dialog.remove();
+    });
+    modal.showModal();
   } else {
     block.innerHTML = getDefaultEmbed(url);
     block.classList = 'block embed';
+    block.classList.add('embed-is-loaded');
   }
-  block.classList.add('embed-is-loaded');
 };
 
 export default function decorate(block) {
