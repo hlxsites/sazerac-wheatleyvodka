@@ -42,7 +42,7 @@
 
 @media (min-width: 660px) {
     .steps > div{
-        flex: 0 0 50%;
+        flex: 0 0 100%;
     }
 
     .steps > div > div{
