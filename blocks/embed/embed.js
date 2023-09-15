@@ -12,6 +12,27 @@ const loadScript = (url, callback, type) => {
   return script;
 };
 
+function openFullscreen(elem) {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+/* Close fullscreen */
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+
 function getModal(modalId, createContent, closeListener) {
   let dialogElement = document.getElementById(modalId);
   if (!dialogElement) {
@@ -21,16 +42,31 @@ function getModal(modalId, createContent, closeListener) {
     const contentHTML = createContent?.() || '';
 
     dialogElement.innerHTML = `
+    <div>
         <div class="embed-navigation">
+          <button name="normalscreen" style="display:none;" class="embed-normalscreen" title="Close Fullscreen"><span class="icon icon-normalscreen"></button>
           <button name="fullscreen" class="embed-fullscreen" title="Fullscreen"><span class="icon icon-fullscreen"></button>
           <button name="close" class="embed-close" title="Close"><span class="icon icon-close"></button>
         </div>  
         ${contentHTML}
+        </div>
       `;
 
     decorateIcons(dialogElement);
     document.body.appendChild(dialogElement);
 
+    const buttonNormal = dialogElement.querySelector('button[name="normalscreen"]');
+    const buttonFull = dialogElement.querySelector('button[name="fullscreen"]');
+    buttonNormal.addEventListener('click', () => {
+      buttonNormal.style.display = 'none';
+      buttonFull.style.display = 'block';
+      closeFullscreen();
+    });
+    buttonFull.addEventListener('click', () => {
+      buttonNormal.style.display = 'block';
+      buttonFull.style.display = 'none';
+      openFullscreen(dialogElement.querySelector('div'));
+    });
     dialogElement.querySelector('button[name="close"]')
       .addEventListener('click', () => {
         dialogElement.close();
