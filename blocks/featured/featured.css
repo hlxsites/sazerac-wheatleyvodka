@@ -74,6 +74,14 @@
   color: var(--background-color);
 }
 
+.featured .featured-recipe.button-container {
+  background-color: var(--text-color);
+}
+
+.featured .featured-recipe.button-container picture {
+  opacity: .55;
+}
+
 .featured .featured-recipe.button-container a {
   position: absolute;
   left: 50%;
