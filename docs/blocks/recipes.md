@@ -5,7 +5,9 @@ Recipes with ingredients and directions including image. Every Recipe is defined
 
 ### Content Structure
 
-title (h1)<br/>image<br/>text (h2)<br/>list<br/>text (h2)<br/>list<br/>
+Title with image, Incredients, Directions, Creator
+
+title (h1)<br/>image<br/>text (h2)<br/>list<br/>text (h2)<br/>list<br/>text (h2)<br/>list<br/>
 
 ![expample.png](../assets/recipe-author.png)
 
