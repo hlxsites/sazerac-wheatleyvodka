@@ -68,4 +68,13 @@
   .columns .background-image-column > p {
     max-width: 65%;
   }
+
+  .columns .background-image-column > p.button-container {
+    max-width: 65%;
+    align-self: flex-start;
+  }
+
+  .columns .background-image-column > p.button-container > a {
+    padding: 0 20px;
+  }
 }
