@@ -4,9 +4,9 @@ list of featured cocktails selected by author using cocktails image
 
 ### Content Structure
 
-| Featured / Featured(plain)             |
-|:---------------------------------------|
-| (List with links to selected coctails) |
+| Featured / Featured(plain)                         |
+|:---------------------------------------------------|
+| (List with links to selected coctails) (ul)(li)(a) |
 
 
 ![expample.png](../assets/featured-author.png)

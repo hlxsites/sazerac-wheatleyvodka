@@ -5,7 +5,7 @@
 logo (:wheatly-horizontal: will use the svg icon /icon/wheatly-stacked.svg)
 list with social media links (only for mobile - using also icons from /icon/...)
 new div (---)
-list with links
+list with links (ul)(li)(a)
 new div (---)
 
 | Metadata |                  |

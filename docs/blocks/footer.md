@@ -7,7 +7,7 @@ list with social media links (using also icons from /icon/...)
 new div (---)
 text
 text
-list with links
+list with links (ul)(li)(a)
 
 | Metadata |                  |
 |----------|------------------|

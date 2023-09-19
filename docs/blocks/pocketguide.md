@@ -5,7 +5,7 @@ Block for the pocket guide pdf. Authoring has to be done via templates/pocketgui
 
 ### Content Structure
 
-title<br/>text<br/>link to pdf<br/>image<br/>
+title (h2)<br/>text<br/>link to pdf (a)<br/>(img)<br/>
 
 ![expample.png](../assets/pocketguide-author.png)
 

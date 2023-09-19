@@ -3,9 +3,9 @@ block for embedding youtube/vimeo/twitter players (if not youtube/vimeo/twitter 
 
 ### Content Structure
 
-| Embed                 |
-|-----------------------|
-| (img)<br>(embed link) |
+| Embed        |
+|--------------|
+| (img)<br>(a) |
 
 
 ![expample.png](../assets/embeded-author.png)

@@ -2,10 +2,10 @@
 
 Callout block used for the homepage
 
-| Callout               |                      |
-|:----------------------|:---------------------|
-| (h2) text             |                      |
-| calloud-desktop-image | callout-mobile-image |
+| Callout                     |                            |
+|:----------------------------|:---------------------------|
+| (h2) text                   |                            |
+| callout-desktop-image (img) | callout-mobile-image (img) |
 
 
 ### Content Structure

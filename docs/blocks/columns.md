@@ -2,14 +2,14 @@
 
 ### Content Structure
 
-| columns                    |                            |
-|----------------------------|----------------------------|
-| [image]<br/>[text]/[links] | [image]<br/>[text]/[links] |
+| columns            |                    |
+|--------------------|--------------------|
+| (img)<br/>text/(a) | (img)<br/>text/(a) |
 
 | Section metadata |         |
 |------------------|---------|
-| style            | [style] |
-| background-image | [image] |
+| style            | (style) |
+| background-image | (img)   |
 
 available style: reverse (changes columns order depending on min-width)
 

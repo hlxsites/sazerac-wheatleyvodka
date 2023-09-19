@@ -7,14 +7,14 @@ Recipes with ingredients and directions including image. Every Recipe is defined
 
 Title with image, Incredients, Directions, Creator
 
-title (h1)<br/>image<br/>text (h2)<br/>list<br/>text (h2)<br/>list<br/>text (h2)<br/>image<br/>(ul)(li)creartor(li)link<br/>
+title (h1)<br/>(img)<br/>text (h2)<br/>list<br/>text (h2)<br/>list<br/>text (h2)<br/>(img)<br/>(ul)(li)creartor(li)(a) <br/>
 
 ![expample.png](../assets/recipe-author.png)
-![expample.png](../assets/recipes-author-2.png)
+![expample.png](../assets/recipe-author-2.png)
 
 ### Template
 
-![expample.png](../assets/recipes-template.png)
+![expample.png](../assets/recipe-template.png)
 
 ### Example
 

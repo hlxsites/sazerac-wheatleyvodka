@@ -23,11 +23,11 @@ The content for the age verification is administered in templates/verification.d
 |-----------|
 | (h3) text |
 | text      |
-| text/link |
+| text/(a)  |
 
 ![author-rejection.png](../assets/verification-author-rejection.png)
     
-picture
+(img)
 
 ### Example
 
