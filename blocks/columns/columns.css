@@ -15,6 +15,10 @@
   flex-direction: column;
 }
 
+.background .columns div {
+  color: var(--text-color);
+}
+
 .reverse .columns > div {
   flex-direction: column-reverse;
 }
@@ -63,5 +67,14 @@
   .columns .background-image-column > h2,
   .columns .background-image-column > p {
     max-width: 65%;
+  }
+
+  .columns .background-image-column > p.button-container {
+    max-width: 65%;
+    align-self: flex-start;
+  }
+
+  .columns .background-image-column > p.button-container > a {
+    padding: 0 20px;
   }
 }
